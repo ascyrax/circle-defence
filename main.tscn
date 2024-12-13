@@ -1,0 +1,225 @@
+[gd_scene load_steps=8 format=3 uid="uid://iphvdiulww1s"]
+
+[ext_resource type="Texture2D" uid="uid://cn4h64fnwmchr" path="res://art/homeBG.svg" id="1_nlphq"]
+[ext_resource type="Texture2D" uid="uid://cbkyrsejl3fs5" path="res://art/fight.svg" id="2_nyejb"]
+[ext_resource type="Texture2D" uid="uid://dl2mj74g2th6y" path="res://art/upgrade.svg" id="3_dp8ka"]
+[ext_resource type="Texture2D" uid="uid://cr2n1d1qll6ly" path="res://art/locked.svg" id="4_4mkof"]
+[ext_resource type="Texture2D" uid="uid://cyallnnccmypd" path="res://art/shop.svg" id="5_5unqe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxojf"]
+bg_color = Color(0.0817418, 0.492486, 0.708877, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jtxea"]
+texture = ExtResource("1_nlphq")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxojf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResourcePanel" type="Panel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResourceDisplay" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Coins" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Coins"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Coins"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "2340
+"
+
+[node name="Gems" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Gems"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Gems"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "30
+"
+
+[node name="_sth" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/_sth"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/_sth"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "5"
+
+[node name="DropDown" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureButton" type="TextureButton" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/DropDown"]
+layout_mode = 2
+
+[node name="CentrePanel" type="Panel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jtxea")
+
+[node name="CentreNav" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 36
+text = "THE TOWER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Profile" type="TextureRect" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="SideButtons" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="CoinBonus" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WaveSettings" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/CentrePanel/CentreNav"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/CentrePanel/CentreNav/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.66
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "BATTLE"
+
+[node name="BottomPanel" type="Panel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomNav" type="HBoxContainer" parent="Panel/VBoxContainer/BottomPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Fight" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_nyejb")
+expand_mode = 1
+
+[node name="Upgrade" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_dp8ka")
+expand_mode = 1
+
+[node name="C" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_4mkof")
+expand_mode = 1
+
+[node name="D" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_4mkof")
+expand_mode = 1
+
+[node name="E" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_4mkof")
+expand_mode = 1
+
+[node name="Shop" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_5unqe")
+expand_mode = 1
