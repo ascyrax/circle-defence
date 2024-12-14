@@ -1,16 +1,51 @@
-[gd_scene load_steps=8 format=3 uid="uid://iphvdiulww1s"]
+[gd_scene load_steps=16 format=3 uid="uid://iphvdiulww1s"]
 
-[ext_resource type="Texture2D" uid="uid://cn4h64fnwmchr" path="res://art/homeBG.svg" id="1_nlphq"]
-[ext_resource type="Texture2D" uid="uid://cbkyrsejl3fs5" path="res://art/fight.svg" id="2_nyejb"]
-[ext_resource type="Texture2D" uid="uid://dl2mj74g2th6y" path="res://art/upgrade.svg" id="3_dp8ka"]
-[ext_resource type="Texture2D" uid="uid://cr2n1d1qll6ly" path="res://art/locked.svg" id="4_4mkof"]
-[ext_resource type="Texture2D" uid="uid://cyallnnccmypd" path="res://art/shop.svg" id="5_5unqe"]
+[ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="1_kbnls"]
+[ext_resource type="Texture2D" uid="uid://ddtkfpdvmx0q" path="res://art/gemNoBg.png" id="2_20ilc"]
+[ext_resource type="Texture2D" uid="uid://iswymve6np52" path="res://art/galacticCoinNoBg.png" id="3_ik8ja"]
+[ext_resource type="Texture2D" uid="uid://d2wawuxpe7yre" path="res://art/dropdownNoBg.png" id="4_7hq1x"]
+[ext_resource type="Texture2D" uid="uid://bdl11wlxkjoev" path="res://art/bg3.png" id="5_n48nt"]
+[ext_resource type="Texture2D" uid="uid://b6sf3ma15pflr" path="res://art/hexagonNoBg.png" id="6_yawj3"]
+[ext_resource type="Texture2D" uid="uid://d2t3iqor2c6yo" path="res://art/fightNewNoBg.png" id="7_qu8bv"]
+[ext_resource type="Texture2D" uid="uid://cjxqajaomu8s5" path="res://art/upgradeNewNoBg.png" id="8_blge7"]
+[ext_resource type="Texture2D" uid="uid://qeb6xlpjryvt" path="res://art/lockedNoBg.png" id="8_oc7s4"]
+[ext_resource type="Texture2D" uid="uid://cji3iguujymve" path="res://art/shopNoBg.png" id="9_gbrt5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxojf"]
-bg_color = Color(0.0817418, 0.492486, 0.708877, 1)
+bg_color = Color(0.0823529, 0.494118, 0.709804, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jtxea"]
-texture = ExtResource("1_nlphq")
+texture = ExtResource("5_n48nt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jygg2"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0823529, 0.494118, 0.709804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3c6y"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0823529, 0.494118, 0.709804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg75r"]
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(0.0823529, 0.494118, 0.709804, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -31,7 +66,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xxojf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="HomeScreen" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,11 +74,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResourcePanel" type="Panel" parent="Panel/VBoxContainer"]
+[node name="ResourcePanel" type="Panel" parent="Panel/HomeScreen"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ResourceDisplay" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel"]
+[node name="ResourceDisplay" type="HBoxContainer" parent="Panel/HomeScreen/ResourcePanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,58 +87,85 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="Coins" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+[node name="Coins" type="HBoxContainer" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Coins"]
+[node name="CoinIcon" type="TextureRect" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay/Coins"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_kbnls")
+expand_mode = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Coins"]
+[node name="CoinValue" type="Label" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay/Coins"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "2340
+text = "23234
 "
 
-[node name="Gems" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+[node name="Gem" type="HBoxContainer" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Gems"]
+[node name="GemIcon" type="TextureRect" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay/Gem"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("2_20ilc")
+expand_mode = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Gems"]
+[node name="GemValue" type="Label" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay/Gem"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "30
+text = "3012
 "
 
-[node name="_sth" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+[node name="_sth" type="HBoxContainer" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/_sth"]
+[node name="TextureRect" type="TextureRect" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay/_sth"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("3_ik8ja")
+expand_mode = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/_sth"]
+[node name="Label" type="Label" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay/_sth"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "5"
+text = "23
+"
 
-[node name="DropDown" type="HBoxContainer" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+[node name="DropDown" type="HBoxContainer" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureButton" type="TextureButton" parent="Panel/VBoxContainer/ResourcePanel/ResourceDisplay/DropDown"]
+[node name="TextureRect" type="TextureRect" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay/DropDown"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("4_7hq1x")
+expand_mode = 1
 
-[node name="CentrePanel" type="Panel" parent="Panel/VBoxContainer"]
+[node name="CentrePanel" type="Panel" parent="Panel/HomeScreen"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_jtxea")
 
-[node name="CentreNav" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel"]
+[node name="CentreNav" type="VBoxContainer" parent="Panel/HomeScreen/CentrePanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,58 +175,176 @@ grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 36
-text = "THE TOWER"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Profile" type="TextureRect" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer/VBoxContainer2"]
+[node name="GameTitle" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_jygg2")
+text = "CIRCLE DEFENSE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SideButtons" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/HBoxContainer"]
+[node name="Profile" type="TextureRect" parent="Panel/HomeScreen/CentrePanel/CentreNav/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 6.0
+texture = ExtResource("6_yawj3")
+expand_mode = 1
+
+[node name="MileStones" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3c6y")
+text = "MILESTONES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SideButtons" type="VBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="CoinBonus" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/VBoxContainer"]
+[node name="CoinBonusPanel" type="Panel" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WaveSettings" type="VBoxContainer" parent="Panel/VBoxContainer/CentrePanel/CentreNav/VBoxContainer"]
+[node name="CoinBonus" type="VBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/CoinBonusPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/CoinBonusPanel/CoinBonus"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "Total Coin Bonus"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/CoinBonusPanel/CoinBonus"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CoinIcon" type="TextureRect" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/CoinBonusPanel/CoinBonus/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_kbnls")
+expand_mode = 1
+
+[node name="CoinMultiplier" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/CoinBonusPanel/CoinBonus/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "x1.00"
+
+[node name="WaveSettingsPanel" type="Panel" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Control" type="Control" parent="Panel/VBoxContainer/CentrePanel/CentreNav"]
+[node name="WaveSettings" type="VBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Difficulty" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "Difficulty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/CentrePanel/CentreNav/Control"]
+[node name="TierLeft" type="Button" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+
+[node name="Tier" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Tier 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TierRight" type="Button" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+
+[node name="HighestWave" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "Highest Wave: 27"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CoinIcon" type="TextureRect" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_kbnls")
+expand_mode = 1
+
+[node name="CoinMultiplier" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "x1.00"
+
+[node name="Control" type="Control" parent="Panel/HomeScreen/CentrePanel/CentreNav"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Panel/HomeScreen/CentrePanel/CentreNav/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33
@@ -173,13 +353,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_jg75r")
 text = "BATTLE"
 
-[node name="BottomPanel" type="Panel" parent="Panel/VBoxContainer"]
+[node name="BottomPanel" type="Panel" parent="Panel/HomeScreen"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BottomNav" type="HBoxContainer" parent="Panel/VBoxContainer/BottomPanel"]
+[node name="BottomNav" type="HBoxContainer" parent="Panel/HomeScreen/BottomPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -188,38 +369,38 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="Fight" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+[node name="Fight" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_nyejb")
+texture = ExtResource("7_qu8bv")
 expand_mode = 1
 
-[node name="Upgrade" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+[node name="Upgrade" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_dp8ka")
+texture = ExtResource("8_blge7")
 expand_mode = 1
 
-[node name="C" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+[node name="C" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("4_4mkof")
+texture = ExtResource("8_oc7s4")
 expand_mode = 1
 
-[node name="D" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+[node name="D" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("4_4mkof")
+texture = ExtResource("8_oc7s4")
 expand_mode = 1
 
-[node name="E" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+[node name="E" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("4_4mkof")
+texture = ExtResource("8_oc7s4")
 expand_mode = 1
 
-[node name="Shop" type="TextureRect" parent="Panel/VBoxContainer/BottomPanel/BottomNav"]
+[node name="Shop" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("5_5unqe")
+texture = ExtResource("9_gbrt5")
 expand_mode = 1
