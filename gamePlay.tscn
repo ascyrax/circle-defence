@@ -1,0 +1,219 @@
+[gd_scene load_steps=11 format=3 uid="uid://ge7iiw6belxm"]
+
+[ext_resource type="Script" path="res://gamePlay.gd" id="1_v3qar"]
+[ext_resource type="Texture2D" uid="uid://bf3bmtbitcmnt" path="res://art/dollarNoBg.png" id="2_6lctv"]
+[ext_resource type="PackedScene" uid="uid://b8yv6vbglgw5o" path="res://enemy.tscn" id="2_yvove"]
+[ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="3_fiwqa"]
+[ext_resource type="Texture2D" uid="uid://ddtkfpdvmx0q" path="res://art/gemNoBg.png" id="4_lo21e"]
+[ext_resource type="Texture2D" uid="uid://cji3iguujymve" path="res://art/shopNoBg.png" id="5_ktxhp"]
+[ext_resource type="Texture2D" uid="uid://d2wawuxpe7yre" path="res://art/dropdownNoBg.png" id="6_i4elw"]
+[ext_resource type="Texture2D" uid="uid://m1s5ocyg0hwr" path="res://art/centralShooterNoBg.png" id="7_oovet"]
+[ext_resource type="Texture2D" uid="uid://b5mxrs4ae0qfy" path="res://art/attackRangeNoBg.png" id="9_e44wu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kox6c"]
+radius = 225.0
+
+[node name="GamePlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3qar")
+enemyScene = ExtResource("2_yvove")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GamePlayCoin" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="GamePlayCoinIcon" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/GamePlayCoin"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = ExtResource("2_6lctv")
+expand_mode = 1
+
+[node name="GamePlayCoinValue" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/GamePlayCoin"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "1430"
+
+[node name="Coin" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="CoinIcon" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Coin"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = ExtResource("3_fiwqa")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Coin"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "240"
+
+[node name="Gem" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="GemIcon" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Gem"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = ExtResource("4_lo21e")
+expand_mode = 1
+
+[node name="GemValue" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Gem"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "39"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Shop_DropDown" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[node name="Shop" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/Shop_DropDown"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_ktxhp")
+expand_mode = 1
+
+[node name="DropDown" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/Shop_DropDown"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("6_i4elw")
+expand_mode = 1
+
+[node name="BonusStatus" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/BonusStatus"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Coin" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/BonusStatus/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_fiwqa")
+expand_mode = 1
+
+[node name="Bonus" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/BonusStatus/HBoxContainer"]
+layout_mode = 2
+text = "BONUS"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/BonusStatus"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BonusStatus" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/BonusStatus/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+text = "Inactive"
+
+[node name="GamePlayNode" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.5
+
+[node name="Central Shooter" type="Node2D" parent="Panel/VBoxContainer/GamePlayNode"]
+position = Vector2(360, 223)
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/GamePlayNode/Central Shooter"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_oovet")
+
+[node name="Area2D" type="Area2D" parent="Panel/VBoxContainer/GamePlayNode/Central Shooter"]
+modulate = Color(0.462745, 0.619608, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/VBoxContainer/GamePlayNode/Central Shooter/Area2D"]
+shape = SubResource("CircleShape2D_kox6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/GamePlayNode/Central Shooter/Area2D"]
+modulate = Color(1, 1, 1, 0.196078)
+z_index = -1
+scale = Vector2(0.833, 0.833)
+texture = ExtResource("9_e44wu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.5
+
+[node name="Ad_Speed" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Player_Wave" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Upgrade Type" type="Label" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Row 1" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Row 2" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Row 3" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NavUpgrade" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EnemySpawner" type="Node2D" parent="Panel/VBoxContainer"]
