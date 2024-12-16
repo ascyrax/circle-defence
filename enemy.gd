@@ -13,7 +13,6 @@ func _process(delta):
 	# Move the enemy toward the center
 	direction = (shooterContainerPosition - position).normalized()
 	position += direction * speed * delta
-	#pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,3 +27,8 @@ func _set_enemy_sprite_scale():
 	#print(correctScaleX, correctScaleY)
 	enemySprite.scale = Vector2(correctScaleX, correctScaleY)
 	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(body)
+	pass # Replace with function body.

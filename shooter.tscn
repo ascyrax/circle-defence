@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://5oi1vohdyf8y"]
+
+[ext_resource type="Texture2D" uid="uid://m1s5ocyg0hwr" path="res://art/centralShooterNoBg.png" id="1_swfug"]
+[ext_resource type="Texture2D" uid="uid://b5mxrs4ae0qfy" path="res://art/attackRangeNoBg.png" id="2_kv71a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ng7lw"]
+
+[node name="Shooter" type="Node2D"]
+position = Vector2(360, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_swfug")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ng7lw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_kv71a")

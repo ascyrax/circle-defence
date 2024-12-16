@@ -1,17 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://ge7iiw6belxm"]
+[gd_scene load_steps=9 format=3 uid="uid://ge7iiw6belxm"]
 
 [ext_resource type="Script" path="res://gamePlay.gd" id="1_v3qar"]
 [ext_resource type="Texture2D" uid="uid://bf3bmtbitcmnt" path="res://art/dollarNoBg.png" id="2_6lctv"]
 [ext_resource type="PackedScene" uid="uid://b8yv6vbglgw5o" path="res://enemy.tscn" id="2_yvove"]
 [ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="3_fiwqa"]
+[ext_resource type="PackedScene" uid="uid://5oi1vohdyf8y" path="res://shooter.tscn" id="3_kql3k"]
 [ext_resource type="Texture2D" uid="uid://ddtkfpdvmx0q" path="res://art/gemNoBg.png" id="4_lo21e"]
 [ext_resource type="Texture2D" uid="uid://cji3iguujymve" path="res://art/shopNoBg.png" id="5_ktxhp"]
 [ext_resource type="Texture2D" uid="uid://d2wawuxpe7yre" path="res://art/dropdownNoBg.png" id="6_i4elw"]
-[ext_resource type="Texture2D" uid="uid://m1s5ocyg0hwr" path="res://art/centralShooterNoBg.png" id="7_oovet"]
-[ext_resource type="Texture2D" uid="uid://b5mxrs4ae0qfy" path="res://art/attackRangeNoBg.png" id="9_e44wu"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kox6c"]
-radius = 225.0
 
 [node name="GamePlay" type="Control"]
 layout_mode = 3
@@ -22,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v3qar")
 enemyScene = ExtResource("2_yvove")
+shooterScene = ExtResource("3_kql3k")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -169,25 +166,6 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.5
 
-[node name="Central Shooter" type="Node2D" parent="Panel/VBoxContainer/GamePlayNode"]
-position = Vector2(360, 150)
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/GamePlayNode/Central Shooter"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_oovet")
-
-[node name="Area2D" type="Area2D" parent="Panel/VBoxContainer/GamePlayNode/Central Shooter"]
-modulate = Color(0.462745, 0.619608, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/VBoxContainer/GamePlayNode/Central Shooter/Area2D"]
-shape = SubResource("CircleShape2D_kox6c")
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/GamePlayNode/Central Shooter/Area2D"]
-modulate = Color(1, 1, 1, 0.196078)
-z_index = -1
-scale = Vector2(0.833, 0.833)
-texture = ExtResource("9_e44wu")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -215,6 +193,3 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EnemySpawner" type="Node2D" parent="Panel/VBoxContainer"]
-
-[connection signal="ready" from="Panel/VBoxContainer/GamePlayNode/Central Shooter" to="." method="_on_central_shooter_ready"]
-[connection signal="visibility_changed" from="Panel/VBoxContainer/GamePlayNode/Central Shooter" to="." method="_on_central_shooter_visibility_changed"]
