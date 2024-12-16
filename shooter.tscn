@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://5oi1vohdyf8y"]
+[gd_scene load_steps=5 format=3 uid="uid://q5m10htms63w"]
 
 [ext_resource type="Texture2D" uid="uid://m1s5ocyg0hwr" path="res://art/centralShooterNoBg.png" id="1_swfug"]
 [ext_resource type="Script" path="res://shoot.gd" id="2_k8otb"]
 [ext_resource type="Texture2D" uid="uid://b5mxrs4ae0qfy" path="res://art/attackRangeNoBg.png" id="2_kv71a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ng7lw"]
-radius = 250.0
+radius = 225.0
 
 [node name="Shooter" type="Node2D"]
 

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bf3bmtbitcmnt" path="res://art/dollarNoBg.png" id="2_6lctv"]
 [ext_resource type="PackedScene" uid="uid://b8yv6vbglgw5o" path="res://enemy.tscn" id="2_yvove"]
 [ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="3_fiwqa"]
-[ext_resource type="PackedScene" uid="uid://5oi1vohdyf8y" path="res://shooter.tscn" id="3_kql3k"]
+[ext_resource type="PackedScene" uid="uid://q5m10htms63w" path="res://shooter.tscn" id="3_kql3k"]
 [ext_resource type="Texture2D" uid="uid://ddtkfpdvmx0q" path="res://art/gemNoBg.png" id="4_lo21e"]
 [ext_resource type="Texture2D" uid="uid://cji3iguujymve" path="res://art/shopNoBg.png" id="5_ktxhp"]
 [ext_resource type="Texture2D" uid="uid://d2wawuxpe7yre" path="res://art/dropdownNoBg.png" id="6_i4elw"]
