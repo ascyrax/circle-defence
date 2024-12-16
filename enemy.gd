@@ -2,13 +2,16 @@ extends Node2D
 
 @export var speed: float = randi_range(50, 150)  # Speed of the enemy
 var direction = Vector2.ZERO  # Direction toward the center
+var shooterContainerPosition : Vector2
 
-func set_direction(new_direction: Vector2):
+func set_direction(new_direction: Vector2, newShooterPosition: Vector2):
 	direction = new_direction
+	shooterContainerPosition = newShooterPosition
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Move the enemy toward the center
+	direction = (shooterContainerPosition - position).normalized()
 	position += direction * speed * delta
 	#pass
 

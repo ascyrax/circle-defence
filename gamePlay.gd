@@ -1,29 +1,28 @@
 extends Control
 
 @export var enemyScene: PackedScene  # Drag your Enemy scene here
-var enemySpawnInterval: float = 5
-var shooterContainer: Control
-var shooter:Sprite2D
+var enemySpawnInterval: float = 0.1
 var shooterContainerPosition
+var shooterGlobalPosition
 
 func _ready() -> void:
 	# Defer the size calculation to ensure layout is finalized
 	call_deferred("_set_shooter_location")
 	call_deferred("_set_shooter_range_scale")
-	spawn_enemies()
+	call_deferred("spawn_enemies")
 
 func _set_shooter_location():
-	shooterContainer = $"Panel/VBoxContainer/GamePlayNode" as Control # this is the parent node 'GamePlay' (Control)
-	print("shooterContainer position: ", shooterContainer.position)
-	print("shooterContainer bottom-right position: ", shooterContainer.get_rect())
-	shooterContainer.position = (shooterContainer.get_rect().size + shooterContainer.position) / 2 # place the shooter at the middle of its parent node container
-	shooterContainerPosition = shooterContainer.position
-	#shooter is placed (0,0) corresponding to this position :)
-	print("shooterContainer new position: ",shooterContainer.position)
+	var shooterContainer = $"Panel/VBoxContainer/GamePlayNode" as Control # this is the parent node 'GamePlay' (Control)
+	var shooter = $"Panel/VBoxContainer/GamePlayNode/Central Shooter" as Node2D
+	var width = shooterContainer.size[0]
+	var height = shooterContainer.size[1]
+	print("shooter container width & height: ",width, ",",height)
+	shooter.position = Vector2(width/2.0,height/2.0)
+	shooterGlobalPosition = shooter.global_position
 		
 func _set_shooter_range_scale():
 	var shooterRange = $"Panel/VBoxContainer/GamePlayNode/Central Shooter/Area2D/CollisionShape2D".shape as CircleShape2D
-	shooter = $"Panel/VBoxContainer/GamePlayNode/Central Shooter/Area2D/Sprite2D" as Sprite2D
+	var shooter = $"Panel/VBoxContainer/GamePlayNode/Central Shooter/Area2D/Sprite2D" as Sprite2D
 	var correctScaleX = (shooterRange.radius *2.0) / (shooter.texture.get_width() * 1.0)
 	var correctScaleY = (shooterRange.radius *2.0) / (shooter.texture.get_height() * 1.0)
 	shooter.scale = Vector2(correctScaleX, correctScaleY)
@@ -35,8 +34,6 @@ func _process(delta: float) -> void:
 	
 	
 func spawn_enemies():
-	print("spawn_enemies")
-	# set a timer
 	var enemySpawnTimer = Timer.new()
 	add_child(enemySpawnTimer)
 	enemySpawnTimer.wait_time = enemySpawnInterval
@@ -44,12 +41,12 @@ func spawn_enemies():
 	enemySpawnTimer.connect("timeout", _spawn_enemy)
 	enemySpawnTimer.start()
 	
-	# make the enemies move towards the shooterPosition
+	# make the enemies move towards the shooterGlobalPosition
 	# do this in _process
 	
 	
 func _spawn_enemy():
-	print("_spawn_enemy")
+	print("spawning an enemy")
 	var newEnemy = enemyScene.instantiate() as Node2D
 
 	var enemyContainer = $"Panel/VBoxContainer/EnemySpawner"
@@ -74,14 +71,9 @@ func _spawn_enemy():
 		3:
 			posX = 0
 			posY = randf_range(0, viewportSize.y)
-	print("posX: ",posX, " posY: ",posY)
 	newEnemy.position = Vector2(posX, posY)
-	
-	print("shooterContainer position: ", shooterContainerPosition)
-	print("enemy position: ", newEnemy.position)
 	
 	 # Set the direction toward the centreShooterSprite2D
 	if newEnemy.has_method("set_direction"):
-		var direction = (shooterContainerPosition - newEnemy.position).normalized()
-		newEnemy.set_direction(direction)
-		print("direction: ", direction)
+		var direction = (shooterGlobalPosition - newEnemy.position).normalized()
+		newEnemy.set_direction(direction, shooterGlobalPosition)
