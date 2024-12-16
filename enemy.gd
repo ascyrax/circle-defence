@@ -3,18 +3,17 @@ extends Node2D
 @export var speed: float = randi_range(50, 150)  # Speed of the enemy
 var direction = Vector2.ZERO  # Direction toward the center
 var shooterContainerPosition : Vector2
+var health: float = 1.0
 
-func set_direction(new_direction: Vector2, newShooterPosition: Vector2):
-	direction = new_direction
+func set_direction(newDirection: Vector2, newShooterPosition: Vector2):
+	direction = newDirection
 	shooterContainerPosition = newShooterPosition
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# Move the enemy toward the center
+	# this logic can be time intesive. we can just remove recalculation of direction :)
 	direction = (shooterContainerPosition - position).normalized()
 	position += direction * speed * delta
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	call_deferred("_set_enemy_sprite_scale")
 

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77btb"]
 size = Vector2(50, 50)
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=["enemies"]]
 script = ExtResource("1_vvxsc")
 
 [node name="Area2D" type="Area2D" parent="."]

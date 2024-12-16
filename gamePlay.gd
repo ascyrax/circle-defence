@@ -2,7 +2,7 @@ extends Control
 
 @export var enemyScene: PackedScene  # Drag your Enemy scene here
 @export var shooterScene: PackedScene
-var enemySpawnInterval: float = 0.1
+var enemySpawnInterval: float = 1
 var shooterContainerPosition
 var shooterGlobalPosition
 

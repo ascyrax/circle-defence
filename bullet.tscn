@@ -7,7 +7,8 @@
 radius = 64.0
 height = 402.0
 
-[node name="Bullet" type="Node2D"]
+[node name="Bullet" type="Node2D" groups=["bullets"]]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_cuktq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
