@@ -32,12 +32,14 @@ func _set_shooter_range_scale():
 	var correctScaleX = (shooterRange.radius *2.0) / (rangeSprite.texture.get_width() * 1.0)
 	var correctScaleY = (shooterRange.radius *2.0) / (rangeSprite.texture.get_height() * 1.0)
 	rangeSprite.scale = Vector2(correctScaleX, correctScaleY)
+	#print(rangeSprite.texture.get_size())
+	#print(shooterRange.radius)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
-	
+
+
 func spawn_enemies():
 	var enemySpawnTimer = Timer.new()
 	add_child(enemySpawnTimer)
@@ -45,10 +47,6 @@ func spawn_enemies():
 	enemySpawnTimer.one_shot= false
 	enemySpawnTimer.connect("timeout", _spawn_enemy)
 	enemySpawnTimer.start()
-	
-	# make the enemies move towards the shooterGlobalPosition
-	# do this in _process
-	
 	
 func _spawn_enemy():
 	var newEnemy = enemyScene.instantiate() as Node2D

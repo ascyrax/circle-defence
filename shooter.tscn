@@ -1,19 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://q5m10htms63w"]
+[gd_scene load_steps=6 format=3 uid="uid://q5m10htms63w"]
 
+[ext_resource type="Script" path="res://shooter.gd" id="1_kjh1t"]
 [ext_resource type="Texture2D" uid="uid://m1s5ocyg0hwr" path="res://art/centralShooterNoBg.png" id="1_swfug"]
-[ext_resource type="Script" path="res://shoot.gd" id="2_k8otb"]
+[ext_resource type="PackedScene" uid="uid://qfkg4v630ija" path="res://bullet.tscn" id="2_8l2if"]
 [ext_resource type="Texture2D" uid="uid://b5mxrs4ae0qfy" path="res://art/attackRangeNoBg.png" id="2_kv71a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ng7lw"]
 radius = 225.0
 
 [node name="Shooter" type="Node2D"]
+script = ExtResource("1_kjh1t")
+bulletScene = ExtResource("2_8l2if")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_swfug")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("2_k8otb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ng7lw")
@@ -21,3 +23,5 @@ shape = SubResource("CircleShape2D_ng7lw")
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 z_index = -1
 texture = ExtResource("2_kv71a")
+
+[connection signal="area_entered" from="Area2D" to="." method="_enemy_in_shooting_radius"]
