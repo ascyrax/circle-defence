@@ -9,34 +9,29 @@ var shooterGlobalPosition
 func _ready() -> void:
 	# Defer the size calculation to ensure layout is finalized
 	call_deferred("_spawn_shooter")
-	call_deferred("_set_shooter_location")
 	call_deferred("_set_shooter_range_scale")
 	call_deferred("spawn_enemies")
 
 func _spawn_shooter():
 	var shooterInstance = shooterScene.instantiate() as Node2D
-	var shooterContainer = $"Panel/VBoxContainer/GamePlayNode"
+	var shooterContainer = $"Panel/VBoxContainer/GamePlayNode" as Control
 	shooterContainer.add_child(shooterInstance)
-	#var shooter = $"Panel/VBoxContainer/GamePlayNode/Shooter" as Node2D
-	#print(shooter)
-	
-
-func _set_shooter_location():
-	var shooterContainer = $"Panel/VBoxContainer/GamePlayNode" as Control # this is the parent node 'GamePlay' (Control)
 	var shooter = $"Panel/VBoxContainer/GamePlayNode/Shooter" as Node2D
-	print(shooter)
 	var width = shooterContainer.size[0]
 	var height = shooterContainer.size[1]
 	shooter.position = Vector2(width/2.0,height/2.0)
 	shooterGlobalPosition = shooter.global_position
-		
+	
+	# adjust shooter sprite size
+	var shooterSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Sprite2D" as Sprite2D
+	shooterSprite.scale = Vector2(0.1, 0.1)
+	
 func _set_shooter_range_scale():
 	var shooterRange = $"Panel/VBoxContainer/GamePlayNode/Shooter/Area2D/CollisionShape2D".shape as CircleShape2D
-	var shooter = $"Panel/VBoxContainer/GamePlayNode/Shooter/Area2D/Sprite2D" as Sprite2D
-	var correctScaleX = (shooterRange.radius *2.0) / (shooter.texture.get_width() * 1.0)
-	var correctScaleY = (shooterRange.radius *2.0) / (shooter.texture.get_height() * 1.0)
-	shooter.scale = Vector2(correctScaleX * 2, correctScaleY * 2)
-	
+	var rangeSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Area2D/Sprite2D" as Sprite2D
+	var correctScaleX = (shooterRange.radius *2.0) / (rangeSprite.texture.get_width() * 1.0)
+	var correctScaleY = (shooterRange.radius *2.0) / (rangeSprite.texture.get_height() * 1.0)
+	rangeSprite.scale = Vector2(correctScaleX, correctScaleY)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
