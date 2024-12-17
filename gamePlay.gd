@@ -5,6 +5,7 @@ extends Control
 var enemySpawnInterval: float = 1
 var shooterContainerPosition
 var shooterGlobalPosition
+var shooterSpriteSize = Vector2(0.0, 0.0)
 
 func _ready() -> void:
 	# Defer the size calculation to ensure layout is finalized
@@ -25,6 +26,7 @@ func _spawn_shooter():
 	# adjust shooter sprite size
 	var shooterSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Sprite2D" as Sprite2D
 	shooterSprite.scale = Vector2(0.1, 0.1)
+	shooterSpriteSize = shooterSprite.texture.get_size() * shooterSprite.scale
 	
 func _set_shooter_range_scale():
 	var shooterRange = $"Panel/VBoxContainer/GamePlayNode/Shooter/Area2D/CollisionShape2D".shape as CircleShape2D
@@ -79,3 +81,4 @@ func _spawn_enemy():
 	if newEnemy.has_method("set_direction"):
 		var direction = (shooterGlobalPosition - newEnemy.position).normalized()
 		newEnemy.set_direction(direction, shooterGlobalPosition)
+		newEnemy.set_collision_from_shooter(shooterSpriteSize)
