@@ -6,6 +6,8 @@ var shooterContainerPosition : Vector2
 var health: float = 1.0
 var shooterSpriteSize = Vector2(0.0,0.0)
 var enemySpriteSize = Vector2(0.0,0.0)
+var dollarValue = 1.0 # dollars gained when this enemy dies
+var coinValue = 0.0
 
 func set_direction(newDirection: Vector2, newShooterPosition: Vector2):
 	direction = newDirection
@@ -41,3 +43,8 @@ func on_bullet_hit(bullet: Area2D):
 	if(bullet.get_parent().is_in_group("bullets")):
 		if(health <= 0.0):
 			queue_free()
+			updateDollarValue()
+			#updateCoinValue()
+
+func updateDollarValue():
+	GlobalData.update_dollar_value(dollarValue)

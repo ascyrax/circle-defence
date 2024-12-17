@@ -13,6 +13,11 @@ func _ready() -> void:
 	call_deferred("_set_shooter_range_scale")
 	call_deferred("spawn_enemies")
 	call_deferred("_render_upgrade_window")
+	call_deferred("_update_resources")
+	# connect to the global_data.gd (GlobalData) script for global values
+	GlobalData.dollar_value_updated.connect(_update_dollar_value)
+	GlobalData.coin_value_updated.connect(_update_coin_value)
+	GlobalData.gem_value_updated.connect(_update_gem_value)
 
 func _process(delta: float) -> void:
 	pass
@@ -88,7 +93,20 @@ func _render_upgrade_window():
 	print(upgradesContainer)
 	upgradesContainer.add_child(attackUpgradeInstance)
 	attackUpgradeInstance.set_anchors_preset(Control.PRESET_VCENTER_WIDE)
-	#attackUpgradeInstance.anchor_top = 0
-	#attackUpgradeInstance.anchor_bottom = 1
 	
+func _update_resources():
+	_update_dollar_value(str(GlobalData.get_dollar_value()))
+	_update_coin_value(str(GlobalData.get_coin_value()))
+	_update_gem_value(str(GlobalData.get_gem_value()))
+
+func _update_dollar_value(value):
+	var dollarValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Dollar/DollarValue" as Label
+	dollarValue.text = str(value)
 	
+func _update_coin_value(value):
+	var coinValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Coin/CoinValue" as Label
+	coinValue.text = str(value)
+
+func _update_gem_value(value):
+	var gemValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Gem/GemValue" as Label
+	gemValue.text = str(value)
