@@ -17,9 +17,14 @@ func _process(delta: float) -> void:
 func _set_direction(newDirection: Vector2):
 	direction = newDirection
 
+func _set_rotation():
+	rotation = PI/2 # now the bullet is aligned along the +ve x-axis
+	rotation += direction.angle()
+
 func set_target_enemy(enemy: Area2D):
 	targetEnemey = enemy
 	_set_direction((enemy.global_position - global_position).normalized())
+	_set_rotation()
 
 	
 # on collision between the bullet and the enemy, destroy the bullet, and reduce enemy health
