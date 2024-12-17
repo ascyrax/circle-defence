@@ -1,4 +1,27 @@
-[gd_scene format=3 uid="uid://bi2247ypwfyr6"]
+[gd_scene load_steps=4 format=3 uid="uid://bi2247ypwfyr6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irwn"]
+bg_color = Color(0.0745098, 0.223529, 0.380392, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f065n"]
+bg_color = Color(0.0745098, 0.223529, 0.380392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133333, 0.815686, 0.968627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nfec"]
+bg_color = Color(0.119968, 0.31667, 0.524299, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133333, 0.815686, 0.968627, 1)
 
 [node name="AttackUpgrades" type="Control"]
 layout_mode = 3
@@ -7,29 +30,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(720, 600)
+layout_mode = 2
+
+[node name="Attack" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Damage" type="Panel" parent="ScrollContainer/VBoxContainer/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
+
+[node name="Damage" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Damage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Attack" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Damage" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Attack"]
-layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/Damage"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -38,32 +69,44 @@ text = "Damage"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Damage"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Damage/Damage"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/Damage/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
 text = "13
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/Damage/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AttackSpeed" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Attack"]
+[node name="Speed" type="Panel" parent="ScrollContainer/VBoxContainer/Attack"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Attack/AttackSpeed"]
+[node name="Speed" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Speed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Speed/Speed"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -73,22 +116,24 @@ Speed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/AttackSpeed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Speed/Speed"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Attack/AttackSpeed/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Speed/Speed/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
 text = "1.10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Attack/AttackSpeed/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Speed/Speed/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 5
 "
 horizontal_alignment = 1
@@ -98,11 +143,21 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CriticalChance" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Critical"]
+[node name="Chance" type="Panel" parent="ScrollContainer/VBoxContainer/Critical"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Critical/CriticalChance"]
+[node name="Chance" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/Chance"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Chance/Chance"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -112,31 +167,43 @@ Chance"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/CriticalChance"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/Chance/Chance"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Critical/CriticalChance/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Chance/Chance/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
 text = "1.00%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Critical/CriticalChance/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Chance/Chance/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AttackSpeed" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Critical"]
+[node name="Factor" type="Panel" parent="ScrollContainer/VBoxContainer/Critical"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Critical/AttackSpeed"]
+[node name="Factor2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/Factor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Factor/Factor2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -146,22 +213,24 @@ Factor"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/AttackSpeed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/Factor/Factor2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Critical/AttackSpeed/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Factor/Factor2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
 text = "x1.20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Critical/AttackSpeed/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Factor/Factor2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 10
 "
 horizontal_alignment = 1
@@ -171,11 +240,21 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Range" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Range"]
+[node name="Range" type="Panel" parent="ScrollContainer/VBoxContainer/Range"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range"]
+[node name="Range" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Range/Range"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/Range"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -184,31 +263,43 @@ text = "Range"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Range/Range"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Range/Range/Range"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/Range/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
 text = "30.00m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/Range/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DamagePerMeter" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Range"]
+[node name="DamagePerMeter" type="Panel" parent="ScrollContainer/VBoxContainer/Range"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter"]
+[node name="DamagePerMeter" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/DamagePerMeter"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -219,22 +310,24 @@ Meter"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/DamagePerMeter"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
 text = "x1.0000/m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 30
 "
 horizontal_alignment = 1
