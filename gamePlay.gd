@@ -2,7 +2,7 @@ extends Control
 
 @export var enemyScene: PackedScene  # Drag your Enemy scene here
 @export var shooterScene: PackedScene
-var enemySpawnInterval: float = 0.1
+var enemySpawnInterval: float = 1
 var shooterContainerPosition
 var shooterGlobalPosition
 var shooterSpriteSize = Vector2(0.0, 0.0)
@@ -13,6 +13,7 @@ func _ready() -> void:
 	call_deferred("_set_shooter_range_scale")
 	call_deferred("spawn_enemies")
 	call_deferred("_render_upgrade_window")
+	
 	call_deferred("_update_resources")
 	# connect to the global_data.gd (GlobalData) script for global values
 	GlobalData.dollar_value_updated.connect(_update_dollar_value)

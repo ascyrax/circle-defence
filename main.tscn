@@ -110,7 +110,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "23234
+text = "0
 "
 
 [node name="Gem" type="HBoxContainer" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay"]
@@ -130,7 +130,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "3012
+text = "0
 "
 
 [node name="_sth" type="HBoxContainer" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay"]
@@ -150,8 +150,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "23
-"
+text = "0"
 
 [node name="DropDown" type="HBoxContainer" parent="Panel/HomeScreen/ResourcePanel/ResourceDisplay"]
 layout_mode = 2
@@ -324,7 +323,7 @@ theme_override_font_sizes/font_size = 36
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
-text = "Highest Wave: 27"
+text = "Highest Wave: 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
