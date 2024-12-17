@@ -48,7 +48,6 @@ func _spawn_bullet():
 	bullet.damage = 1.0 # TODO. replace the hardcoded value
 	if(enemiesInRange.size()):
 		add_child(bullet)
-		print(enemiesInRange.size(), enemiesInRange)
 		var enemyArea2D = enemiesInRange[0] as Area2D
 		var enemyRootNode2D = enemyArea2D.get_parent()
 		bullet.set_target_enemy(enemyArea2D)
@@ -59,8 +58,7 @@ func _spawn_bullet():
 		# hence, i am deciding previously a legit target for each bullet
 		# hence, i have removed any enemy which is alive when the next bullet leave the 
 		# shooter, but will be dead before this bullet could reach it
-		if(enemyRootNode2D.health <= bullet.damage):
+		enemyRootNode2D.health -= bullet.damage
+		if(enemyRootNode2D.health <= 0.0):
 			enemiesInRange.erase(enemyArea2D) # TODO. USE AN OPTIMAL METHOD
-		else:
-			enemyRootNode2D.health -= bullet.damage
 	

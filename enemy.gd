@@ -26,3 +26,7 @@ func _set_enemy_sprite_scale():
 	#print(correctScaleX, correctScaleY)
 	enemySprite.scale = Vector2(correctScaleX, correctScaleY)
 	
+func on_bullet_hit(bullet: Area2D):
+	if(bullet.get_parent().is_in_group("bullets")):
+		if(health <= 0.0):
+			queue_free()

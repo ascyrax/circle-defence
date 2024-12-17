@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed: float = 150.0
+@export var speed: float = 250.0
 var direction:Vector2 = Vector2.ZERO
 var targetEnemey: Area2D
 var damage: float 
@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 	position += direction * speed * delta
 
 func _set_direction(newDirection: Vector2):
-	print("set_direction: ", newDirection)
 	direction = newDirection
 
 func set_target_enemy(enemy: Area2D):
@@ -24,3 +23,6 @@ func set_target_enemy(enemy: Area2D):
 
 	
 # on collision between the bullet and the enemy, destroy the bullet, and reduce enemy health
+func on_enemy_hit(enemy: Area2D):
+	if(enemy.get_parent().is_in_group("enemies") && enemy == targetEnemey):
+		queue_free()
