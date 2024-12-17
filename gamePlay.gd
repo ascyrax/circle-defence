@@ -10,8 +10,9 @@ var shooterSpriteSize = Vector2(0.0, 0.0)
 func _ready() -> void:
 	# Defer the size calculation to ensure layout is finalized
 	call_deferred("_spawn_shooter")
-	call_deferred("_set_shooter_range_scale")
+	#call_deferred("_set_shooter_range_scale")
 	call_deferred("spawn_enemies")
+	call_deferred("_render_upgrade_window")
 
 func _spawn_shooter():
 	var shooterInstance = shooterScene.instantiate() as Node2D

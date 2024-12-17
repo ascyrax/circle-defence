@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://bi2247ypwfyr6"]
+
+[node name="AttackUpgrades" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Attack" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Damage" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Damage"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "13
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "$ 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackSpeed" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Attack/AttackSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Attack 
+Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/AttackSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Attack/AttackSpeed/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "1.10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Attack/AttackSpeed/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "$ 5
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Critical" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CriticalChance" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Critical"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Critical/CriticalChance"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Critical
+Chance"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/CriticalChance"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Critical/CriticalChance/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "1.00%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Critical/CriticalChance/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "$ 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackSpeed" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Critical"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Critical/AttackSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Critical
+Factor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/AttackSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Critical/AttackSpeed/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "x1.20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Critical/AttackSpeed/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "$ 10
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Range" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Range" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Range"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Range/Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "30.00m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "$ 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DamagePerMeter" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Damage
+/
+Meter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "x1.0000/m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "$ 30
+"
+horizontal_alignment = 1
+vertical_alignment = 1
