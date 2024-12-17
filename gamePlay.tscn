@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ge7iiw6belxm"]
+[gd_scene load_steps=17 format=3 uid="uid://ge7iiw6belxm"]
 
 [ext_resource type="Script" path="res://gamePlay.gd" id="1_v3qar"]
 [ext_resource type="Texture2D" uid="uid://bf3bmtbitcmnt" path="res://art/dollarNoBg.png" id="2_6lctv"]
@@ -11,6 +11,49 @@
 [ext_resource type="Texture2D" uid="uid://dab6v7qh8jrbw" path="res://art/menuIcons/attackNoBg.png" id="9_3op3i"]
 [ext_resource type="Texture2D" uid="uid://db8pvuymvargn" path="res://art/menuIcons/defenseNoBg.png" id="10_jb71w"]
 [ext_resource type="Texture2D" uid="uid://dntv0ifkwehxi" path="res://art/menuIcons/specialNoBg.png" id="11_m7p7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4xab"]
+bg_color = Color(0.0749501, 0.221667, 0.379421, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyycm"]
+bg_color = Color(0.0745098, 0.223529, 0.380392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjbum"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.455621, 0.0791371, 0.1225, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqcre"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0132197, 0.218618, 0.230972, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhhb4"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.289463, 0.226826, 0.0741805, 1)
+border_blend = true
 
 [node name="GamePlay" type="Control"]
 layout_mode = 3
@@ -72,7 +115,7 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "1430"
+text = "80"
 
 [node name="Coin" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -91,7 +134,8 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "240"
+text = "0
+"
 
 [node name="Gem" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -110,7 +154,7 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "39"
+text = "0"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -175,6 +219,162 @@ z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Player" type="Panel" parent="Panel/VBoxContainer/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_f4xab")
+
+[node name="PlayerDetails" type="VBoxContainer" parent="Panel/VBoxContainer/Details/Player"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Player/PlayerDetails"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Attack" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Attack"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_3op3i")
+expand_mode = 1
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "1"
+vertical_alignment = 1
+
+[node name="Regenaration" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Regenaration"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("10_jb71w")
+expand_mode = 1
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Regenaration"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "0.1"
+vertical_alignment = 1
+
+[node name="CoinMultiplier" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/CoinMultiplier"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_fiwqa")
+expand_mode = 1
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/CoinMultiplier"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "x1.00"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/Details/Player/PlayerDetails"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Wave" type="Panel" parent="Panel/VBoxContainer/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_uyycm")
+
+[node name="WaveDetails" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Wave"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Wave" type="VBoxContainer" parent="Panel/VBoxContainer/Details/Wave/WaveDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="WaveNo" type="Label" parent="Panel/VBoxContainer/Details/Wave/WaveDetails/Wave"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Wave 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveTimer" type="Label" parent="Panel/VBoxContainer/Details/Wave/WaveDetails/Wave"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Enemy" type="VBoxContainer" parent="Panel/VBoxContainer/Details/Wave/WaveDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Attack" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Wave/WaveDetails/Enemy"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Details/Wave/WaveDetails/Enemy/Attack"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 25
+text = "1.00
+"
+
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Details/Wave/WaveDetails/Enemy/Attack"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = ExtResource("9_3op3i")
+expand_mode = 1
+
+[node name="Health" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Wave/WaveDetails/Enemy"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Details/Wave/WaveDetails/Enemy/Health"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 25
+text = "1.00
+"
+
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Details/Wave/WaveDetails/Enemy/Health"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = ExtResource("10_jb71w")
+expand_mode = 1
+
 [node name="Upgrades" type="Control" parent="Panel/VBoxContainer"]
 z_index = 1
 layout_mode = 2
@@ -186,26 +386,75 @@ z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+theme_override_constants/separation = 9
 
-[node name="Attack" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav"]
-custom_minimum_size = Vector2(50, 50)
+[node name="Attack" type="Panel" parent="Panel/VBoxContainer/UpgradeNav"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tjbum")
+
+[node name="Attack" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav/Attack"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture = ExtResource("9_3op3i")
 expand_mode = 1
 
-[node name="Defense" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav"]
-custom_minimum_size = Vector2(50, 50)
+[node name="Defense" type="Panel" parent="Panel/VBoxContainer/UpgradeNav"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_eqcre")
+
+[node name="Defense" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav/Defense"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture = ExtResource("10_jb71w")
 expand_mode = 1
 
-[node name="Special" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav"]
-custom_minimum_size = Vector2(50, 50)
+[node name="Special" type="Panel" parent="Panel/VBoxContainer/UpgradeNav"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fhhb4")
+
+[node name="Special" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav/Special"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 texture = ExtResource("11_m7p7c")
 expand_mode = 1
