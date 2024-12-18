@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var bulletScene: PackedScene
+var bulletScene = load("res://bullet.tscn") as PackedScene
 var enemiesInRange: Array # TODO. CHANGE THIS TO AN OPTIMAL DATA STRUCTURE
 # REQUIRED: OPTIMAL ELEMENT REMOVAL, 
-var attackRate: float = 1.0
+var attackRate: float = GlobalData.get_attack_rate()
 var isShooterIdle: bool = true
 var bulletSpawnTimer: Timer
 
