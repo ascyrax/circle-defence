@@ -43,22 +43,22 @@ func _update_utility_upgrade_values(_unusedUpdateValue:float):
 
 
 func _upgrade_cash_bonus(event: InputEvent):
-	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+	if(event is InputEventScreenTouch):
 		if(event.pressed):
 			GlobalData.update_cash_bonus(1.0)
 
 func _upgrade_cash_per_wave(event: InputEvent):
-	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+	if(event is InputEventScreenTouch):
 		if(event.pressed):
 			GlobalData.update_cash_per_wave(10.0)
 		
 func _upgrade_coins_per_kill_bonus(event: InputEvent):
-	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+	if(event is InputEventScreenTouch):
 		if(event.pressed):
 			GlobalData.update_coins_per_kill_bonus(0.5)
 
 func _upgrade_coins_per_wave(event: InputEvent):
-	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+	if(event is InputEventScreenTouch):
 		if(event.pressed):
 			GlobalData.update_coins_per_wave(2.0)
 		

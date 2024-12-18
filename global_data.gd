@@ -5,6 +5,8 @@ var _dollarValue = _INITIAL_DOLLAR_VALUE
 var _coinValue = 0.0
 var _gemValue = 0.0
 
+var _touchActive = false
+
 # enemy data
 var _enemySpawnInterval = 1.0
 
@@ -56,6 +58,12 @@ signal gem_value_updated
 signal attack_upgrade_values_updated
 signal defense_upgrade_values_updated
 signal utility_upgrade_values_updated
+
+func get_touch_active_value():
+	return _touchActive
+	
+func update_touch_active_value(val : bool):
+	_touchActive = val
 
 
 func get_dollar_value():
