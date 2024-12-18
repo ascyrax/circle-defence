@@ -3,9 +3,9 @@ extends Node2D
 var bulletScene = load("res://bullet.tscn") as PackedScene
 var enemiesInRange: Array # TODO. CHANGE THIS TO AN OPTIMAL DATA STRUCTURE
 # REQUIRED: OPTIMAL ELEMENT REMOVAL, 
-var attackRate: float = GlobalData.get_attack_rate()
 var isShooterIdle: bool = true
 var bulletSpawnTimer: Timer
+var attackSpeed: float = GlobalData.get_attack_speed()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 func _add_bullet_timer():
 	bulletSpawnTimer = Timer.new()
 	add_child(bulletSpawnTimer)
-	bulletSpawnTimer.wait_time = 1.0 / attackRate
+	bulletSpawnTimer.wait_time = 1.0 / attackSpeed
 	bulletSpawnTimer.one_shot = false
 	bulletSpawnTimer.connect("timeout", _shoot_enemy)
 	bulletSpawnTimer.start()

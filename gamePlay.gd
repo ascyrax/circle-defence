@@ -2,13 +2,12 @@ extends Control
 
 var enemyScene = load("res://enemy.tscn") as PackedScene
 var shooterScene = load("res://shooter.tscn") as PackedScene
-var enemySpawnInterval: float = GlobalData.get_enemy_spawn_interval()
-var shooterGlobalPosition
-var shooterSpriteSize = Vector2(0.0, 0.0)
 var attackUpgradeScene = load("res://attack_upgrades.tscn") as PackedScene
 var defenseUpgradeScene = load("res://defense_upgrades.tscn") as PackedScene
 var utilityUpgradeScene = load("res://utility_upgrades.tscn") as PackedScene
-
+var enemySpawnInterval: float = GlobalData.get_enemy_spawn_interval()
+var shooterGlobalPosition
+var shooterSpriteSize = Vector2(0.0, 0.0)
 
 func _ready() -> void:
 	# Defer the size calculation to ensure layout is finalized
