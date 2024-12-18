@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://grmxs6k4gsrl"]
+[gd_scene load_steps=5 format=3 uid="uid://grmxs6k4gsrl"]
+
+[ext_resource type="Script" path="res://utility_upgrades.gd" id="1_a6r5b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irwn"]
 bg_color = Color(0.0745098, 0.223529, 0.380392, 1)
@@ -32,6 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_a6r5b")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -93,6 +96,7 @@ vertical_alignment = 1
 [node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 10"
@@ -140,6 +144,7 @@ vertical_alignment = 1
 [node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 16
@@ -152,12 +157,12 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PerKillBonus" type="Panel" parent="ScrollContainer/VBoxContainer/Coin"]
+[node name="CoinsPerKillBonus" type="Panel" parent="ScrollContainer/VBoxContainer/Coin"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerKillBonus"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,7 +171,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus/HBoxContainer"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerKillBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -176,11 +181,11 @@ Bonus"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerKillBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus/HBoxContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerKillBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -189,9 +194,10 @@ text = "x1.01"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus/HBoxContainer/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerKillBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 10"
@@ -239,6 +245,7 @@ vertical_alignment = 1
 [node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 12
@@ -833,3 +840,8 @@ text = "$ 5
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="gui_input" from="ScrollContainer/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_cash_bonus"]
+[connection signal="gui_input" from="ScrollContainer/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_cash_per_wave"]
+[connection signal="gui_input" from="ScrollContainer/VBoxContainer/Coin/CoinsPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_coins_per_kill_bonus"]
+[connection signal="gui_input" from="ScrollContainer/VBoxContainer/Coin/CoinsPerWave/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_coins_per_wave"]

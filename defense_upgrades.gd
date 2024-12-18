@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	call_deferred("_update_defense_upgrade_values", 5.0)
+	call_deferred("_update_defense_upgrade_values", 0.0)
 	GlobalData.defense_upgrade_values_updated.connect(_update_defense_upgrade_values)
 
 func _update_defense_upgrade_values(_unusedUpdateValue:float):
@@ -50,16 +50,16 @@ func _upgrade_health(event: InputEvent):
 func _upgrade_health_regeneration(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_health_regeneration(0.1)
+			GlobalData.update_health_regeneration(0.25)
 		
 func _upgrade_defense_percentage(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_defense_percentage(1.0)
+			GlobalData.update_defense_percentage(0.5)
 
 func _upgrade_defense_absolute(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_defense_absolute(0.1)
+			GlobalData.update_defense_absolute(0.25)
 		
 		

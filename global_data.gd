@@ -17,12 +17,12 @@ var _criticalFactor = 1.00
 var _range = 225.00
 var _damagePerMeter = 1.00
 
-var _damageUpgradeCost = 1.00
-var _attackSpeedUpgradeCost = 1.00
-var _criticalChanceUpgradeCost = 1.00
-var _criticalFactorUpgradeCost = 1.00
-var _rangeUpgradeCost = 225.00
-var _damagePerMeterUpgradeCost = 1.00
+var _damageUpgradeCost = 10.00
+var _attackSpeedUpgradeCost = 10.00
+var _criticalChanceUpgradeCost = 10.00
+var _criticalFactorUpgradeCost = 10.00
+var _rangeUpgradeCost = 10.00
+var _damagePerMeterUpgradeCost = 10.00
 
 # defense
 var _health = 10.00
@@ -31,20 +31,20 @@ var _defensePercentage = 0.00
 var _defenseAbsolute = 0.00
 
 var _healthUpgradeCost = 10.00
-var _healthRegenerationUpgradeCost = 0.00
-var _defensePercentageUpgradeCost = 0.00
-var _defenseAbsoluteUpgradeCost = 0.00
+var _healthRegenerationUpgradeCost = 10.00
+var _defensePercentageUpgradeCost = 10.00
+var _defenseAbsoluteUpgradeCost = 10.00
 
 # utility
 var _cashBonus = 1.00
-var _cashPerWave = 0.00
+var _cashPerWave = 10.00
 var _coinsPerKillBonus = 1.00
 var _coinsPerWave = 1.0
 
-var _cashBonusUpgradeCost = 1.00
-var _cashPerWaveUpgradeCost = 0.00
-var _coinsPerKillBonusUpgradeCost = 1.00
-var _coinsPerWaveUpgradeCost = 1.0
+var _cashBonusUpgradeCost = 10.00
+var _cashPerWaveUpgradeCost = 10.00
+var _coinsPerKillBonusUpgradeCost = 10.00
+var _coinsPerWaveUpgradeCost = 10.0
 
 # i dont wanna make an extra function call for each bullet :)
 # bullet data

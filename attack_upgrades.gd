@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	call_deferred("_update_attack_upgrade_values", 5.0)
+	call_deferred("_update_attack_upgrade_values", 0.0)
 	GlobalData.attack_upgrade_values_updated.connect(_update_attack_upgrade_values)
 
 
