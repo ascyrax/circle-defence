@@ -436,12 +436,12 @@ size_flags_vertical = 4
 texture = ExtResource("10_jb71w")
 expand_mode = 1
 
-[node name="Special" type="Panel" parent="Panel/VBoxContainer/UpgradeNav"]
+[node name="Utility" type="Panel" parent="Panel/VBoxContainer/UpgradeNav"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_fhhb4")
 
-[node name="Special" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav/Special"]
+[node name="Utility" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav/Utility"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8

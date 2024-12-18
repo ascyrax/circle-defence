@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi2247ypwfyr6"]
+[gd_scene load_steps=4 format=3 uid="uid://grmxs6k4gsrl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irwn"]
 bg_color = Color(0.0745098, 0.223529, 0.380392, 1)
@@ -23,7 +23,7 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.133333, 0.815686, 0.968627, 1)
 
-[node name="AttackUpgrades" type="Control"]
+[node name="UtitlityUpgrades" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,6 +38,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -45,17 +47,17 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Attack" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Cash" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Damage" type="Panel" parent="ScrollContainer/VBoxContainer/Attack"]
+[node name="CashBonus" type="Panel" parent="ScrollContainer/VBoxContainer/Cash"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Damage" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Damage"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Cash/CashBonus"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,30 +66,31 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/Damage"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Cash/CashBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 36
-text = "Damage"
+text = "Cash 
+Bonus"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Damage/Damage"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Cash/CashBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/Damage/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
-text = "13
+text = "x1.01
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Damage/Damage/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -96,12 +99,12 @@ text = "$ 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Speed" type="Panel" parent="ScrollContainer/VBoxContainer/Attack"]
+[node name="CashPerWave" type="Panel" parent="ScrollContainer/VBoxContainer/Cash"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Speed" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Speed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Cash/CashPerWave"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,50 +113,51 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Speed/Speed"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Cash/CashPerWave/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 36
-text = "Attack 
-Speed"
+text = "Cash 
+/
+Wave"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Attack/Speed/Speed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Cash/CashPerWave/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Speed/Speed/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
-text = "1.10"
+text = "8"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Attack/Speed/Speed/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
-text = "$ 5
+text = "$ 16
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Critical" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Coin" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Chance" type="Panel" parent="ScrollContainer/VBoxContainer/Critical"]
+[node name="PerKillBonus" type="Panel" parent="ScrollContainer/VBoxContainer/Coin"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Chance" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/Chance"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,44 +166,44 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Chance/Chance"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 36
-text = "Critical
-Chance"
+text = "Coins / Kill
+Bonus"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/Chance/Chance"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Chance/Chance/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
-text = "1.00%"
+text = "x1.01"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Chance/Chance/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Coin/PerKillBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
-text = "$ 4"
+text = "$ 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Factor" type="Panel" parent="ScrollContainer/VBoxContainer/Critical"]
+[node name="CoinsPerWave" type="Panel" parent="ScrollContainer/VBoxContainer/Coin"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Factor2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/Factor"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerWave"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -208,50 +212,51 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Factor/Factor2"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerWave/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 36
-text = "Critical
-Factor"
+text = "Coins 
+/ 
+Wave"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Critical/Factor/Factor2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerWave/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Factor/Factor2/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_f065n")
-text = "x1.20"
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Critical/Factor/Factor2/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Coin/CoinsPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
-text = "$ 10
+text = "$ 12
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Range" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="PlaceHolder" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Range" type="Panel" parent="ScrollContainer/VBoxContainer/Range"]
+[node name="Range" type="Panel" parent="ScrollContainer/VBoxContainer/PlaceHolder"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Range" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Range/Range"]
+[node name="Range" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/PlaceHolder/Range"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -260,7 +265,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/Range"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/PlaceHolder/Range/Range"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -269,11 +274,11 @@ text = "Range"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Range/Range/Range"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/PlaceHolder/Range/Range"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/Range/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/PlaceHolder/Range/Range/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -282,7 +287,7 @@ text = "30.00m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Range/Range/Range/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/PlaceHolder/Range/Range/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -291,12 +296,12 @@ text = "$ 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DamagePerMeter" type="Panel" parent="ScrollContainer/VBoxContainer/Range"]
+[node name="DamagePerMeter" type="Panel" parent="ScrollContainer/VBoxContainer/PlaceHolder"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="DamagePerMeter" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter"]
+[node name="DamagePerMeter" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/PlaceHolder/DamagePerMeter"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -305,7 +310,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/DamagePerMeter"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/PlaceHolder/DamagePerMeter/DamagePerMeter"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -316,11 +321,11 @@ Meter"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/DamagePerMeter"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/PlaceHolder/DamagePerMeter/DamagePerMeter"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/PlaceHolder/DamagePerMeter/DamagePerMeter/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -329,7 +334,7 @@ text = "x1.0000/m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/PlaceHolder/DamagePerMeter/DamagePerMeter/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
