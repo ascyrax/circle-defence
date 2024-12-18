@@ -108,7 +108,7 @@ func get_damage_per_meter():
 func get_health():
 	return _health
 	
-func get_healthRegeneration():
+func get_health_regeneration():
 	return _healthRegeneration
 
 func get_defense_percentage():

@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3j6c2utk102t"]
+[gd_scene load_steps=5 format=3 uid="uid://b3j6c2utk102t"]
+
+[ext_resource type="Script" path="res://defense_upgrades.gd" id="1_jckbu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irwn"]
 bg_color = Color(0.0745098, 0.223529, 0.380392, 1)
@@ -32,6 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_jckbu")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -55,7 +58,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Health" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Health/Health"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Health/Health"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Health/Health/Health"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Health/Health/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -74,11 +77,11 @@ text = "Health
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Health/Health/Health"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Health/Health/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Health/Health/Health/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -88,21 +91,22 @@ text = "13
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Health/Health/Health/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HealthRegen" type="Panel" parent="ScrollContainer/VBoxContainer/Health"]
+[node name="HealthRegeneration" type="Panel" parent="ScrollContainer/VBoxContainer/Health"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="HealthRegen" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Health/HealthRegen"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Health/HealthRegeneration"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,7 +115,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Health/HealthRegen/HealthRegen"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Health/HealthRegeneration/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -121,11 +125,11 @@ Regen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Health/HealthRegen/HealthRegen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Health/HealthRegeneration/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Health/HealthRegen/HealthRegen/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -134,9 +138,10 @@ text = "0.04 / sec"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Health/HealthRegen/HealthRegen/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 5
@@ -149,12 +154,12 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Percent" type="Panel" parent="ScrollContainer/VBoxContainer/Defense"]
+[node name="Percentage" type="Panel" parent="ScrollContainer/VBoxContainer/Defense"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Percent" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Defense/Percent"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Defense/Percentage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -163,7 +168,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Percent/Percent"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Percentage/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -172,11 +177,11 @@ text = "Defense %"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Defense/Percent/Percent"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Defense/Percentage/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Percent/Percent/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -185,9 +190,10 @@ text = "0.50 %"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Percent/Percent/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 4"
@@ -199,7 +205,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irwn")
 
-[node name="Absolute" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Defense/Absolute"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Defense/Absolute"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -208,7 +214,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Absolute/Absolute"]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Absolute/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -218,11 +224,11 @@ Absolute"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Defense/Absolute/Absolute"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Defense/Absolute/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Absolute/Absolute/VBoxContainer"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -231,9 +237,10 @@ text = "1.52"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Absolute/Absolute/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="ScrollContainer/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nfec")
 text = "$ 3
@@ -828,3 +835,8 @@ text = "$ 5
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="gui_input" from="ScrollContainer/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_health"]
+[connection signal="gui_input" from="ScrollContainer/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_health_regeneration"]
+[connection signal="gui_input" from="ScrollContainer/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_defense_percentage"]
+[connection signal="gui_input" from="ScrollContainer/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_defense_absolute"]

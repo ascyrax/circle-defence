@@ -7,10 +7,6 @@ func _ready() -> void:
 	GlobalData.attack_upgrade_values_updated.connect(_update_attack_upgrade_values)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _update_attack_upgrade_values(_unusedUpdateValue:float):
 	# VALUES
 	var damageValue = GlobalData.get_damage()
