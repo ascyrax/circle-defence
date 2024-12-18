@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b5mxrs4ae0qfy" path="res://art/attackRangeNoBg.png" id="2_kv71a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ng7lw"]
-radius = 225.0
+radius = 300.0
 
 [node name="Shooter" type="Node2D"]
 script = ExtResource("1_kjh1t")

@@ -45,6 +45,7 @@ func _set_shooter_range_scale():
 	var rangeSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Area2D/Sprite2D" as Sprite2D
 	var correctScaleX = (shooterRange.radius *2.0) / (rangeSprite.texture.get_width() * 1.0)
 	var correctScaleY = (shooterRange.radius *2.0) / (rangeSprite.texture.get_height() * 1.0)
+	print(shooterRange.radius * 2.0, rangeSprite.texture.get_size())
 	rangeSprite.scale = Vector2(correctScaleX, correctScaleY)
 
 func spawn_enemies():
