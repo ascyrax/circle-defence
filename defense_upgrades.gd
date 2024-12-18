@@ -44,18 +44,22 @@ func _update_defense_upgrade_values(_unusedUpdateValue:float):
 
 func _upgrade_health(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
-		GlobalData.update_health(1.0)
+		if(event.pressed):
+			GlobalData.update_health(1.0)
 
 func _upgrade_health_regeneration(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
-		GlobalData.update_health_regeneration(0.1)
+		if(event.pressed):
+			GlobalData.update_health_regeneration(0.1)
 		
 func _upgrade_defense_percentage(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
-		GlobalData.update_defense_percentage(1.0)
+		if(event.pressed):
+			GlobalData.update_defense_percentage(1.0)
 
 func _upgrade_defense_absolute(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
-		GlobalData.update_defense_absolute(0.1)
+		if(event.pressed):
+			GlobalData.update_defense_absolute(0.1)
 		
 		

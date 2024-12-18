@@ -44,18 +44,22 @@ func _update_attack_upgrade_values(_unusedUpdateValue:float):
 
 func _upgrade_damage(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
-		GlobalData.update_damage(1.0)
+		if(event.pressed):
+			GlobalData.update_damage(1.0)
 
 func _upgrade_attack_speed(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
-		GlobalData.update_attack_speed(0.1)
+		if(event.pressed):
+			GlobalData.update_attack_speed(0.1)
 		
 func _upgrade_critical_chance(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
-		GlobalData.update_critical_chance(1.0)
+		if(event.pressed):
+			GlobalData.update_critical_chance(1.0)
 
 func _upgrade_critical_factor(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
-		GlobalData.update_critical_factor(0.1)
+		if(event.pressed):
+			GlobalData.update_critical_factor(0.1)
 		
 		
