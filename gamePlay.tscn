@@ -460,3 +460,7 @@ texture = ExtResource("11_m7p7c")
 expand_mode = 1
 
 [node name="EnemySpawner" type="Node2D" parent="Panel/VBoxContainer"]
+
+[connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Attack" to="." method="_show_attack_upgrades"]
+[connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Defense" to="." method="_show_defense_upgrades"]
+[connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Utility" to="." method="_show_utility_upgrades"]

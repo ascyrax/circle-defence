@@ -6,13 +6,17 @@ var enemySpawnInterval: float = 1
 var shooterContainerPosition
 var shooterGlobalPosition
 var shooterSpriteSize = Vector2(0.0, 0.0)
+var attackUpgradeScene = load("res://attack_upgrades.tscn") as PackedScene
+var defenseUpgradeScene = load("res://defense_upgrades.tscn") as PackedScene
+var utilityUpgradeScene = load("res://utility_upgrades.tscn") as PackedScene
+
 
 func _ready() -> void:
 	# Defer the size calculation to ensure layout is finalized
 	call_deferred("_spawn_shooter")
 	call_deferred("_set_shooter_range_scale")
 	call_deferred("spawn_enemies")
-	call_deferred("_render_upgrade_window")
+	call_deferred("_render_attack_upgrades")
 	
 	call_deferred("_update_resources")
 	# connect to the global_data.gd (GlobalData) script for global values
@@ -86,15 +90,6 @@ func _spawn_enemy():
 		newEnemy.set_direction(direction, shooterGlobalPosition)
 		newEnemy.set_collision_from_shooter(shooterSpriteSize)
 
-func _render_upgrade_window():
-	var attackUpgradeScene = load("res://attack_upgrades.tscn") as PackedScene
-	var attackUpgradeInstance = attackUpgradeScene.instantiate() as Control
-	print(attackUpgradeInstance)
-	var upgradesContainer = $"Panel/VBoxContainer/Upgrades" as Control
-	print(upgradesContainer)
-	upgradesContainer.add_child(attackUpgradeInstance)
-	attackUpgradeInstance.set_anchors_preset(Control.PRESET_VCENTER_WIDE)
-	
 func _update_resources():
 	_update_dollar_value(str(GlobalData.get_dollar_value()))
 	_update_coin_value(str(GlobalData.get_coin_value()))
@@ -111,3 +106,33 @@ func _update_coin_value(value):
 func _update_gem_value(value):
 	var gemValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Gem/GemValue" as Label
 	gemValue.text = str(value)
+	
+func _render_attack_upgrades():
+	var attackUpgradeInstance = attackUpgradeScene.instantiate() as Control
+	var upgradesContainer = $"Panel/VBoxContainer/Upgrades" as Control
+	upgradesContainer.add_child(attackUpgradeInstance)
+	attackUpgradeInstance.set_anchors_preset(Control.PRESET_VCENTER_WIDE)
+
+func _render_defense_upgrades():
+	var defenseUpgradeInstance = defenseUpgradeScene.instantiate() as Control
+	var upgradesContainer = $"Panel/VBoxContainer/Upgrades" as Control
+	upgradesContainer.add_child(defenseUpgradeInstance)
+	defenseUpgradeInstance.set_anchors_preset(Control.PRESET_VCENTER_WIDE)
+
+func _render_utility_upgrades():
+	var utilityUpgradeInstance = utilityUpgradeScene.instantiate() as Control
+	var upgradesContainer = $"Panel/VBoxContainer/Upgrades" as Control
+	upgradesContainer.add_child(utilityUpgradeInstance)
+	utilityUpgradeInstance.set_anchors_preset(Control.PRESET_VCENTER_WIDE)
+		
+func _show_attack_upgrades(event: InputEvent):
+	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+		_render_attack_upgrades()
+		
+func _show_defense_upgrades(event: InputEvent):
+	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+		_render_defense_upgrades()
+		
+func _show_utility_upgrades(event: InputEvent):
+	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+		_render_utility_upgrades()
