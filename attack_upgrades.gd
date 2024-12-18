@@ -11,36 +11,36 @@ func _update_attack_upgrade_values(_unusedUpdateValue:float):
 	# VALUES
 	var damageValue = GlobalData.get_damage()
 	var damageLabel = $"ScrollContainer/VBoxContainer/Attack/Damage/HBoxContainer/VBoxContainer/Value" as Label
-	damageLabel.text = str(damageValue)
+	damageLabel.text = str("%.2f" % damageValue)
 	
 	var attackSpeedValue = GlobalData.get_attack_speed()
 	var attackSpeedLabel = $"ScrollContainer/VBoxContainer/Attack/Speed/HBoxContainer/VBoxContainer/Value" as Label
-	attackSpeedLabel.text = str(attackSpeedValue)
+	attackSpeedLabel.text = str("%.2f" % attackSpeedValue)
 	
 	var criticalChanceValue = GlobalData.get_critical_chance()
 	var criticalChanceLabel = $"ScrollContainer/VBoxContainer/Critical/Chance/HBoxContainer/VBoxContainer/Value" as Label
-	criticalChanceLabel.text = str(criticalChanceValue)
+	criticalChanceLabel.text = str("%.2f" % criticalChanceValue)
 	
 	var criticalFactorValue = GlobalData.get_critical_factor()
 	var criticalFactorLabel = $"ScrollContainer/VBoxContainer/Critical/Factor/HBoxContainer/VBoxContainer/Value" as Label
-	criticalFactorLabel.text = str(criticalFactorValue)
+	criticalFactorLabel.text = str("%.2f" % criticalFactorValue)
 	
 	# UPGRADE COST
 	var damageUpgradeCostValue = GlobalData.get_damage_upgrade_cost()
 	var damageUpgradeCostLabel = $"ScrollContainer/VBoxContainer/Attack/Damage/HBoxContainer/VBoxContainer/UpgradeCost" as Label
-	damageUpgradeCostLabel.text = str(damageUpgradeCostValue)
+	damageUpgradeCostLabel.text = str("%.2f" % damageUpgradeCostValue)
 	
 	var attackSpeedUpgradeCostValue = GlobalData.get_attack_speed_upgrade_cost()
 	var attackSpeedUpgradeCostLabel = $"ScrollContainer/VBoxContainer/Attack/Speed/HBoxContainer/VBoxContainer/UpgradeCost" as Label
-	attackSpeedUpgradeCostLabel.text = str(attackSpeedUpgradeCostValue)
+	attackSpeedUpgradeCostLabel.text = str("%.2f" % attackSpeedUpgradeCostValue)
 	
 	var criticalChanceUpgradeCostValue = GlobalData.get_critical_chance_upgrade_cost()
 	var criticalChanceUpgradeCostLabel = $"ScrollContainer/VBoxContainer/Critical/Chance/HBoxContainer/VBoxContainer/UpgradeCost" as Label
-	criticalChanceUpgradeCostLabel.text = str(criticalChanceUpgradeCostValue)
+	criticalChanceUpgradeCostLabel.text = str("%.2f" % criticalChanceUpgradeCostValue)
 	
 	var criticalFactorUpgradeCostValue = GlobalData.get_critical_factor_upgrade_cost()
 	var criticalFactorUpgradeCostLabel = $"ScrollContainer/VBoxContainer/Critical/Factor/HBoxContainer/VBoxContainer/UpgradeCost" as Label
-	criticalFactorUpgradeCostLabel.text = str(criticalFactorUpgradeCostValue)
+	criticalFactorUpgradeCostLabel.text = str("%.2f" % criticalFactorUpgradeCostValue)
 
 func _upgrade_damage(event: InputEvent):
 	if(event is InputEventScreenTouch):

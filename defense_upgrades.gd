@@ -10,36 +10,36 @@ func _update_defense_upgrade_values(_unusedUpdateValue:float):
 	# VALUES
 	var healthValue = GlobalData.get_health()
 	var healthLabel = $"ScrollContainer/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer/Value" as Label
-	healthLabel.text = str(healthValue)
+	healthLabel.text = str("%.2f" % healthValue)
 	
 	var healthRegenerationValue = GlobalData.get_health_regeneration()
 	var healthRegenerationLabel = $"ScrollContainer/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer/Value" as Label
-	healthRegenerationLabel.text = str(healthRegenerationValue)
+	healthRegenerationLabel.text = str("%.2f" % healthRegenerationValue)
 	
 	var criticalChanceValue = GlobalData.get_defense_percentage()
 	var criticalChanceLabel = $"ScrollContainer/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer/Value" as Label
-	criticalChanceLabel.text = str(criticalChanceValue)
+	criticalChanceLabel.text = str("%.2f" % criticalChanceValue)
 	
 	var criticalFactorValue = GlobalData.get_defense_absolute()
 	var criticalFactorLabel = $"ScrollContainer/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer/Value" as Label
-	criticalFactorLabel.text = str(criticalFactorValue)
+	criticalFactorLabel.text = str("%.2f" % criticalFactorValue)
 	
 	# UPGRADE COST
 	var healthUpgradeCostValue = GlobalData.get_health_upgrade_cost()
 	var healthUpgradeCostLabel = $"ScrollContainer/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer/UpgradeCost" as Label
-	healthUpgradeCostLabel.text = str(healthUpgradeCostValue)
+	healthUpgradeCostLabel.text = str("%.2f" % healthUpgradeCostValue)
 	
 	var healthRegenerationUpgradeCostValue = GlobalData.get_health_regeneration_upgrade_cost()
 	var healthRegenerationUpgradeCostLabel = $"ScrollContainer/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost" as Label
-	healthRegenerationUpgradeCostLabel.text = str(healthRegenerationUpgradeCostValue)
+	healthRegenerationUpgradeCostLabel.text = str("%.2f" % healthRegenerationUpgradeCostValue)
 	
 	var defensePercentageUpgradeCostValue = GlobalData.get_defense_percentage_upgrade_cost()
 	var defensePercentageUpgradeCostLabel = $"ScrollContainer/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer/UpgradeCost" as Label
-	defensePercentageUpgradeCostLabel.text = str(defensePercentageUpgradeCostValue)
+	defensePercentageUpgradeCostLabel.text = str("%.2f" % defensePercentageUpgradeCostValue)
 	
 	var defenseAbsoluteUpgradeCostValue = GlobalData.get_defense_absolute_upgrade_cost()
 	var defenseAbsoluteUpgradeCostLabel = $"ScrollContainer/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer/UpgradeCost" as Label
-	defenseAbsoluteUpgradeCostLabel.text = str(defenseAbsoluteUpgradeCostValue)
+	defenseAbsoluteUpgradeCostLabel.text = str("%.2f" % defenseAbsoluteUpgradeCostValue)
 
 
 func _upgrade_health(event: InputEvent):

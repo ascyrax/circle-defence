@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed: float = 700.0
+@export var speed: float = 777.77
 var direction:Vector2 = Vector2.ZERO
 var targetEnemey: Area2D
 var damage: float 
