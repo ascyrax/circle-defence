@@ -5,7 +5,7 @@ const _INITIAL_HEALTH  = 10.0 # during wave 1 start
 const _INITIAL_DAMAGE  = 1.0 # during wave 1 start
 const _INITIAL_ATTACK_SPEED  = 1.0 # during wave 1 start
 const _INITIAL_HEALTH_REGENERATION  = 0.0 # during wave 1 start
-const _BASE_ENEMY_SPAWN_PER_WAVE = 1.0
+const _BASE_ENEMY_SPAWN_PER_WAVE = 10.0
 
 var _waveNumber = 1
 var _totalEnemySpawnsPerWave = _BASE_ENEMY_SPAWN_PER_WAVE

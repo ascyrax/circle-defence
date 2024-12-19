@@ -1,0 +1,237 @@
+[gd_scene load_steps=4 format=3 uid="uid://kp11noae6q73"]
+
+[ext_resource type="Texture2D" uid="uid://bf3bmtbitcmnt" path="res://art/dollarNoBg.png" id="1_ogoo6"]
+[ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="2_2acl3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ni32s"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameStats" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 80
+text = "Game Stats
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Difficulty" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "Tier 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wave" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Wave 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighestWave" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Highest Wave: 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "cash
+Earned"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cash" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CashIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/Cash"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_ogoo6")
+expand_mode = 1
+
+[node name="CashValue" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Cash"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "80"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Equals" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Coins 
+Earned"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CoinIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Coin"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("2_2acl3")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Coin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Implies" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "= >"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Total 
+Coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CoinIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer3/Coin"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("2_2acl3")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3/Coin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NavButtons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/NavButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 57
+
+[node name="Home" type="Button" parent="VBoxContainer/NavButtons/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "HOME"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/NavButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 57
+
+[node name="Retry" type="Button" parent="VBoxContainer/NavButtons/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "RETRY"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ni32s")

@@ -1,19 +1,20 @@
 extends Control
 
 var _mainScene = load("res://main.tscn") as PackedScene
-var enemyScene = load("res://enemy.tscn") as PackedScene
-var shooterScene = load("res://shooter.tscn") as PackedScene
-var attackUpgradeScene = load("res://attack_upgrades.tscn") as PackedScene
-var defenseUpgradeScene = load("res://defense_upgrades.tscn") as PackedScene
-var utilityUpgradeScene = load("res://utility_upgrades.tscn") as PackedScene
-var enemySpawnInterval: float = GlobalData.get_enemy_spawn_interval()
-var shooterGlobalPosition
-var shooterSpriteSize = Vector2(0.0, 0.0)
+var _enemyScene = load("res://enemy.tscn") as PackedScene
+var _shooterScene = load("res://shooter.tscn") as PackedScene
+var _attackUpgradeScene = load("res://attack_upgrades.tscn") as PackedScene
+var _defenseUpgradeScene = load("res://defense_upgrades.tscn") as PackedScene
+var _utilityUpgradeScene = load("res://utility_upgrades.tscn") as PackedScene
+var _gameOverScene = load("res://game_over.tscn") as PackedScene
+var _enemySpawnInterval: float = GlobalData.get_enemy_spawn_interval()
+var _shooterGlobalPosition
+var _shooterSpriteSize = Vector2(0.0, 0.0)
 #var _temp = _update_shooter_data()
 #var _temp2 = _update_resources()
 #var _temp3 = _update_wave_data()
 #var _waveNumber:int = 1
-var enemySpawnTimer : Timer
+var _enemySpawnTimer : Timer
 	
 
 func _ready() -> void:
@@ -38,22 +39,22 @@ func _ready() -> void:
 	GlobalData.wave_enemies_killed.connect(_resume_enemy_spawn)
 	GlobalData.wave_changed.connect(_update_wave_data)
 	
-	GlobalData.game_over.connect(_load_main_scene, 0.0)
+	GlobalData.game_over.connect(_load_game_over_scene, 0.0)
 
 func _process(delta: float) -> void:
 	pass
 
 func _pause_enemy_spawn(val: int):
-	enemySpawnTimer.stop()
+	_enemySpawnTimer.stop()
 	GlobalData.set_wave_enemies_spawned(0)
 	
 func _resume_enemy_spawn(val:int):
-	enemySpawnTimer.start()
+	_enemySpawnTimer.start()
 	GlobalData.update_wave_number(+1)
 	GlobalData.set_wave_enemies_killed(0)
 	
-func _load_main_scene(value: float):
-	get_tree().change_scene_to_packed(_mainScene)
+func _load_game_over_scene(value: float):
+	get_tree().change_scene_to_packed(_gameOverScene)
 	
 func _update_shooter_data(value: float):
 	var _health = GlobalData.get_health()
@@ -86,21 +87,21 @@ func _update_wave_data(value: float):
 
 
 func _spawn_shooter():
-	var shooterInstance = shooterScene.instantiate() as Node2D
+	var shooterInstance = _shooterScene.instantiate() as Node2D
 	var shooterContainer = $"Panel/VBoxContainer/GamePlayNode" as Control
 	shooterContainer.add_child(shooterInstance)
 	var shooter = $"Panel/VBoxContainer/GamePlayNode/Shooter" as Node2D
 	var width = shooterContainer.size[0]
 	var height = shooterContainer.size[1]
 	shooter.position = Vector2(width/2.0,height/2.0)
-	shooterGlobalPosition = shooter.global_position
+	_shooterGlobalPosition = shooter.global_position
 	
 	# adjust shooter sprite size
 	var shooterSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Shooter/Sprite2D" as Sprite2D
 	# shooterSprite has a width = height = around 500px
 	# we want it to be 100px wide
 	shooterSprite.scale = Vector2(0.2, 0.2)
-	shooterSpriteSize = shooterSprite.texture.get_size() * shooterSprite.scale
+	_shooterSpriteSize = shooterSprite.texture.get_size() * shooterSprite.scale
 	
 func _set_shooter_range_scale():
 	var shooterRange = $"Panel/VBoxContainer/GamePlayNode/Shooter/Range/CollisionShape2D".shape as CircleShape2D
@@ -110,16 +111,16 @@ func _set_shooter_range_scale():
 	rangeSprite.scale = Vector2(correctScaleX, correctScaleY)
 
 func spawn_enemies():
-	enemySpawnTimer = Timer.new()
-	add_child(enemySpawnTimer)
-	enemySpawnTimer.wait_time = enemySpawnInterval
-	enemySpawnTimer.one_shot= false
-	enemySpawnTimer.connect("timeout", _spawn_enemy)
-	enemySpawnTimer.start()
+	_enemySpawnTimer = Timer.new()
+	add_child(_enemySpawnTimer)
+	_enemySpawnTimer.wait_time = _enemySpawnInterval
+	_enemySpawnTimer.one_shot= false
+	_enemySpawnTimer.connect("timeout", _spawn_enemy)
+	_enemySpawnTimer.start()
 	
 func _spawn_enemy():
 	GlobalData.update_wave_enemies_spawned(+1.0)
-	var newEnemy = enemyScene.instantiate() as Node2D
+	var newEnemy = _enemyScene.instantiate() as Node2D
 
 	var enemyContainer = $"Panel/VBoxContainer/EnemySpawner" as Node2D
 	enemyContainer.add_child(newEnemy)
@@ -147,9 +148,9 @@ func _spawn_enemy():
 	
 	 # Set the direction toward the centreShooterSprite2D
 	if newEnemy.has_method("set_direction"):
-		var direction = (shooterGlobalPosition - newEnemy.position).normalized()
-		newEnemy.set_direction(direction, shooterGlobalPosition)
-		newEnemy.set_collision_from_shooter(shooterSpriteSize)
+		var direction = (_shooterGlobalPosition - newEnemy.position).normalized()
+		newEnemy.set_direction(direction, _shooterGlobalPosition)
+		newEnemy.set_collision_from_shooter(_shooterSpriteSize)
 		newEnemy.set_enemy_rotation()
 
 func _update_resources():
@@ -170,19 +171,19 @@ func _update_gem_value(value):
 	gemValue.text = str("%.2f" % value)
 	
 func _render_attack_upgrades():
-	var attackUpgradeInstance = attackUpgradeScene.instantiate() as Control
+	var attackUpgradeInstance = _attackUpgradeScene.instantiate() as Control
 	var upgradesContainer = $"Panel/VBoxContainer/Upgrades" as Control
 	upgradesContainer.add_child(attackUpgradeInstance)
 	attackUpgradeInstance.set_anchors_preset(Control.PRESET_VCENTER_WIDE)
 
 func _render_defense_upgrades():
-	var defenseUpgradeInstance = defenseUpgradeScene.instantiate() as Control
+	var defenseUpgradeInstance = _defenseUpgradeScene.instantiate() as Control
 	var upgradesContainer = $"Panel/VBoxContainer/Upgrades" as Control
 	upgradesContainer.add_child(defenseUpgradeInstance)
 	defenseUpgradeInstance.set_anchors_preset(Control.PRESET_VCENTER_WIDE)
 
 func _render_utility_upgrades():
-	var utilityUpgradeInstance = utilityUpgradeScene.instantiate() as Control
+	var utilityUpgradeInstance = _utilityUpgradeScene.instantiate() as Control
 	var upgradesContainer = $"Panel/VBoxContainer/Upgrades" as Control
 	upgradesContainer.add_child(utilityUpgradeInstance)
 	utilityUpgradeInstance.set_anchors_preset(Control.PRESET_VCENTER_WIDE)

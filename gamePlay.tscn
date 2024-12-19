@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://ge7iiw6belxm"]
+[gd_scene load_steps=18 format=3 uid="uid://ge7iiw6belxm"]
 
 [ext_resource type="Script" path="res://gamePlay.gd" id="1_v3qar"]
+[ext_resource type="Texture2D" uid="uid://dyqekmlg5bm0c" path="res://art/gamePlayPage/gamePlay2.webp" id="2_3ka0p"]
 [ext_resource type="Texture2D" uid="uid://bf3bmtbitcmnt" path="res://art/dollarNoBg.png" id="2_6lctv"]
 [ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="3_fiwqa"]
 [ext_resource type="Texture2D" uid="uid://ddtkfpdvmx0q" path="res://art/gemNoBg.png" id="4_lo21e"]
@@ -10,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://db8pvuymvargn" path="res://art/menuIcons/defenseNoBg.png" id="10_jb71w"]
 [ext_resource type="AudioStream" uid="uid://8n6oh3ovg2th" path="res://music/abyss.mp3" id="10_q5q26"]
 [ext_resource type="Texture2D" uid="uid://dntv0ifkwehxi" path="res://art/menuIcons/specialNoBg.png" id="11_m7p7c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8b21"]
+texture = ExtResource("2_3ka0p")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4xab"]
 bg_color = Color(0.0749501, 0.221667, 0.379421, 1)
@@ -70,6 +74,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r8b21")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
