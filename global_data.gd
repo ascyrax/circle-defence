@@ -1,7 +1,7 @@
 extends Node
 
-const _INITIAL_DOLLAR_VALUE  = 80.0 # during wave 1 start
-var _dollarValue = _INITIAL_DOLLAR_VALUE
+const _INITIAL_CASH_VALUE  = 80.0 # during wave 1 start
+var _cashValue = _INITIAL_CASH_VALUE
 var _coinValue = 0.0
 var _gemValue = 0.0
 
@@ -9,6 +9,10 @@ var _gemValue = 0.0
 
 # enemy data
 var _enemySpawnInterval = 1.0
+var _enemyHealth = 2.0
+var _enemyDamage = 1.0
+var _enemyCashValue = 1.0
+var _enemyCoinValue = 0.0
 
 # shooter data
 # attack
@@ -52,9 +56,12 @@ var _coinsPerWaveUpgradeCost = 10.0
 # bullet data
 #var _bulletSpeed = 700.00
 
-signal dollar_value_updated
+signal enemy_values_updated
+
+signal cash_value_updated
 signal coin_value_updated
 signal gem_value_updated
+
 signal attack_upgrade_values_updated
 signal defense_upgrade_values_updated
 signal utility_upgrade_values_updated
@@ -66,8 +73,8 @@ signal utility_upgrade_values_updated
 	#_touchActive = val
 
 
-func get_dollar_value():
-	return _dollarValue
+func get_cash_value():
+	return _cashValue
 
 func get_coin_value():
 	return _coinValue
@@ -75,15 +82,9 @@ func get_coin_value():
 func get_gem_value():
 	return _gemValue
 
-func get_enemy_spawn_interval():
-	return _enemySpawnInterval
-	
-func update_enemy_spawn_interval():
-	return _enemySpawnInterval
-
-func update_dollar_value(value: float):
-	_dollarValue += value
-	dollar_value_updated.emit(_dollarValue) #Emit the signal
+func update_cash_value(value: float):
+	_cashValue += value
+	cash_value_updated.emit(_cashValue) #Emit the signal
 
 func update_coin_value(value: float):
 	_coinValue += value
@@ -92,6 +93,33 @@ func update_coin_value(value: float):
 func update_gem_value(value: float):
 	_gemValue += value
 	gem_value_updated.emit(_gemValue) #Emit the signal
+
+# enemy
+func get_enemy_damage():
+	return _enemyDamage
+
+func get_enemy_health():
+	return _enemyHealth
+	
+func get_enemy_spawn_interval():
+	return _enemySpawnInterval
+	
+func get_enemy_cash_value():
+	return _enemyCashValue
+	
+func get_enemy_coin_value():
+	return _enemySpawnInterval
+
+
+func update_enemy_damage(value: float):
+	_enemyDamage += value
+
+func update_enemy_health(value: float):
+	_enemyHealth += value
+	
+func update_enemy_spawn_interval(value: float):
+	_enemySpawnInterval += value
+
 
 # attack
 

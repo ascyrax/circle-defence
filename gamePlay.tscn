@@ -95,12 +95,12 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Dollar" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Cash" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 
-[node name="DollarIcon" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Dollar"]
+[node name="CashIcon" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Cash"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -108,7 +108,7 @@ size_flags_vertical = 4
 texture = ExtResource("2_6lctv")
 expand_mode = 1
 
-[node name="DollarValue" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Dollar"]
+[node name="CashValue" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Cash"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36

@@ -57,7 +57,6 @@ func _upgrade_damage(event: InputEvent):
 func _upgrade_attack_speed(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			print(event.pressed)
 			GlobalData.update_attack_speed(0.1)
 		
 func _upgrade_critical_chance(event: InputEvent):

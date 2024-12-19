@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 	call_deferred("_update_resources")
 	# connect to the global_data.gd (GlobalData) script for global values
-	GlobalData.dollar_value_updated.connect(_update_dollar_value)
+	GlobalData.cash_value_updated.connect(_update_cash_value)
 	GlobalData.coin_value_updated.connect(_update_coin_value)
 	GlobalData.gem_value_updated.connect(_update_gem_value)
 
@@ -45,7 +45,6 @@ func _set_shooter_range_scale():
 	var rangeSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Area2D/Sprite2D" as Sprite2D
 	var correctScaleX = (shooterRange.radius *2.0) / (rangeSprite.texture.get_width() * 1.0)
 	var correctScaleY = (shooterRange.radius *2.0) / (rangeSprite.texture.get_height() * 1.0)
-	print(shooterRange.radius * 2.0, rangeSprite.texture.get_size())
 	rangeSprite.scale = Vector2(correctScaleX, correctScaleY)
 
 func spawn_enemies():
@@ -90,13 +89,13 @@ func _spawn_enemy():
 		newEnemy.set_collision_from_shooter(shooterSpriteSize)
 
 func _update_resources():
-	_update_dollar_value(str(GlobalData.get_dollar_value()))
+	_update_cash_value(str(GlobalData.get_cash_value()))
 	_update_coin_value(str(GlobalData.get_coin_value()))
 	_update_gem_value(str(GlobalData.get_gem_value()))
 
-func _update_dollar_value(value):
-	var dollarValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Dollar/DollarValue" as Label
-	dollarValue.text = str(value)
+func _update_cash_value(value):
+	var cashValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Cash/CashValue" as Label
+	cashValue.text = str(value)
 	
 func _update_coin_value(value):
 	var coinValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Coin/CoinValue" as Label

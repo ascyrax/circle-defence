@@ -45,7 +45,6 @@ func _shoot_enemy():
 func _spawn_bullet():
 	var bullet = bulletScene.instantiate()
 	# TODO: scale the bullet using code :), currently its scaled using inspector
-	bullet.damage = 1.0 # TODO. replace the hardcoded value
 	if(enemiesInRange.size()):
 		add_child(bullet)
 		var enemyArea2D = enemiesInRange[0] as Area2D
@@ -58,7 +57,12 @@ func _spawn_bullet():
 		# hence, i am deciding previously a legit target for each bullet
 		# hence, i have removed any enemy which is alive when the next bullet leave the 
 		# shooter, but will be dead before this bullet could reach it
-		enemyRootNode2D.health -= bullet.damage
-		if(enemyRootNode2D.health <= 0.0):
+		var currentEnemyHealth = enemyRootNode2D.get_current_enemy_health()
+		#var currentBulletDamage =  bullet.get_current_bullet_damage()
+		# this is not working :( since function called by call_deferred present in the bullet.gd's _ready
+		# has not been called yet & its the one responsible for updating bulletValues from GlobalData
+		var currentBulletDamage =  GlobalData.get_damage()
+		if( currentEnemyHealth - currentBulletDamage <= 0.0):
 			enemiesInRange.erase(enemyArea2D) # TODO. USE AN OPTIMAL METHOD
+		enemyRootNode2D.update_health_on_bullet_hit(currentBulletDamage)
 	
