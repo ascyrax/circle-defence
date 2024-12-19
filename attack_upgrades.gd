@@ -45,7 +45,10 @@ func _update_attack_upgrade_values(_unusedUpdateValue:float):
 func _upgrade_damage(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_damage(1.0)
+			if(GlobalData.get_cash_value() >= GlobalData.get_damage_upgrade_cost()):
+				GlobalData.update_damage(1.0)
+				GlobalData.update_cash_value(-GlobalData.get_damage_upgrade_cost())
+				GlobalData.update_damage_upgrade_cost(10.0)
 	#if(event is InputEventMouseButton or event is InputEventScreenTouch):
 		#if(event.pressed and not GlobalData.get_touch_active_value()): # just pressed
 			#GlobalData.update_damage(1.0)
@@ -57,16 +60,25 @@ func _upgrade_damage(event: InputEvent):
 func _upgrade_attack_speed(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_attack_speed(0.1)
+			if(GlobalData.get_cash_value() >= GlobalData.get_attack_speed_upgrade_cost()):
+				GlobalData.update_attack_speed(0.1)
+				GlobalData.update_cash_value(-GlobalData.get_attack_speed_upgrade_cost())
+				GlobalData.update_attack_speed_upgrade_cost(10.0)
 		
 func _upgrade_critical_chance(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_critical_chance(1.0)
+			if(GlobalData.get_cash_value() >= GlobalData.get_critical_chance_upgrade_cost()):
+				GlobalData.update_critical_chance(1.0)
+				GlobalData.update_cash_value(-GlobalData.get_critical_chance_upgrade_cost())
+				GlobalData.update_critical_chance_upgrade_cost(10.0)
 
 func _upgrade_critical_factor(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_critical_factor(0.1)
+			if(GlobalData.get_cash_value() >= GlobalData.get_critical_factor_upgrade_cost()):
+				GlobalData.update_critical_factor(0.1)
+				GlobalData.update_cash_value(-GlobalData.get_critical_factor_upgrade_cost())
+				GlobalData.update_critical_factor_upgrade_cost(10.0)
 		
 		
