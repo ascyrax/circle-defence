@@ -45,21 +45,32 @@ func _update_defense_upgrade_values(_unusedUpdateValue:float):
 func _upgrade_health(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_health(1.0)
+			if(GlobalData.get_cash_value() >= GlobalData.get_health_upgrade_cost()):
+				GlobalData.update_health(1.0)
+				GlobalData.update_cash_value(-GlobalData.get_health_upgrade_cost())
+				GlobalData.update_health_upgrade_cost(10.0)			
 
 func _upgrade_health_regeneration(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_health_regeneration(0.25)
-		
+			if(GlobalData.get_cash_value() >= GlobalData.get_health_regeneration_upgrade_cost()):
+				GlobalData.update_health_regeneration(0.25)
+				GlobalData.update_cash_value(-GlobalData.get_health_regeneration_upgrade_cost())
+				GlobalData.update_health_regeneration_upgrade_cost(10.0)
+				
 func _upgrade_defense_percentage(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_defense_percentage(0.5)
+			if(GlobalData.get_cash_value() >= GlobalData.get_defense_percentage_upgrade_cost()):
+				GlobalData.update_defense_percentage(0.5)
+				GlobalData.update_cash_value(-GlobalData.get_defense_percentage_upgrade_cost())
+				GlobalData.update_defense_percentage_upgrade_cost(10.0)
 
 func _upgrade_defense_absolute(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_defense_absolute(0.25)
-		
+			if(GlobalData.get_cash_value() >= GlobalData.get_defense_absolute_upgrade_cost()):
+				GlobalData.update_defense_absolute(0.25)
+				GlobalData.update_cash_value(-GlobalData.get_defense_absolute_upgrade_cost())
+				GlobalData.update_defense_absolute_upgrade_cost(10.0)		
 		

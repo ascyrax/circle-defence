@@ -45,21 +45,37 @@ func _update_utility_upgrade_values(_unusedUpdateValue:float):
 func _upgrade_cash_bonus(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_cash_bonus(1.0)
+			if(GlobalData.get_cash_value() >= GlobalData.get_cash_bonus()):
+				GlobalData.update_cash_bonus(1.0)
+				GlobalData.update_cash_value(-GlobalData.get_cash_bonus())
+				GlobalData.update_cash_bonus_upgrade_cost(10.0)			
+
 
 func _upgrade_cash_per_wave(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_cash_per_wave(10.0)
+			if(GlobalData.get_cash_value() >= GlobalData.get_cash_per_wave()):
+				GlobalData.update_cash_per_wave(10.0)
+				GlobalData.update_cash_value(-GlobalData.get_cash_per_wave())
+				GlobalData.update_cash_per_wave_upgrade_cost(10.0)			
+
 		
 func _upgrade_coins_per_kill_bonus(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_coins_per_kill_bonus(0.5)
+			if(GlobalData.get_cash_value() >= GlobalData.get_coins_per_kill_bonus()):
+				GlobalData.update_coins_per_kill_bonus(0.5)
+				GlobalData.update_cash_value(-GlobalData.get_coins_per_kill_bonus())
+				GlobalData.update_coins_per_kill_bonus_upgrade_cost(10.0)			
+
 
 func _upgrade_coins_per_wave(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			GlobalData.update_coins_per_wave(2.0)
+			if(GlobalData.get_cash_value() >= GlobalData.get_coins_per_wave()):
+				GlobalData.update_coins_per_wave(2.0)
+				GlobalData.update_cash_value(-GlobalData.get_coins_per_wave())
+				GlobalData.update_coins_per_wave_upgrade_cost(10.0)			
+
 		
 		

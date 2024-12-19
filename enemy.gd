@@ -11,6 +11,7 @@ var enemySpriteSize = Vector2(0.0,0.0)
 var cashValue = 1.0 # cash gained when this enemy dies
 var coinValue = 0.0
 var _updater_temp = _update_enemy_values(0.0)
+var _bulletDamage : float
 
 func _ready() -> void:
 	call_deferred("_set_enemy_sprite_scale")
@@ -53,8 +54,8 @@ func on_bullet_hit(bullet: Area2D):
 	if(bullet.get_parent().is_in_group("bullets")):
 		# destroy enemy on bullet hit
 		# health update is handled during bullet spawn in shoooter.gd :)
-		var bulletDamage = bullet.get_parent().get_current_bullet_damage()
-		_update_health(bulletDamage)
+		#var bulletDamage = bullet.get_parent().get_current_bullet_damage()
+		_update_health(_bulletDamage)
 		if(_health <= 0.0):
 			queue_free()
 			update_cash_value()
@@ -71,6 +72,7 @@ func _update_health(bulletDamage: float):
 
 func update_health_during_bullet_spawn(bulletDamage: float):
 	_healthDuringBulletSpawn -= bulletDamage
+	_bulletDamage = bulletDamage
 
 func get_current_enemy_health():
 	return _healthDuringBulletSpawn
