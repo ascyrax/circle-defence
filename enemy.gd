@@ -9,10 +9,11 @@ var shooterSpriteSize = Vector2(0.0,0.0)
 var enemySpriteSize = Vector2(0.0,0.0)
 var cashValue = 1.0 # cash gained when this enemy dies
 var coinValue = 0.0
+var _updater_temp = _update_enemy_values(0.0)
 
 func _ready() -> void:
 	call_deferred("_set_enemy_sprite_scale")
-	call_deferred("_update_enemy_values", 0.0)
+	#call_deferred("_update_enemy_values", 0.0)
 	GlobalData.enemy_values_updated.connect(_update_enemy_values)
 
 func _process(delta):

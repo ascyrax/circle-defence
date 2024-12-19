@@ -58,10 +58,7 @@ func _spawn_bullet():
 		# hence, i have removed any enemy which is alive when the next bullet leave the 
 		# shooter, but will be dead before this bullet could reach it
 		var currentEnemyHealth = enemyRootNode2D.get_current_enemy_health()
-		#var currentBulletDamage =  bullet.get_current_bullet_damage()
-		# this is not working :( since function called by call_deferred present in the bullet.gd's _ready
-		# has not been called yet & its the one responsible for updating bulletValues from GlobalData
-		var currentBulletDamage =  GlobalData.get_damage()
+		var currentBulletDamage =  bullet.get_current_bullet_damage()
 		if( currentEnemyHealth - currentBulletDamage <= 0.0):
 			enemiesInRange.erase(enemyArea2D) # TODO. USE AN OPTIMAL METHOD
 		enemyRootNode2D.update_health_on_bullet_hit(currentBulletDamage)

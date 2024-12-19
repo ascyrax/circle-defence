@@ -4,10 +4,15 @@ extends Node2D
 var direction:Vector2 = Vector2.ZERO
 var targetEnemey: Area2D
 var _damage: float 
+var _temp = _update_bullet_values(0.0) # this is used to update all the values like _damage and others
+# call_deferred is run after this frame, hence any other .gd files which
+# are using the _damage variable will get 0.0 instead of what they actually 
+# expect, ie the value after running _update_bullet_values() :)
+#  we dont need to do the call_deferred to _update_bullet_values() after this :)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	call_deferred("_update_bullet_values", 0.0)
+	#call_deferred("_update_bullet_values", 0.0)
 	GlobalData.attack_upgrade_values_updated.connect(_update_bullet_values)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
