@@ -5,18 +5,35 @@ var enemiesInRange: Array # TODO. CHANGE THIS TO AN OPTIMAL DATA STRUCTURE
 # REQUIRED: OPTIMAL ELEMENT REMOVAL, 
 var isShooterIdle: bool = true
 var bulletSpawnTimer: Timer = Timer.new()
+var _healthRegenerationTimer :Timer = Timer.new()
 var _attackSpeed: float 
 var _temp = _update_shooter_values(0.0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	call_deferred("_add_bullet_timer")
+	call_deferred("_add_health_regeneration_timer", GlobalData.get_health_regeneration())
 	#call_deferred("_update_shooter_values", 0.0)
 	GlobalData.attack_upgrade_values_updated.connect(_update_shooter_values)
-
+	GlobalData.health_regeneration_value_updated.connect(_add_health_regeneration_timer)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _regenerate_shooter_health():
+	GlobalData.update_health(1.0)
+	
+	
+func _add_health_regeneration_timer(_healthRegeneration : float):
+	add_child(_healthRegenerationTimer)
+	#var _healthRegeneration = GlobalData.get_health_regeneration()
+	if( _healthRegeneration == 0.0 ):
+		_healthRegenerationTimer.wait_time = 100 # 100 represents INFINITY
+	else:
+		_healthRegenerationTimer.wait_time = 1.0 / _healthRegeneration
+	_healthRegenerationTimer.one_shot = false
+	_healthRegenerationTimer.connect("timeout", _regenerate_shooter_health)
+	_healthRegenerationTimer.start()
 
 func _add_bullet_timer():
 	add_child(bulletSpawnTimer)

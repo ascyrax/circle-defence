@@ -9,7 +9,7 @@ var _waveNumber = 1
 #var _touchActive = false
 
 # enemy data
-var _enemySpawnInterval = 0.5
+var _enemySpawnInterval = 1
 var _enemyHealth = 2.0
 var _enemyDamage = 1.0
 var _enemyCashValue = 1.0
@@ -66,6 +66,19 @@ signal gem_value_updated
 signal attack_upgrade_values_updated
 signal defense_upgrade_values_updated
 signal utility_upgrade_values_updated
+
+signal health_regeneration_value_updated
+
+
+
+
+
+
+
+
+
+
+
 
 #func get_touch_active_value():
 	#return _touchActive
@@ -266,6 +279,7 @@ func update_health(value: float):
 func update_health_regeneration(value: float):
 	_healthRegeneration += value
 	defense_upgrade_values_updated.emit(_healthRegeneration)
+	health_regeneration_value_updated.emit(_healthRegeneration)
 
 func update_defense_percentage(value: float):
 	_defensePercentage += value
