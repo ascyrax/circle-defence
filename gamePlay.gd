@@ -139,21 +139,21 @@ func _spawn_enemy():
 		newEnemy.set_enemy_rotation()
 
 func _update_resources():
-	_update_cash_value(str(GlobalData.get_cash_value()))
-	_update_coin_value(str(GlobalData.get_coin_value()))
-	_update_gem_value(str(GlobalData.get_gem_value()))
+	_update_cash_value((GlobalData.get_cash_value()))
+	_update_coin_value((GlobalData.get_coin_value()))
+	_update_gem_value((GlobalData.get_gem_value()))
 
 func _update_cash_value(value):
 	var cashValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Cash/CashValue" as Label
-	cashValue.text = str(value)
+	cashValue.text = str("%.2f" % value)
 	
 func _update_coin_value(value):
 	var coinValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Coin/CoinValue" as Label
-	coinValue.text = str(value)
+	coinValue.text = str("%.2f" % value)
 
 func _update_gem_value(value):
 	var gemValue = $"Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Gem/GemValue" as Label
-	gemValue.text = str(value)
+	gemValue.text = str("%.2f" % value)
 	
 func _render_attack_upgrades():
 	var attackUpgradeInstance = attackUpgradeScene.instantiate() as Control

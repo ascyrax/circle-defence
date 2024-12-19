@@ -1,7 +1,12 @@
 extends Node
 
-const _INITIAL_CASH_VALUE  = 80.0 # during wave 1 start
-var _cashValue = _INITIAL_CASH_VALUE
+const _INITIAL_CASH_VALUE  = 100.0 # during wave 1 start
+const _INITIAL_HEALTH  = 10.0 # during wave 1 start
+const _INITIAL_DAMAGE  = 1.0 # during wave 1 start
+const _INITIAL_ATTACK_SPEED  = 1.0 # during wave 1 start
+const _INITIAL_HEALTH_REGENERATION  = 0.0 # during wave 1 start
+
+var _cashValue = 0.0
 var _coinValue = 0.0
 var _gemValue = 0.0
 var _waveNumber = 1
@@ -10,10 +15,10 @@ var _waveNumber = 1
 
 # enemy data
 var _enemySpawnInterval = 1
-var _enemyHealth = 2.0
-var _enemyDamage = 1.0
-var _enemyCashValue = 1.0
-var _enemyCoinValue = 0.0
+var _enemyHealth = 1.0 * _waveNumber
+var _enemyDamage = 1.0 * _waveNumber
+var _enemyCashValue = 1.0 * _waveNumber
+var _enemyCoinValue = 0.1 * _waveNumber
 
 # shooter data
 # attack
@@ -76,7 +81,12 @@ signal health_regeneration_value_updated
 
 
 
-
+func reset_game_play_values():
+	_health = _INITIAL_HEALTH
+	_damage = _INITIAL_DAMAGE
+	_attackSpeed = _INITIAL_ATTACK_SPEED
+	_healthRegeneration = _INITIAL_HEALTH_REGENERATION
+	_cashValue = _INITIAL_CASH_VALUE
 
 
 
@@ -128,7 +138,7 @@ func get_enemy_cash_value():
 	return _enemyCashValue
 	
 func get_enemy_coin_value():
-	return _enemySpawnInterval
+	return _enemyCoinValue
 
 
 func update_enemy_damage(value: float):
