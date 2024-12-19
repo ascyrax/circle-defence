@@ -46,7 +46,7 @@ func _upgrade_damage(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
 			if(GlobalData.get_cash_value() >= GlobalData.get_damage_upgrade_cost()):
-				GlobalData.update_damage(1.0)
+				GlobalData.update_damage(0.25)
 				GlobalData.update_cash_value(-GlobalData.get_damage_upgrade_cost())
 				GlobalData.update_damage_upgrade_cost(10.0)
 	#if(event is InputEventMouseButton or event is InputEventScreenTouch):
