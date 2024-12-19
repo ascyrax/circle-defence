@@ -4,11 +4,12 @@ const _INITIAL_CASH_VALUE  = 80.0 # during wave 1 start
 var _cashValue = _INITIAL_CASH_VALUE
 var _coinValue = 0.0
 var _gemValue = 0.0
+var _waveNumber = 1
 
 #var _touchActive = false
 
 # enemy data
-var _enemySpawnInterval = 1.0
+var _enemySpawnInterval = 0.5
 var _enemyHealth = 2.0
 var _enemyDamage = 1.0
 var _enemyCashValue = 1.0
@@ -72,6 +73,8 @@ signal utility_upgrade_values_updated
 #func update_touch_active_value(val : bool):
 	#_touchActive = val
 
+func get_wave_number():
+	return _waveNumber
 
 func get_cash_value():
 	return _cashValue
@@ -82,6 +85,9 @@ func get_coin_value():
 func get_gem_value():
 	return _gemValue
 
+func update_wave_number(value: int):
+	_waveNumber += value
+	
 func update_cash_value(value: float):
 	_cashValue += value
 	cash_value_updated.emit(_cashValue) #Emit the signal
@@ -206,6 +212,28 @@ func get_coins_per_kill_bonus_upgrade_cost():
 
 func get_coins_per_wave_upgrade_cost():
 	return _coinsPerWaveUpgradeCost
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 func update_damage(value: float):
 	_damage += value

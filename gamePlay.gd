@@ -8,6 +8,40 @@ var utilityUpgradeScene = load("res://utility_upgrades.tscn") as PackedScene
 var enemySpawnInterval: float = GlobalData.get_enemy_spawn_interval()
 var shooterGlobalPosition
 var shooterSpriteSize = Vector2(0.0, 0.0)
+#var _temp = _update_shooter_data()
+#var _temp2 = _update_resources()
+#var _temp3 = _update_wave_data()
+#var _waveNumber:int = 1
+
+func _update_shooter_data(value: float):
+	var _health = GlobalData.get_health()
+	var _damage = GlobalData.get_damage()
+	var _healthRegeneration = GlobalData.get_health_regeneration()
+	#var _coinMultiplier = GlobalData.get_coin_multiplier() # based on difficulty level
+	
+	var _healthLabel = $Panel/VBoxContainer/Details/Player/PlayerDetails/Control/Label as Label
+	_healthLabel.text = "Health: " + str(_health)
+	
+	var _damageLabel = $Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Damage/Value as Label
+	_damageLabel.text = str(_damage)
+	
+	var _healthRegenerationLabel = $Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Regeneration/Value as Label
+	_healthRegenerationLabel.text = str(_healthRegeneration)
+
+func _update_wave_data(value: float):
+	var _waveNumber = GlobalData.get_wave_number()
+	var _enemyDamage = GlobalData.get_enemy_damage()
+	var _enemyHealth = GlobalData.get_enemy_health()
+	
+	var _waveNumberLabel = $Panel/VBoxContainer/Details/Wave/WaveDetails/Wave/WaveNo as Label
+	var _enemyDamageLabel = $Panel/VBoxContainer/Details/Wave/WaveDetails/Enemy/Attack/Value as Label
+	var _enemyHealthLabel = $Panel/VBoxContainer/Details/Wave/WaveDetails/Enemy/Health/Value as Label
+	
+	_waveNumberLabel.text  = "Wave " + str(_waveNumber)
+	_enemyDamageLabel.text = str("%.2f" % _enemyDamage)
+	_enemyHealthLabel.text = str("%.2f" % _enemyHealth)
+	
+	
 
 func _ready() -> void:
 	# Defer the size calculation to ensure layout is finalized
@@ -17,10 +51,16 @@ func _ready() -> void:
 	call_deferred("_render_attack_upgrades")
 	
 	call_deferred("_update_resources")
+	call_deferred("_update_shooter_data", 0.0)
+	call_deferred("_update_wave_data", 0.0)
 	# connect to the global_data.gd (GlobalData) script for global values
 	GlobalData.cash_value_updated.connect(_update_cash_value)
 	GlobalData.coin_value_updated.connect(_update_coin_value)
 	GlobalData.gem_value_updated.connect(_update_gem_value)
+	
+	GlobalData.attack_upgrade_values_updated.connect(_update_shooter_data)
+	GlobalData.defense_upgrade_values_updated.connect(_update_shooter_data)
+	
 
 func _process(delta: float) -> void:
 	pass

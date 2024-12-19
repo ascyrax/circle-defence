@@ -78,3 +78,10 @@ func _update_shooter_values(unusedVariable: float):
 		bulletSpawnTimer.wait_time = 1.0 / _attackSpeed
 	else:
 		bulletSpawnTimer.wait_time = 10.0 # INFINITY
+
+func _on_enemy_hit(area: Area2D):
+	if(area.get_parent().is_in_group("enemies")):
+		var enemy = area.get_parent()
+		GlobalData.update_health(-enemy.get_current_enemy_damage())
+		#enemy.queue_free()
+		

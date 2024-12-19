@@ -5,7 +5,7 @@ var direction: Vector2 = Vector2.ZERO  # Direction toward the center
 var shooterContainerPosition : Vector2
 var _health: float = 1.0
 var _healthDuringBulletSpawn: float = 1.0
-var damage: float = 1.0
+var _damage: float = 1.0
 var shooterSpriteSize = Vector2(0.0,0.0)
 var enemySpriteSize = Vector2(0.0,0.0)
 var cashValue = 1.0 # cash gained when this enemy dies
@@ -23,13 +23,13 @@ func _process(delta):
 	direction = (shooterContainerPosition - position).normalized()
 	var distance = global_position.distance_to(shooterContainerPosition)
 	# both x & y are scaled to the same value, & the original image was also of the almost equal x & t
-	if(distance > shooterSpriteSize.x/2.0 + enemySpriteSize.x/2.0): 
+	if(distance + 10 > shooterSpriteSize.x/2.0 + enemySpriteSize.x/2.0): 
 		position += direction * speed * delta
-		#TODO this position update can bring the enemy closer to where we wanna stop it
-		# because it could update its position such that the new distance is < shooterSpriteSize + enemySpriteSize
+	#TODO this position update can bring the enemy closer to where we wanna stop it
+	# because it could update its position such that the new distance is < shooterSpriteSize + enemySpriteSize
 
 func _update_enemy_values(unusedValue: float):
-	damage = GlobalData.get_enemy_damage()
+	_damage = GlobalData.get_enemy_damage()
 	_health = GlobalData.get_enemy_health()
 	_healthDuringBulletSpawn = _health
 	cashValue = GlobalData.get_enemy_cash_value()
@@ -80,3 +80,6 @@ func update_health_during_bullet_spawn(bulletDamage: float):
 
 func get_current_enemy_health():
 	return _healthDuringBulletSpawn
+
+func get_current_enemy_damage():
+	return _damage

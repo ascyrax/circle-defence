@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cji3iguujymve" path="res://art/shopNoBg.png" id="5_ktxhp"]
 [ext_resource type="Texture2D" uid="uid://d2wawuxpe7yre" path="res://art/dropdownNoBg.png" id="6_i4elw"]
 [ext_resource type="Texture2D" uid="uid://dab6v7qh8jrbw" path="res://art/menuIcons/attackNoBg.png" id="9_3op3i"]
+[ext_resource type="AudioStream" uid="uid://cx6g5lvf1xl32" path="res://music/toofan.mp3" id="10_83u3h"]
 [ext_resource type="Texture2D" uid="uid://db8pvuymvargn" path="res://art/menuIcons/defenseNoBg.png" id="10_jb71w"]
-[ext_resource type="AudioStream" uid="uid://8n6oh3ovg2th" path="res://music/abyss.mp3" id="10_q5q26"]
 [ext_resource type="Texture2D" uid="uid://dntv0ifkwehxi" path="res://art/menuIcons/specialNoBg.png" id="11_m7p7c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4xab"]
@@ -234,11 +234,11 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Attack" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer"]
+[node name="Damage" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Attack"]
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Damage"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -246,7 +246,7 @@ size_flags_vertical = 4
 texture = ExtResource("9_3op3i")
 expand_mode = 1
 
-[node name="Value" type="Label" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Attack"]
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Damage"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -254,11 +254,11 @@ theme_override_font_sizes/font_size = 25
 text = "1"
 vertical_alignment = 1
 
-[node name="Regenaration" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer"]
+[node name="Regeneration" type="HBoxContainer" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Regenaration"]
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Regeneration"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -266,7 +266,7 @@ size_flags_vertical = 4
 texture = ExtResource("10_jb71w")
 expand_mode = 1
 
-[node name="Value" type="Label" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Regenaration"]
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Regeneration"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -298,6 +298,18 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Details/Player/PlayerDetails/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Wave" type="Panel" parent="Panel/VBoxContainer/Details"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -321,7 +333,7 @@ size_flags_stretch_ratio = 2.0
 [node name="WaveNo" type="Label" parent="Panel/VBoxContainer/Details/Wave/WaveDetails/Wave"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Wave 1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -459,7 +471,7 @@ expand_mode = 1
 [node name="EnemySpawner" type="Node2D" parent="Panel/VBoxContainer"]
 
 [node name="BackGroundMusic" type="AudioStreamPlayer2D" parent="Panel/VBoxContainer"]
-stream = ExtResource("10_q5q26")
+stream = ExtResource("10_83u3h")
 autoplay = true
 parameters/looping = true
 
