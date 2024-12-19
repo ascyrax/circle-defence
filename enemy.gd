@@ -4,6 +4,7 @@ extends Node2D
 var direction = Vector2.ZERO  # Direction toward the center
 var shooterContainerPosition : Vector2
 var _health: float = 1.0
+var _healthDuringBulletSpawn: float = 1.0
 var damage: float = 1.0
 var shooterSpriteSize = Vector2(0.0,0.0)
 var enemySpriteSize = Vector2(0.0,0.0)
@@ -29,6 +30,7 @@ func _process(delta):
 func _update_enemy_values(unusedValue: float):
 	damage = GlobalData.get_enemy_damage()
 	_health = GlobalData.get_enemy_health()
+	_healthDuringBulletSpawn = _health
 	cashValue = GlobalData.get_enemy_cash_value()
 	coinValue = GlobalData.get_enemy_coin_value()
 
@@ -49,16 +51,26 @@ func _set_enemy_sprite_scale():
 
 func on_bullet_hit(bullet: Area2D):
 	if(bullet.get_parent().is_in_group("bullets")):
+		# destroy enemy on bullet hit
+		# health update is handled during bullet spawn in shoooter.gd :)
+		var bulletDamage = bullet.get_parent().get_current_bullet_damage()
+		_update_health(bulletDamage)
 		if(_health <= 0.0):
 			queue_free()
 			update_cash_value()
-			#update_coin_value()
+			update_coin_value()
 
 func update_cash_value():
 	GlobalData.update_cash_value(cashValue)
+	
+func update_coin_value():
+	GlobalData.update_coin_value(coinValue)
 
-func update_health_on_bullet_hit(bulletDamage: float):
+func _update_health(bulletDamage: float):
 	_health -= bulletDamage
 
+func update_health_during_bullet_spawn(bulletDamage: float):
+	_healthDuringBulletSpawn -= bulletDamage
+
 func get_current_enemy_health():
-	return _health
+	return _healthDuringBulletSpawn
