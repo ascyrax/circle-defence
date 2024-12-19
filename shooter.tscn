@@ -13,13 +13,13 @@ script = ExtResource("1_kjh1t")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_swfug")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Range" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_ng7lw")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Range"]
 z_index = -1
 texture = ExtResource("2_kv71a")
 
-[connection signal="area_entered" from="Area2D" to="." method="_enemy_in_shooting_radius"]
+[connection signal="area_entered" from="Range" to="." method="_enemy_in_shooting_radius"]

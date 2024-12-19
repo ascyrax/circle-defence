@@ -41,8 +41,8 @@ func _spawn_shooter():
 	shooterSpriteSize = shooterSprite.texture.get_size() * shooterSprite.scale
 	
 func _set_shooter_range_scale():
-	var shooterRange = $"Panel/VBoxContainer/GamePlayNode/Shooter/Area2D/CollisionShape2D".shape as CircleShape2D
-	var rangeSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Area2D/Sprite2D" as Sprite2D
+	var shooterRange = $"Panel/VBoxContainer/GamePlayNode/Shooter/Range/CollisionShape2D".shape as CircleShape2D
+	var rangeSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Range/Sprite2D" as Sprite2D
 	var correctScaleX = (shooterRange.radius *2.0) / (rangeSprite.texture.get_width() * 1.0)
 	var correctScaleY = (shooterRange.radius *2.0) / (rangeSprite.texture.get_height() * 1.0)
 	rangeSprite.scale = Vector2(correctScaleX, correctScaleY)
