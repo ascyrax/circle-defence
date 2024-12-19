@@ -58,7 +58,7 @@ func spawn_enemies():
 func _spawn_enemy():
 	var newEnemy = enemyScene.instantiate() as Node2D
 
-	var enemyContainer = $"Panel/VBoxContainer/EnemySpawner"
+	var enemyContainer = $"Panel/VBoxContainer/EnemySpawner" as Node2D
 	enemyContainer.add_child(newEnemy)
 	
 	var randNo = randi_range(0,3) # 0, 1, 2 or 3 viz. top, right, bottom or left edge
@@ -87,6 +87,7 @@ func _spawn_enemy():
 		var direction = (shooterGlobalPosition - newEnemy.position).normalized()
 		newEnemy.set_direction(direction, shooterGlobalPosition)
 		newEnemy.set_collision_from_shooter(shooterSpriteSize)
+		newEnemy.set_enemy_rotation()
 
 func _update_resources():
 	_update_cash_value(str(GlobalData.get_cash_value()))

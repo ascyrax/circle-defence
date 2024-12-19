@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var speed: float = randi_range(50, 150)  # Speed of the enemy
-var direction = Vector2.ZERO  # Direction toward the center
+var direction: Vector2 = Vector2.ZERO  # Direction toward the center
 var shooterContainerPosition : Vector2
 var _health: float = 1.0
 var _healthDuringBulletSpawn: float = 1.0
@@ -41,6 +41,10 @@ func set_direction(newDirection: Vector2, newShooterPosition: Vector2):
 
 func set_collision_from_shooter(size: Vector2):
 	shooterSpriteSize = size
+	
+func set_enemy_rotation():
+	rotation = PI/2 # now the bullet is aligned along the +ve x-axis
+	rotation += direction.angle()
 
 func _set_enemy_sprite_scale():
 	var enemyCollisionShape2D = $Area2D/CollisionShape2D.shape as RectangleShape2D
