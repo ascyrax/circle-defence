@@ -36,8 +36,10 @@ func _spawn_shooter():
 	shooterGlobalPosition = shooter.global_position
 	
 	# adjust shooter sprite size
-	var shooterSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Sprite2D" as Sprite2D
-	shooterSprite.scale = Vector2(0.1, 0.1)
+	var shooterSprite = $"Panel/VBoxContainer/GamePlayNode/Shooter/Shooter/Sprite2D" as Sprite2D
+	# shooterSprite has a width = height = around 500px
+	# we want it to be 100px wide
+	shooterSprite.scale = Vector2(0.2, 0.2)
 	shooterSpriteSize = shooterSprite.texture.get_size() * shooterSprite.scale
 	
 func _set_shooter_range_scale():

@@ -26,7 +26,7 @@ func _set_rotation():
 	rotation = PI/2 # now the bullet is aligned along the +ve x-axis
 	rotation += direction.angle()
 
-func set_target_enemy(enemy: Area2D):
+func set_target_enemy(enemy: ):
 	targetEnemey = enemy
 	_set_direction((enemy.global_position - global_position).normalized())
 	_set_rotation()
