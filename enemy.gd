@@ -62,6 +62,7 @@ func on_bullet_hit(bullet: Area2D):
 		_update_health(_bulletDamage)
 		if(_health <= 0.0):
 			queue_free()
+			GlobalData.update_wave_enemies_killed(+1)
 			update_cash_value()
 			update_coin_value()
 

@@ -13,6 +13,7 @@ var shooterSpriteSize = Vector2(0.0, 0.0)
 #var _temp2 = _update_resources()
 #var _temp3 = _update_wave_data()
 #var _waveNumber:int = 1
+var enemySpawnTimer : Timer
 	
 
 func _ready() -> void:
@@ -33,12 +34,25 @@ func _ready() -> void:
 	GlobalData.attack_upgrade_values_updated.connect(_update_shooter_data)
 	GlobalData.defense_upgrade_values_updated.connect(_update_shooter_data)
 	
+	GlobalData.wave_enemies_spawned.connect(_pause_enemy_spawn)
+	GlobalData.wave_enemies_killed.connect(_resume_enemy_spawn)
+	GlobalData.wave_changed.connect(_update_wave_data)
+	
 	GlobalData.game_over.connect(_load_main_scene, 0.0)
 
 
 func _process(delta: float) -> void:
 	pass
 
+func _pause_enemy_spawn(val: int):
+	enemySpawnTimer.stop()
+	GlobalData.set_wave_enemies_spawned(0)
+	
+func _resume_enemy_spawn(val:int):
+	enemySpawnTimer.start()
+	GlobalData.update_wave_number(+1)
+	GlobalData.set_wave_enemies_killed(0)
+	
 func _load_main_scene(value: float):
 	get_tree().change_scene_to_packed(_mainScene)
 	
@@ -97,7 +111,7 @@ func _set_shooter_range_scale():
 	rangeSprite.scale = Vector2(correctScaleX, correctScaleY)
 
 func spawn_enemies():
-	var enemySpawnTimer = Timer.new()
+	enemySpawnTimer = Timer.new()
 	add_child(enemySpawnTimer)
 	enemySpawnTimer.wait_time = enemySpawnInterval
 	enemySpawnTimer.one_shot= false
@@ -105,6 +119,7 @@ func spawn_enemies():
 	enemySpawnTimer.start()
 	
 func _spawn_enemy():
+	GlobalData.update_wave_enemies_spawned(+1.0)
 	var newEnemy = enemyScene.instantiate() as Node2D
 
 	var enemyContainer = $"Panel/VBoxContainer/EnemySpawner" as Node2D

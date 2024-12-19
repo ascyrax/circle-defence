@@ -5,11 +5,15 @@ const _INITIAL_HEALTH  = 10.0 # during wave 1 start
 const _INITIAL_DAMAGE  = 1.0 # during wave 1 start
 const _INITIAL_ATTACK_SPEED  = 1.0 # during wave 1 start
 const _INITIAL_HEALTH_REGENERATION  = 0.0 # during wave 1 start
+const _BASE_ENEMY_SPAWN_PER_WAVE = 1.0
+
+var _waveNumber = 1
+var _totalEnemySpawnsPerWave = _BASE_ENEMY_SPAWN_PER_WAVE + _waveNumber
 
 var _cashValue = 0.0
 var _coinValue = 0.0
 var _gemValue = 0.0
-var _waveNumber = 1
+
 
 #var _touchActive = false
 
@@ -63,6 +67,13 @@ var _coinsPerWaveUpgradeCost = 10.0
 #var _bulletSpeed = 700.00
 signal game_over
 
+
+var _waveEnemiesSpawned = 0.0
+var _waveEnemiesKilled = 0.0
+signal wave_enemies_spawned
+signal wave_enemies_killed
+signal wave_changed
+
 signal enemy_values_updated
 
 signal cash_value_updated
@@ -75,11 +86,8 @@ signal utility_upgrade_values_updated
 
 signal health_regeneration_value_updated
 
-
-
-
-
-
+func set_total_enemy_spawns_per_wave(val: int):
+	_totalEnemySpawnsPerWave = val
 
 func reset_game_play_values():
 	_health = _INITIAL_HEALTH
@@ -87,7 +95,31 @@ func reset_game_play_values():
 	_attackSpeed = _INITIAL_ATTACK_SPEED
 	_healthRegeneration = _INITIAL_HEALTH_REGENERATION
 	_cashValue = _INITIAL_CASH_VALUE
+	_waveNumber = 1
 
+
+func get_wave_enemies_spawned():
+	return _waveEnemiesSpawned
+
+func update_wave_enemies_spawned(value : float):
+	_waveEnemiesSpawned += value
+	if(_waveEnemiesSpawned == _totalEnemySpawnsPerWave):
+		wave_enemies_spawned.emit(_waveEnemiesSpawned)
+
+func set_wave_enemies_spawned(value: float):
+	_waveEnemiesSpawned = value
+
+
+func get_wave_enemies_killed():
+	return _waveEnemiesKilled
+
+func update_wave_enemies_killed(value : float):
+	_waveEnemiesKilled += value
+	if(_waveEnemiesKilled == _totalEnemySpawnsPerWave):
+		wave_enemies_killed.emit(_waveEnemiesKilled)
+
+func set_wave_enemies_killed(value: float):
+	_waveEnemiesKilled = value
 
 
 
@@ -111,6 +143,9 @@ func get_gem_value():
 
 func update_wave_number(value: int):
 	_waveNumber += value
+	wave_changed.emit(_waveNumber)
+	set_total_enemy_spawns_per_wave(_BASE_ENEMY_SPAWN_PER_WAVE + _waveNumber)
+	
 	
 func update_cash_value(value: float):
 	_cashValue += value
