@@ -56,6 +56,7 @@ var _coinsPerWaveUpgradeCost = 10.0
 # i dont wanna make an extra function call for each bullet :)
 # bullet data
 #var _bulletSpeed = 700.00
+signal game_over
 
 signal enemy_values_updated
 
@@ -275,6 +276,9 @@ func update_damage_per_meter(value: float):
 func update_health(value: float):
 	_health += value
 	defense_upgrade_values_updated.emit(_health)
+	if(_health <= 0.0):
+		game_over.emit(_health)
+	
 
 func update_health_regeneration(value: float):
 	_healthRegeneration += value

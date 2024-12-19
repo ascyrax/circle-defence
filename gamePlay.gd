@@ -1,5 +1,6 @@
 extends Control
 
+var _mainScene = load("res://main.tscn") as PackedScene
 var enemyScene = load("res://enemy.tscn") as PackedScene
 var shooterScene = load("res://shooter.tscn") as PackedScene
 var attackUpgradeScene = load("res://attack_upgrades.tscn") as PackedScene
@@ -12,7 +13,35 @@ var shooterSpriteSize = Vector2(0.0, 0.0)
 #var _temp2 = _update_resources()
 #var _temp3 = _update_wave_data()
 #var _waveNumber:int = 1
+	
 
+func _ready() -> void:
+	# Defer the size calculation to ensure layout is finalized
+	call_deferred("_spawn_shooter")
+	call_deferred("_set_shooter_range_scale")
+	call_deferred("spawn_enemies")
+	call_deferred("_render_attack_upgrades")
+	
+	call_deferred("_update_resources")
+	call_deferred("_update_shooter_data", 0.0)
+	call_deferred("_update_wave_data", 0.0)
+	# connect to the global_data.gd (GlobalData) script for global values
+	GlobalData.cash_value_updated.connect(_update_cash_value)
+	GlobalData.coin_value_updated.connect(_update_coin_value)
+	GlobalData.gem_value_updated.connect(_update_gem_value)
+	
+	GlobalData.attack_upgrade_values_updated.connect(_update_shooter_data)
+	GlobalData.defense_upgrade_values_updated.connect(_update_shooter_data)
+	
+	GlobalData.game_over.connect(_load_main_scene, 0.0)
+
+
+func _process(delta: float) -> void:
+	pass
+
+func _load_main_scene(value: float):
+	get_tree().change_scene_to_packed(_mainScene)
+	
 func _update_shooter_data(value: float):
 	var _health = GlobalData.get_health()
 	var _damage = GlobalData.get_damage()
@@ -41,30 +70,8 @@ func _update_wave_data(value: float):
 	_enemyDamageLabel.text = str("%.2f" % _enemyDamage)
 	_enemyHealthLabel.text = str("%.2f" % _enemyHealth)
 	
-	
 
-func _ready() -> void:
-	# Defer the size calculation to ensure layout is finalized
-	call_deferred("_spawn_shooter")
-	call_deferred("_set_shooter_range_scale")
-	call_deferred("spawn_enemies")
-	call_deferred("_render_attack_upgrades")
-	
-	call_deferred("_update_resources")
-	call_deferred("_update_shooter_data", 0.0)
-	call_deferred("_update_wave_data", 0.0)
-	# connect to the global_data.gd (GlobalData) script for global values
-	GlobalData.cash_value_updated.connect(_update_cash_value)
-	GlobalData.coin_value_updated.connect(_update_coin_value)
-	GlobalData.gem_value_updated.connect(_update_gem_value)
-	
-	GlobalData.attack_upgrade_values_updated.connect(_update_shooter_data)
-	GlobalData.defense_upgrade_values_updated.connect(_update_shooter_data)
-	
 
-func _process(delta: float) -> void:
-	pass
-	
 func _spawn_shooter():
 	var shooterInstance = shooterScene.instantiate() as Node2D
 	var shooterContainer = $"Panel/VBoxContainer/GamePlayNode" as Control
