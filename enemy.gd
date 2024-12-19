@@ -10,7 +10,7 @@ var shooterSpriteSize = Vector2(0.0,0.0)
 var enemySpriteSize = Vector2(0.0,0.0)
 var cashValue = 1.0 # cash gained when this enemy dies
 var coinValue = 0.0
-var _updater_temp = _update_enemy_values(0.0)
+var _temp = _update_enemy_values(0.0)
 var _bulletDamage : float
 
 func _ready() -> void:

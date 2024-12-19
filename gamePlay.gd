@@ -40,7 +40,6 @@ func _ready() -> void:
 	
 	GlobalData.game_over.connect(_load_main_scene, 0.0)
 
-
 func _process(delta: float) -> void:
 	pass
 
