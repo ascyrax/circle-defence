@@ -3,8 +3,8 @@ extends Node
 
 # RESOURCES
 
-const _initialCashValue  = 100.0 # during wave 1 start
-const _initialCoinValue  = 1000.0 # during wave 1 start
+const _initialCashValue  = 10.0 # during wave 1 start
+const _initialCoinValue  = 0.0 # during game start
 
 var _cashValue = _initialCashValue
 var _coinValue = _initialCoinValue
