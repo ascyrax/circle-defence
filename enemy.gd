@@ -28,7 +28,7 @@ func _process(delta):
 	#TODO this position update can bring the enemy closer to where we wanna stop it
 	# because it could update its position such that the new distance is < shooterSpriteSize + enemySpriteSize
 
-func _update_enemy_values(unusedValue: float):
+func _update_enemy_values(_unusedValue: float):
 	_damage = GlobalData.get_enemy_damage()
 	_health = GlobalData.get_enemy_health()
 	_healthDuringBulletSpawn = _health

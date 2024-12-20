@@ -32,31 +32,23 @@ border_width_bottom = 5
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjbum"]
-bg_color = Color(0.517647, 0.243137, 0.0666667, 0.392157)
+bg_color = Color(0.300287, 0.0715638, 0.0230159, 0.784314)
 border_width_left = 5
 border_width_top = 5
-border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.455621, 0.0791371, 0.1225, 1)
-border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqcre"]
-bg_color = Color(0.0666667, 0.737255, 0.85098, 0.392157)
+bg_color = Color(0.00758157, 0.263427, 0.309185, 0.392157)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.0132197, 0.218618, 0.230972, 1)
-border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhhb4"]
-bg_color = Color(0.278431, 0.552941, 0.313726, 0.392157)
-border_width_left = 5
+bg_color = Color(0.095688, 0.221899, 0.112077, 0.392157)
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.289463, 0.226826, 0.0741805, 1)
-border_blend = true
 
 [node name="GamePlay" type="Control"]
 layout_mode = 3
@@ -394,13 +386,12 @@ expand_mode = 1
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.5
+size_flags_stretch_ratio = 2.0
 
 [node name="UpgradeNav" type="HBoxContainer" parent="Panel/VBoxContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
 theme_override_constants/separation = 2
 
 [node name="Attack" type="Panel" parent="Panel/VBoxContainer/UpgradeNav"]
@@ -409,7 +400,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_tjbum")
 
 [node name="Attack" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav/Attack"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -433,7 +424,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_eqcre")
 
 [node name="Defense" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav/Defense"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -457,7 +448,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_fhhb4")
 
 [node name="Utility" type="TextureRect" parent="Panel/VBoxContainer/UpgradeNav/Utility"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

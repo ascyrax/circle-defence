@@ -1,6 +1,6 @@
 extends Control
 
-var _mainScene = load("res://main.tscn") as PackedScene
+#var _mainScene = load("res://main.tscn") as PackedScene
 var _enemyScene = load("res://enemy.tscn") as PackedScene
 var _shooterScene = load("res://shooter.tscn") as PackedScene
 var _attackUpgradeScene = load("res://attack_upgrades.tscn") as PackedScene
@@ -13,9 +13,8 @@ var _shooterSpriteSize = Vector2(0.0, 0.0)
 #var _temp = _update_shooter_data()
 #var _temp2 = _update_resources()
 #var _temp3 = _update_wave_data()
-#var _waveNumber:int = 1
+#var _waveNumber:float = 1
 var _enemySpawnTimer : Timer
-	
 
 func _ready() -> void:
 	# Defer the size calculation to ensure layout is finalized
@@ -41,22 +40,19 @@ func _ready() -> void:
 	
 	GlobalData.game_over.connect(_load_game_over_scene, 0.0)
 
-func _process(delta: float) -> void:
-	pass
-
-func _pause_enemy_spawn(val: int):
+func _pause_enemy_spawn(_val: float):
 	_enemySpawnTimer.stop()
 	GlobalData.set_wave_enemies_spawned(0)
 	
-func _resume_enemy_spawn(val:int):
+func _resume_enemy_spawn(_val:float):
 	_enemySpawnTimer.start()
 	GlobalData.update_wave_number(+1)
 	GlobalData.set_wave_enemies_killed(0)
 	
-func _load_game_over_scene(value: float):
+func _load_game_over_scene(_value: float):
 	get_tree().change_scene_to_packed(_gameOverScene)
 	
-func _update_shooter_data(value: float):
+func _update_shooter_data(_value: float):
 	var _health = GlobalData.get_health()
 	var _damage = GlobalData.get_damage()
 	var _healthRegeneration = GlobalData.get_health_regeneration()
@@ -71,7 +67,7 @@ func _update_shooter_data(value: float):
 	var _healthRegenerationLabel = $Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Regeneration/Value as Label
 	_healthRegenerationLabel.text = str(_healthRegeneration)
 
-func _update_wave_data(value: float):
+func _update_wave_data(_value: float):
 	var _waveNumber = GlobalData.get_wave_number()
 	var _enemyDamage = GlobalData.get_enemy_damage()
 	var _enemyHealth = GlobalData.get_enemy_health()

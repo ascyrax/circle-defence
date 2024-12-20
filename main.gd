@@ -11,10 +11,6 @@ func _ready() -> void:
 	# reset the gameplay specific values. e.g. wave1 begin cash values, health, etc.
 	GlobalData.reset_game_play_values()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _render_game_play_scene() -> void:
 	get_tree().change_scene_to_packed(_gamePlayScene)
 

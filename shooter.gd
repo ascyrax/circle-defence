@@ -16,9 +16,6 @@ func _ready() -> void:
 	#call_deferred("_update_shooter_values", 0.0)
 	GlobalData.attack_upgrade_values_updated.connect(_update_shooter_values)
 	GlobalData.health_regeneration_value_updated.connect(_add_health_regeneration_timer)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _regenerate_shooter_health():
 	GlobalData.update_health(1.0)
@@ -89,7 +86,7 @@ func _spawn_bullet():
 		# shooter, but will be dead before this bullet could reach it
 		#enemyRootNode2D.update_health_on_bullet_hit(currentBulletDamage)
 	
-func _update_shooter_values(unusedVariable: float):
+func _update_shooter_values(_unusedVariable: float):
 	_attackSpeed = GlobalData.get_attack_speed()
 	if(_attackSpeed != 0):
 		bulletSpawnTimer.wait_time = 1.0 / _attackSpeed

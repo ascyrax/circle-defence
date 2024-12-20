@@ -36,7 +36,7 @@ func on_enemy_hit(enemy: Area2D):
 	if(enemy.get_parent().is_in_group("enemies") && enemy == targetEnemey):
 		queue_free()
 
-func _update_bullet_values(unused_value: float):
+func _update_bullet_values(_unusedValue: float):
 	_damage = GlobalData.get_damage()
 	
 func get_current_bullet_damage():

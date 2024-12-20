@@ -37,33 +37,25 @@ border_width_bottom = 2
 border_color = Color(0.133333, 0.815686, 0.968627, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6odi"]
-bg_color = Color(0.0666667, 0.0666667, 0.0666667, 0.784314)
+bg_color = Color(0.0789282, 0.00900818, 0.00900885, 0.784314)
 border_width_left = 5
 border_width_top = 5
-border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.455621, 0.0791371, 0.1225, 1)
-border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lejse"]
-bg_color = Color(0.0666667, 0.0666667, 0.0666667, 0.784314)
+bg_color = Color(0.00433501, 0.123686, 0.170746, 0.784314)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.0132197, 0.218618, 0.230972, 1)
-border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qki0a"]
-bg_color = Color(0.0666667, 0.0666667, 0.0666667, 0.784314)
-border_width_left = 5
+bg_color = Color(0.00295343, 0.113728, 0.00283523, 0.784314)
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.289463, 0.226826, 0.0741805, 1)
-border_blend = true
 
-[node name="Upgrade" type="Control"]
+[node name="Upgrades" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -176,6 +168,7 @@ texture = ExtResource("4_cxodk")
 expand_mode = 1
 
 [node name="Attack" type="ScrollContainer" parent="MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(480, 720)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
@@ -257,7 +250,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "0
+text = "0.0
 "
 
 [node name="Speed" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack"]
@@ -478,152 +471,8 @@ theme_override_font_sizes/font_size = 36
 text = "0
 "
 
-[node name="Range" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Range" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
-
-[node name="Range" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 36
-text = "Range"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
-text = "30.00m"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer/UpgradeCost"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer/UpgradeCost/Coin"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-texture = ExtResource("1_bmyup")
-expand_mode = 1
-
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer/UpgradeCost/Coin"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_font_sizes/font_size = 36
-text = "0
-"
-
-[node name="DamagePerMeter" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
-
-[node name="DamagePerMeter" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 36
-text = "Damage
-/
-Meter"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
-text = "x1.0000/m"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer/UpgradeCost"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer/UpgradeCost/Coin"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-texture = ExtResource("1_bmyup")
-expand_mode = 1
-
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer/UpgradeCost/Coin"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_font_sizes/font_size = 36
-text = "0
-"
-
 [node name="Defense" type="ScrollContainer" parent="MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(480, 720)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
@@ -632,17 +481,17 @@ size_flags_stretch_ratio = 8.0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer"]
+[node name="Health" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Health" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer"]
+[node name="Health" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/Health"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -651,7 +500,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/Health/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -661,11 +510,11 @@ text = "Health
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/Health/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -675,7 +524,7 @@ text = "10
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -684,7 +533,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer/UpgradeCost"]
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer/UpgradeCost"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -693,7 +542,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -701,7 +550,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_bmyup")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -709,12 +558,12 @@ theme_override_font_sizes/font_size = 36
 text = "0
 "
 
-[node name="HealthRegeneration" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer"]
+[node name="HealthRegeneration" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/HealthRegeneration"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -723,7 +572,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/HealthRegeneration/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -733,11 +582,11 @@ Regeneration"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/HealthRegeneration/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -746,7 +595,7 @@ text = "1.10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -755,7 +604,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost"]
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -764,7 +613,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -772,7 +621,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_bmyup")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -780,17 +629,17 @@ theme_override_font_sizes/font_size = 36
 text = "0
 "
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer"]
+[node name="Defense" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DefensePercentage" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2"]
+[node name="Percentage" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Percentage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -799,7 +648,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Percentage/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -810,11 +659,11 @@ Percentage
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Percentage/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -823,7 +672,7 @@ text = "1.00%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -832,7 +681,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer/UpgradeCost"]
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer/UpgradeCost"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -841,7 +690,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -849,7 +698,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_bmyup")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -857,12 +706,12 @@ theme_override_font_sizes/font_size = 36
 text = "0
 "
 
-[node name="DefenseAbsolut" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2"]
+[node name="Absolute" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Absolute"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -871,7 +720,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Absolute/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -881,11 +730,11 @@ Absolute"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Absolute/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -894,7 +743,7 @@ text = "x1.20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -903,7 +752,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer/UpgradeCost"]
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer/UpgradeCost"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -912,7 +761,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -920,7 +769,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_bmyup")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -929,6 +778,7 @@ text = "0
 "
 
 [node name="Utility" type="ScrollContainer" parent="MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(480, 720)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
@@ -937,17 +787,17 @@ size_flags_stretch_ratio = 8.0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer"]
+[node name="Cash" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CashBonus" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer"]
+[node name="CashBonus" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashBonus"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -956,7 +806,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -967,11 +817,11 @@ Bonus
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -981,7 +831,7 @@ text = "13
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -990,7 +840,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost"]
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -999,7 +849,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -1007,7 +857,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_bmyup")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -1015,12 +865,12 @@ theme_override_font_sizes/font_size = 36
 text = "0
 "
 
-[node name="CashPerWave" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer"]
+[node name="CashPerWave" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashPerWave"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1029,7 +879,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashPerWave/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1040,11 +890,11 @@ Wave"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashPerWave/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -1053,7 +903,7 @@ text = "1.10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -1062,7 +912,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost"]
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1071,7 +921,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -1079,7 +929,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_bmyup")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -1087,17 +937,17 @@ theme_override_font_sizes/font_size = 36
 text = "0
 "
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer"]
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CoinPerKillBonus" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2"]
+[node name="CoinPerKillBonus" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerKillBonus"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1106,7 +956,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerKillBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1116,11 +966,11 @@ Bonus"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerKillBonus/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerKillBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -1129,7 +979,7 @@ text = "1.00%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerKillBonus/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -1138,7 +988,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost"]
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1147,7 +997,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -1155,7 +1005,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_bmyup")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -1163,12 +1013,12 @@ theme_override_font_sizes/font_size = 36
 text = "0
 "
 
-[node name="CoinPerWave" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2"]
+[node name="CoinPerWave" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerWave"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1177,7 +1027,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerWave/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1188,11 +1038,11 @@ Wave"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerWave/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -1201,7 +1051,7 @@ text = "x1.20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer"]
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerWave/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -1210,7 +1060,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost"]
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1219,7 +1069,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -1227,7 +1077,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_bmyup")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -1247,7 +1097,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_k6odi")
 
 [node name="Attack" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/UpgradeNav/Attack"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1271,7 +1121,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_lejse")
 
 [node name="Defense" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/UpgradeNav/Defense"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1295,7 +1145,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_qki0a")
 
 [node name="Utility" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/UpgradeNav/Utility"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1312,6 +1162,18 @@ size_flags_horizontal = 6
 texture = ExtResource("4_c40er")
 expand_mode = 1
 
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_damage"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_attack_speed"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_critical_chance"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Factor/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_critical_factor"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/Health/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_health"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Health/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_health_regeneration"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Percentage/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_defense_percentage"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/Defense/Absolute/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_defense_absolute"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_cash_bonus"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Cash/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_cash_per_wave"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_coins_per_kill_bonus"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/Coin/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_coins_per_wave"]
 [connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/UpgradeNav/Attack" to="." method="_handle_attack_nav_click"]
 [connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/UpgradeNav/Defense" to="." method="_handle_defense_nav_click"]
 [connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/UpgradeNav/Utility" to="." method="_handle_utility_nav_click"]
