@@ -110,6 +110,8 @@ func reset_game_play_values():
 	_healthRegeneration = _INITIAL_HEALTH_REGENERATION
 	_cashValue = _INITIAL_CASH_VALUE
 	_waveNumber = 1
+	_waveEnemiesSpawned = 0
+	_waveEnemiesKilled = 0
 
 func get_total_enemy_spawns_per_wave():
 	return _totalEnemySpawnsPerWave + _waveNumber

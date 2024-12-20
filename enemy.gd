@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed: float = randi_range(50, 150)  # Speed of the enemy
+@export var speed: float = randi_range(500, 1500)  # Speed of the enemy
 var direction: Vector2 = Vector2.ZERO  # Direction toward the center
 var shooterContainerPosition : Vector2
 var _health: float = 1.0

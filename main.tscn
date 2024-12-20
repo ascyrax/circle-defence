@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_6vmq6"]
 [ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="1_kbnls"]
 [ext_resource type="Texture2D" uid="uid://ddtkfpdvmx0q" path="res://art/gemNoBg.png" id="2_20ilc"]
-[ext_resource type="Texture2D" uid="uid://b7rftohn7j1s" path="res://art/homePage/homePage2.webp" id="2_xlq06"]
+[ext_resource type="Texture2D" uid="uid://dr15m7vjh13gk" path="res://art/homePage/homePage3.webp" id="2_hgovi"]
 [ext_resource type="Texture2D" uid="uid://iswymve6np52" path="res://art/galacticCoinNoBg.png" id="3_ik8ja"]
 [ext_resource type="Texture2D" uid="uid://d2wawuxpe7yre" path="res://art/dropdownNoBg.png" id="4_7hq1x"]
 [ext_resource type="Texture2D" uid="uid://b6sf3ma15pflr" path="res://art/hexagonNoBg.png" id="6_yawj3"]
@@ -13,10 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://cji3iguujymve" path="res://art/shopNoBg.png" id="9_gbrt5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yt2ac"]
-texture = ExtResource("2_xlq06")
+texture = ExtResource("2_hgovi")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jtxea"]
-texture = ExtResource("2_xlq06")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jygg2"]
 content_margin_left = 10.0
@@ -302,6 +301,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
+text = "<"
 
 [node name="Tier" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings/HBoxContainer"]
 layout_mode = 2
@@ -316,6 +316,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
+text = ">"
 
 [node name="HighestWave" type="Label" parent="Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings"]
 layout_mode = 2

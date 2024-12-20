@@ -63,7 +63,7 @@ func _update_shooter_data(value: float):
 	#var _coinMultiplier = GlobalData.get_coin_multiplier() # based on difficulty level
 	
 	var _healthLabel = $Panel/VBoxContainer/Details/Player/PlayerDetails/Control/Label as Label
-	_healthLabel.text = "Health: " + str(_health)
+	_healthLabel.text = "Health: " + str("%.2f" % _health)
 	
 	var _damageLabel = $Panel/VBoxContainer/Details/Player/PlayerDetails/HBoxContainer/Damage/Value as Label
 	_damageLabel.text = str(_damage)
