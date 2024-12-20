@@ -1,0 +1,1317 @@
+[gd_scene load_steps=17 format=3 uid="uid://bchcxtc08h6wr"]
+
+[ext_resource type="Script" path="res://upgrades.gd" id="1_6ywqi"]
+[ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="1_bmyup"]
+[ext_resource type="Texture2D" uid="uid://cewwx0yxod65" path="res://art/homePage/homePage6.webp" id="1_ixocr"]
+[ext_resource type="Texture2D" uid="uid://dab6v7qh8jrbw" path="res://art/menuIcons/attackNoBg.png" id="2_tj6bk"]
+[ext_resource type="Texture2D" uid="uid://ddtkfpdvmx0q" path="res://art/gemNoBg.png" id="2_vtbwq"]
+[ext_resource type="Texture2D" uid="uid://db8pvuymvargn" path="res://art/menuIcons/defenseNoBg.png" id="3_prf18"]
+[ext_resource type="Texture2D" uid="uid://iswymve6np52" path="res://art/galacticCoinNoBg.png" id="3_rm2at"]
+[ext_resource type="Texture2D" uid="uid://dntv0ifkwehxi" path="res://art/menuIcons/specialNoBg.png" id="4_c40er"]
+[ext_resource type="Texture2D" uid="uid://d2wawuxpe7yre" path="res://art/dropdownNoBg.png" id="4_cxodk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a6rp2"]
+texture = ExtResource("1_ixocr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulq1a"]
+bg_color = Color(0.0745098, 0.223529, 0.380392, 0.784314)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v0hk"]
+bg_color = Color(0.0745098, 0.223529, 0.380392, 0.784314)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133333, 0.815686, 0.968627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q26v"]
+bg_color = Color(0.121569, 0.317647, 0.52549, 0.784314)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133333, 0.815686, 0.968627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6odi"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 0.784314)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.455621, 0.0791371, 0.1225, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lejse"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 0.784314)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0132197, 0.218618, 0.230972, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qki0a"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 0.784314)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.289463, 0.226826, 0.0741805, 1)
+border_blend = true
+
+[node name="Upgrade" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ywqi")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a6rp2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 2
+offset_right = 1080.0
+offset_bottom = 1920.0
+
+[node name="ResourcePanel" type="Panel" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResourceDisplay" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="Gem" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GemIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Gem"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("2_vtbwq")
+expand_mode = 1
+
+[node name="GemValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay/Gem"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="_sth" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay/_sth"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("3_rm2at")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay/_sth"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="DropDown" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/ResourcePanel/ResourceDisplay/DropDown"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("4_cxodk")
+expand_mode = 1
+
+[node name="Attack" type="ScrollContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Attack" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Damage" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "13
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="Speed" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Attack 
+Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "1.10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="Critical" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Chance" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Critical
+Chance"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "1.00%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="Factor" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Factor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Factor/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Critical
+Factor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Factor/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Factor/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "x1.20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Factor/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Factor/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Factor/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Factor/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="Range" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Range" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="Range" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Range"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "30.00m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/Range/Range/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="DamagePerMeter" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="DamagePerMeter" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Damage
+/
+Meter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "x1.0000/m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Range/DamagePerMeter/DamagePerMeter/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="Defense" type="ScrollContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Health" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Health
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "10
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/Health/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="HealthRegeneration" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Health
+Regeneration"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "1.10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer/HealthRegeneration/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DefensePercentage" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Defense
+Percentage
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "1.00%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefensePercentage/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="DefenseAbsolut" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Defense
+Absolute"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "x1.20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Defense/VBoxContainer/HBoxContainer2/DefenseAbsolut/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="Utility" type="ScrollContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CashBonus" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Cash / Kill
+Bonus
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "13
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="CashPerWave" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Cash 
+/
+Wave"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "1.10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer/CashPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CoinPerKillBonus" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Coin / Kill
+Bonus"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "1.00%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerKillBonus/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="CoinPerWave" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulq1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Coin
+/
+Wave"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v0hk")
+text = "x1.20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q26v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("1_bmyup")
+expand_mode = 1
+
+[node name="CoinValue" type="Label" parent="MarginContainer/Panel/VBoxContainer/Utility/VBoxContainer/HBoxContainer2/CoinPerWave/HBoxContainer/VBoxContainer/UpgradeCost/Coin"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "0
+"
+
+[node name="UpgradeNav" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="Attack" type="Panel" parent="MarginContainer/Panel/VBoxContainer/UpgradeNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_k6odi")
+
+[node name="Attack" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/UpgradeNav/Attack"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("2_tj6bk")
+expand_mode = 1
+
+[node name="Defense" type="Panel" parent="MarginContainer/Panel/VBoxContainer/UpgradeNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lejse")
+
+[node name="Defense" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/UpgradeNav/Defense"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("3_prf18")
+expand_mode = 1
+
+[node name="Utility" type="Panel" parent="MarginContainer/Panel/VBoxContainer/UpgradeNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qki0a")
+
+[node name="Utility" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/UpgradeNav/Utility"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+texture = ExtResource("4_c40er")
+expand_mode = 1
+
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/UpgradeNav/Attack" to="." method="_handle_attack_nav_click"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/UpgradeNav/Defense" to="." method="_handle_defense_nav_click"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/UpgradeNav/Utility" to="." method="_handle_utility_nav_click"]

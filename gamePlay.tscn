@@ -32,7 +32,7 @@ border_width_bottom = 5
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjbum"]
-bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+bg_color = Color(0.517647, 0.243137, 0.0666667, 0.392157)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -41,7 +41,7 @@ border_color = Color(0.455621, 0.0791371, 0.1225, 1)
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqcre"]
-bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+bg_color = Color(0.0666667, 0.737255, 0.85098, 0.392157)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -50,7 +50,7 @@ border_color = Color(0.0132197, 0.218618, 0.230972, 1)
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhhb4"]
-bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+bg_color = Color(0.278431, 0.552941, 0.313726, 0.392157)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5

@@ -1,5 +1,6 @@
 extends Control
-var gamePlayScene = load("res://gamePlay.tscn") as PackedScene
+var _gamePlayScene = load("res://gamePlay.tscn") as PackedScene
+var _upgradeScene = load("res://upgrades.tscn") as PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,9 +15,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_packed(gamePlayScene)
+func _render_game_play_scene() -> void:
+	get_tree().change_scene_to_packed(_gamePlayScene)
 
 func _update_resources():
 	_update_coin_value(GlobalData.get_coin_value())
@@ -30,3 +30,7 @@ func _update_coin_value(value: float):
 func _update_gem_value(value):
 	var gemValue = $"Panel/HomeScreen/ResourcePanel/ResourceDisplay/Gem/GemValue" as Label
 	gemValue.text = str("%.2f" % value)
+
+func _render_upgrade_scene(event: InputEvent) -> void:
+	if(event.is_pressed()):
+		get_tree().change_scene_to_packed(_upgradeScene)

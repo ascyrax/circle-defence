@@ -373,40 +373,76 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="Fight" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+[node name="Fight" type="MarginContainer" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -25
+
+[node name="Icon" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav/Fight"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("7_qu8bv")
 expand_mode = 1
 
-[node name="Upgrade" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+[node name="Upgrade" type="MarginContainer" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -15
+
+[node name="Icon" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav/Upgrade"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("8_blge7")
 expand_mode = 1
 
-[node name="C" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+[node name="C" type="MarginContainer" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -5
+
+[node name="Icon" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav/C"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("8_oc7s4")
 expand_mode = 1
 
-[node name="D" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+[node name="D" type="MarginContainer" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -5
+
+[node name="Icon" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav/D"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("8_oc7s4")
 expand_mode = 1
 
-[node name="E" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+[node name="E" type="MarginContainer" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -5
+
+[node name="Icon" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav/E"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("8_oc7s4")
 expand_mode = 1
 
-[node name="Shop" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+[node name="Shop" type="MarginContainer" parent="Panel/HomeScreen/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+
+[node name="Icon" type="TextureRect" parent="Panel/HomeScreen/BottomPanel/BottomNav/Shop"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("9_gbrt5")
 expand_mode = 1
 
-[connection signal="pressed" from="Panel/HomeScreen/CentrePanel/CentreNav/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/HomeScreen/CentrePanel/CentreNav/Control/Button" to="." method="_render_game_play_scene"]
+[connection signal="gui_input" from="Panel/HomeScreen/BottomPanel/BottomNav/Upgrade" to="." method="_render_upgrade_scene"]
