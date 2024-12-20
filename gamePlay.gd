@@ -190,12 +190,24 @@ func _render_utility_upgrades():
 		
 func _show_attack_upgrades(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+		# before rendering this, remove the previous upgrades that was present here :)
+		var _upgrades = $Panel/VBoxContainer/Upgrades as Control
+		for child in _upgrades.get_children():
+			child.queue_free()
 		_render_attack_upgrades()
 		
 func _show_defense_upgrades(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+		# before rendering this, remove the previous upgrades that was present here :)
+		var _upgrades = $Panel/VBoxContainer/Upgrades as Control
+		for child in _upgrades.get_children():
+			child.queue_free()
 		_render_defense_upgrades()
 		
 func _show_utility_upgrades(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
+		# before rendering this, remove the previous upgrades that was present here :)
+		var _upgrades = $Panel/VBoxContainer/Upgrades as Control
+		for child in _upgrades.get_children():
+			child.queue_free()
 		_render_utility_upgrades()

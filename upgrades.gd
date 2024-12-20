@@ -26,7 +26,6 @@ func _show_attack_upgrades():
 	var _utilityContainer = $MarginContainer/Panel/VBoxContainer/Utility as ScrollContainer
 	_utilityContainer.visible = false
 
-
 func _show_defense_upgrades():
 	var _attackContainer = $MarginContainer/Panel/VBoxContainer/Attack as ScrollContainer
 	_attackContainer.visible = false
