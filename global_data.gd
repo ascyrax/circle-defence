@@ -1,23 +1,34 @@
 extends Node
 
+
+# RESOURCES
+
 const _INITIAL_CASH_VALUE  = 100.0 # during wave 1 start
-const _INITIAL_HEALTH  = 10.0 # during wave 1 start
-const _INITIAL_DAMAGE  = 1.0 # during wave 1 start
-const _INITIAL_ATTACK_SPEED  = 1.0 # during wave 1 start
-const _INITIAL_HEALTH_REGENERATION  = 0.0 # during wave 1 start
-const _BASE_ENEMY_SPAWN_PER_WAVE = 10.0
 
-var _waveNumber = 1
-var _totalEnemySpawnsPerWave = _BASE_ENEMY_SPAWN_PER_WAVE
-
-var _cashValue = 0.0
+var _cashValue = _INITIAL_CASH_VALUE
 var _coinValue = 0.0
 var _gemValue = 0.0
 
+# WAVE 
+const _INITIAL_WAVE_NUMBER = 1.0
+const _INITIAL_HIGHEST_WAVE = 0.0
+const _BASE_ENEMY_SPAWN_PER_WAVE = 10.0
 
-#var _touchActive = false
+var _waveNumber = _INITIAL_WAVE_NUMBER
+var _highestWave = _INITIAL_HIGHEST_WAVE
+var _waveEnemiesSpawned = 0.0
+var _waveEnemiesKilled = 0.0
+var _totalEnemySpawnsPerWave = _BASE_ENEMY_SPAWN_PER_WAVE
+
 
 # enemy data
+# INITIAL ENEMY DATA
+var _INITIAL_ENEMY_SPAWNINTERVAL = 1
+var _INITIAL_ENEMY_HEALTH = 1.0
+var _INITIAL_ENEMY_DAMAGE = 1.0
+var _INITIAL_ENEMY_CASHVALUE = 1.0
+var _INITIAL_ENEMY_COINVALUE = 0.1
+
 var _enemySpawnInterval = 1
 var _enemyHealth = 1.0
 var _enemyDamage = 1.0
@@ -26,12 +37,26 @@ var _enemyCoinValue = 0.1
 
 # shooter data
 # attack
+var _INITIAL_DAMAGE = 1.00
+var _INITIAL_ATTACK_SPEED = 1.00
+var _INITIAL_CRITICAL_CHANCE = 1.00
+var _INITIAL_CRITICAL_FACTOR = 1.00
+var _INITIAL_RANGE = 225.00
+var _INITIAL_DAMAGE_PER_METER = 1.00
+
 var _damage = 1.00
 var _attackSpeed = 1.00
 var _criticalChance = 1.00
 var _criticalFactor = 1.00
 var _range = 225.00
 var _damagePerMeter = 1.00
+
+var _INITIAL_DAMAGE_UPGRADE_COST = 10.00
+var _INITIAL_ATTACK_SPEED_UPGRADE_COST = 10.00
+var _INITIAL_CRITICAL_CHANCE_UPGRADE_COST = 10.00
+var _INITIAL_CRITICAL_FACTOR_UPGRADE_COST = 10.00
+var _INITIAL_RANGE_UPGRADE_COST = 10.00
+var _INITIAL_DAMAGE_PER_METER_UPGRADE_COST = 10.00
 
 var _damageUpgradeCost = 10.00
 var _attackSpeedUpgradeCost = 10.00
@@ -41,10 +66,21 @@ var _rangeUpgradeCost = 10.00
 var _damagePerMeterUpgradeCost = 10.00
 
 # defense
+
+var _INITIAL_HEALTH = 10.00
+var _INITIAL_HEALTH_REGENERATION = 0.00
+var _INITIAL_DEFENSE_PERCENTAGE = 0.00
+var _INITIAL_DEFENSE_ABSOLUTE = 0.00
+
 var _health = 10.00
 var _healthRegeneration = 0.00
 var _defensePercentage = 0.00
 var _defenseAbsolute = 0.00
+
+var _INITIAL_HEALTH_UPGRADE_COST = 10.00
+var _INITIAL_HEALTH_REGENERATION_UPGRADE_COST = 10.00
+var _INITIAL_DEFENSE_PERCENTAGE_UPGRADE_COST = 10.00
+var _INITIAL_DEFENSE_ABSOLUTE_UPGRADE_COST = 10.00
 
 var _healthUpgradeCost = 10.00
 var _healthRegenerationUpgradeCost = 10.00
@@ -52,27 +88,30 @@ var _defensePercentageUpgradeCost = 10.00
 var _defenseAbsoluteUpgradeCost = 10.00
 
 # utility
+var _INITIAL_CASH_BONUS = 1.00
+var _INITIAL_CASH_PER_WAVE = 10.00
+var _INITIAL_COINS_PER_KILL_BONUS = 1.00
+var _INITIAL_COINS_PER_WAVE = 1.0
+
 var _cashBonus = 1.00
 var _cashPerWave = 10.00
 var _coinsPerKillBonus = 1.00
 var _coinsPerWave = 1.0
+
+var _INITIAL_CASH_BONUS_UPGRADE_COST = 10.00
+var _INITIAL_CASH_PER_WAVE_UPGRADE_COST = 10.00
+var _INITIAL_COINS_PER_KILL_BONUS_UPGRADE_COST = 10.00
+var _INITIAL_COINS_PER_WAVE_UPGRADE_COST = 10.0
 
 var _cashBonusUpgradeCost = 10.00
 var _cashPerWaveUpgradeCost = 10.00
 var _coinsPerKillBonusUpgradeCost = 10.00
 var _coinsPerWaveUpgradeCost = 10.0
 
-# i dont wanna make an extra function call for each bullet :)
-# bullet data
-#var _bulletSpeed = 700.00
-signal game_over
-
-
-var _waveEnemiesSpawned = 0.0
-var _waveEnemiesKilled = 0.0
 signal wave_enemies_spawned
 signal wave_enemies_killed
 signal wave_changed
+signal game_over
 
 signal enemy_values_updated
 
@@ -104,14 +143,58 @@ signal health_regeneration_value_updated
 
 
 func reset_game_play_values():
-	_health = _INITIAL_HEALTH
-	_damage = _INITIAL_DAMAGE
-	_attackSpeed = _INITIAL_ATTACK_SPEED
-	_healthRegeneration = _INITIAL_HEALTH_REGENERATION
+	#resources
 	_cashValue = _INITIAL_CASH_VALUE
+	
+	# wave
 	_waveNumber = 1
 	_waveEnemiesSpawned = 0
 	_waveEnemiesKilled = 0
+	
+	# enemy data
+	_enemySpawnInterval = _INITIAL_ENEMY_SPAWNINTERVAL
+	_enemyHealth = _INITIAL_ENEMY_HEALTH
+	_enemyDamage = _INITIAL_ENEMY_DAMAGE
+	_enemyCashValue = _INITIAL_ENEMY_CASHVALUE
+	_enemyCoinValue = _INITIAL_ENEMY_COINVALUE
+	
+	# shooter data
+	# attack
+	_damage = _INITIAL_DAMAGE
+	_attackSpeed = _INITIAL_ATTACK_SPEED
+	_criticalChance = _INITIAL_CRITICAL_CHANCE
+	_criticalFactor = _INITIAL_CRITICAL_FACTOR
+	_range = _INITIAL_RANGE
+	_damagePerMeter= _INITIAL_DAMAGE_PER_METER 
+
+	_damageUpgradeCost = _INITIAL_DAMAGE_UPGRADE_COST
+	_attackSpeedUpgradeCost = _INITIAL_ATTACK_SPEED_UPGRADE_COST
+	_criticalChanceUpgradeCost = _INITIAL_CRITICAL_CHANCE_UPGRADE_COST
+	_criticalFactorUpgradeCost = _INITIAL_CRITICAL_FACTOR_UPGRADE_COST
+	_rangeUpgradeCost = _INITIAL_RANGE_UPGRADE_COST
+	_damagePerMeterUpgradeCost= _INITIAL_DAMAGE_PER_METER_UPGRADE_COST
+
+	# defense
+	_health = _INITIAL_HEALTH
+	_healthRegeneration = _INITIAL_HEALTH_REGENERATION
+	_defensePercentage = _INITIAL_DEFENSE_PERCENTAGE
+	_defenseAbsolute= _INITIAL_DEFENSE_ABSOLUTE
+
+	_healthUpgradeCost = _INITIAL_HEALTH_UPGRADE_COST
+	_healthRegenerationUpgradeCost = _INITIAL_HEALTH_REGENERATION_UPGRADE_COST
+	_defensePercentageUpgradeCost = _INITIAL_DAMAGE_PER_METER_UPGRADE_COST
+	_defenseAbsoluteUpgradeCost= _INITIAL_DEFENSE_ABSOLUTE_UPGRADE_COST
+
+	# utility
+	_cashBonus = _INITIAL_CASH_BONUS
+	_cashPerWave = _INITIAL_CASH_PER_WAVE
+	_coinsPerKillBonus = _INITIAL_COINS_PER_KILL_BONUS
+	_coinsPerWave= _INITIAL_COINS_PER_WAVE
+
+	_cashBonusUpgradeCost = _INITIAL_CASH_BONUS_UPGRADE_COST
+	_cashPerWaveUpgradeCost = _INITIAL_CASH_PER_WAVE_UPGRADE_COST
+	_coinsPerKillBonusUpgradeCost = _INITIAL_COINS_PER_KILL_BONUS_UPGRADE_COST
+	_coinsPerWaveUpgradeCost= _INITIAL_COINS_PER_WAVE_UPGRADE_COST
 
 func get_total_enemy_spawns_per_wave():
 	return _totalEnemySpawnsPerWave + _waveNumber
@@ -143,8 +226,26 @@ func get_wave_number():
 	
 func update_wave_number(value: int):
 	_waveNumber += value
+	_highestWave = max(_highestWave, _waveNumber)
 	wave_changed.emit(_waveNumber)
 	enemy_values_updated.emit(_waveNumber)
+
+func get_highest_wave():
+	return _highestWave
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
