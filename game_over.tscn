@@ -90,11 +90,11 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
+[node name="Cash" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Cash"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
@@ -103,11 +103,11 @@ Earned"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cash" type="HBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer/Cash"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CashIcon" type="TextureRect" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer/Cash"]
+[node name="Icon" type="TextureRect" parent="Panel/Panel/VBoxContainer/HBoxContainer/Cash/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -115,7 +115,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_ogoo6")
 expand_mode = 1
 
-[node name="CashValue" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer/Cash"]
+[node name="Value" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Cash/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -124,14 +124,14 @@ text = "80"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
+[node name="Equals" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer4"]
+[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Equals"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Equals" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer4"]
+[node name="Equals" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Equals"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -140,11 +140,11 @@ text = "="
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
+[node name="Coin" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Coin"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
@@ -153,11 +153,11 @@ Earned"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer/Coin"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CoinIcon" type="TextureRect" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer2/Coin"]
+[node name="Icon" type="TextureRect" parent="Panel/Panel/VBoxContainer/HBoxContainer/Coin/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -165,7 +165,7 @@ size_flags_vertical = 4
 texture = ExtResource("2_2acl3")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer2/Coin"]
+[node name="Value" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Coin/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -175,14 +175,14 @@ text = "0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
+[node name="Implies" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer5"]
+[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Implies"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Implies" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer5"]
+[node name="Implies" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Implies"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -191,11 +191,11 @@ text = "= >"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
+[node name="Total" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Total"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
@@ -204,11 +204,11 @@ Coins"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Coin" type="HBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer/Total"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CoinIcon" type="TextureRect" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer3/Coin"]
+[node name="Icon" type="TextureRect" parent="Panel/Panel/VBoxContainer/HBoxContainer/Total/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -216,7 +216,7 @@ size_flags_vertical = 4
 texture = ExtResource("2_2acl3")
 expand_mode = 1
 
-[node name="CoinValue" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/VBoxContainer3/Coin"]
+[node name="Value" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/Total/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1

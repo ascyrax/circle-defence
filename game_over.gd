@@ -22,3 +22,15 @@ func _render_game_over_data():
 	var _currentWaveValue = GlobalData.get_wave_number()
 	_currentWaveLabel.text = "Wave: " + str(_currentWaveValue)
 	
+	var _cashLabel = $Panel/Panel/VBoxContainer/HBoxContainer/Cash/HBoxContainer/Value as Label
+	var _cashValue = GlobalData.get_cash_value()
+	_cashLabel.text = str(_cashValue)
+	
+	var _coinLabel = $Panel/Panel/VBoxContainer/HBoxContainer/Coin/HBoxContainer/Value as Label
+	var _convertedCoinValue = GlobalData.get_cash_value() / 2.0 # 1 cash = 0.5 coins :)
+	_coinLabel.text = str(_convertedCoinValue)
+	GlobalData.update_coin_value(_convertedCoinValue)
+	
+	var _totalCoinLabel = $Panel/Panel/VBoxContainer/HBoxContainer/Total/HBoxContainer/Value as Label
+	var _totalCoinValue = GlobalData.get_coin_value()
+	_totalCoinLabel.text = str(_totalCoinValue)
