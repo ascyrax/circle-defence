@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bchcxtc08h6wr"]
+[gd_scene load_steps=21 format=3 uid="uid://bchcxtc08h6wr"]
 
 [ext_resource type="Script" path="res://upgrades.gd" id="1_6ywqi"]
 [ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="1_bmyup"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://iswymve6np52" path="res://art/galacticCoinNoBg.png" id="3_rm2at"]
 [ext_resource type="Texture2D" uid="uid://dntv0ifkwehxi" path="res://art/menuIcons/specialNoBg.png" id="4_c40er"]
 [ext_resource type="Texture2D" uid="uid://d2wawuxpe7yre" path="res://art/dropdownNoBg.png" id="4_cxodk"]
+[ext_resource type="Texture2D" uid="uid://d2t3iqor2c6yo" path="res://art/fightNewNoBg.png" id="10_qjw4l"]
+[ext_resource type="Texture2D" uid="uid://cjxqajaomu8s5" path="res://art/upgradeNewNoBg.png" id="11_lxsce"]
+[ext_resource type="Texture2D" uid="uid://qeb6xlpjryvt" path="res://art/lockedNoBg.png" id="12_dwlam"]
+[ext_resource type="Texture2D" uid="uid://cji3iguujymve" path="res://art/shopNoBg.png" id="13_qi6xp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a6rp2"]
 texture = ExtResource("1_ixocr")
@@ -77,9 +81,12 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_a6rp2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
-layout_mode = 2
-offset_right = 1080.0
-offset_bottom = 1920.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ResourcePanel" type="Panel" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
@@ -168,10 +175,11 @@ texture = ExtResource("4_cxodk")
 expand_mode = 1
 
 [node name="Attack" type="ScrollContainer" parent="MarginContainer/Panel/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(480, 720)
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 8.0
+size_flags_stretch_ratio = 7.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Attack"]
 layout_mode = 2
@@ -472,10 +480,11 @@ text = "0
 "
 
 [node name="Defense" type="ScrollContainer" parent="MarginContainer/Panel/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(480, 720)
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 8.0
+size_flags_stretch_ratio = 7.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Defense"]
 layout_mode = 2
@@ -781,7 +790,7 @@ text = "0
 custom_minimum_size = Vector2(480, 720)
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 8.0
+size_flags_stretch_ratio = 7.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Utility"]
 layout_mode = 2
@@ -1162,6 +1171,90 @@ size_flags_horizontal = 6
 texture = ExtResource("4_c40er")
 expand_mode = 1
 
+[node name="BottomPanel" type="Panel" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomNav" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/BottomPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Fight" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -25
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav/Fight"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_qjw4l")
+expand_mode = 1
+
+[node name="Upgrade" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -15
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav/Upgrade"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("11_lxsce")
+expand_mode = 1
+
+[node name="C" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -5
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav/C"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_dwlam")
+expand_mode = 1
+
+[node name="D" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -5
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav/D"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_dwlam")
+expand_mode = 1
+
+[node name="E" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = -5
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav/E"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_dwlam")
+expand_mode = 1
+
+[node name="Shop" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 25
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav/Shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("13_qi6xp")
+expand_mode = 1
+
 [connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Damage/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_damage"]
 [connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Attack/Speed/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_attack_speed"]
 [connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/Attack/VBoxContainer/Critical/Chance/HBoxContainer/VBoxContainer/UpgradeCost" to="." method="_upgrade_initial_critical_chance"]
@@ -1177,3 +1270,4 @@ expand_mode = 1
 [connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/UpgradeNav/Attack" to="." method="_handle_attack_nav_click"]
 [connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/UpgradeNav/Defense" to="." method="_handle_defense_nav_click"]
 [connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/UpgradeNav/Utility" to="." method="_handle_utility_nav_click"]
+[connection signal="gui_input" from="MarginContainer/Panel/VBoxContainer/BottomPanel/BottomNav/Fight" to="." method="_load_main_scene"]

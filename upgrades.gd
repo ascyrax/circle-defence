@@ -1,5 +1,6 @@
 extends Control
 
+var _mainScene = load("res://main.tscn") as PackedScene
 
 func _ready() -> void:
 	call_deferred("_show_attack_upgrades")
@@ -8,6 +9,11 @@ func _ready() -> void:
 	GlobalData.defense_upgrade_values_updated.connect(_render_defense_upgrade_values)
 	GlobalData.utility_upgrade_values_updated.connect(_render_utility_upgrade_values)
 	GlobalData.coin_value_updated.connect(_render_resources)
+
+func _load_main_scene(event: InputEvent):
+	if(event is InputEventScreenTouch):
+		if(event.pressed):
+			get_tree().change_scene_to_packed(_mainScene)
 
 func _render_resources(_value: float):
 	_render_coin_value(GlobalData.get_coin_value())
