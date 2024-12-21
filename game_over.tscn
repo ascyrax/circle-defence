@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bf3bmtbitcmnt" path="res://art/dollarNoBg.png" id="1_ogoo6"]
 [ext_resource type="Script" path="res://game_over.gd" id="1_x4875"]
 [ext_resource type="Texture2D" uid="uid://cd5bmn2s013cr" path="res://art/coinNoBg.png" id="2_2acl3"]
-[ext_resource type="Texture2D" uid="uid://baxlsvkx360ox" path="res://art/gameOver/ganjaNoBg.png" id="3_l2j8o"]
+[ext_resource type="Texture2D" uid="uid://c1uqmomwltpcd" path="res://art/gameOver/ganjaNoBg2.png" id="3_ow4vx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ni32s"]
 texture = ExtResource("1_1qavd")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qj6f2"]
-texture = ExtResource("3_l2j8o")
+texture = ExtResource("3_ow4vx")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8upq2"]
 bg_color = Color(0, 0, 0, 1)
@@ -66,11 +66,7 @@ text = "Game Stats
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Difficulty" type="HBoxContainer" parent="Panel/Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/Difficulty"]
+[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -80,6 +76,10 @@ Gameplay
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Difficulty" type="HBoxContainer" parent="Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="Panel/Panel/VBoxContainer/Difficulty"]
 custom_minimum_size = Vector2(250, 250)
