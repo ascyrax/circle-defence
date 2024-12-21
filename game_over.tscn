@@ -71,13 +71,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 64
-text = "Ganja 
-Gameplay
-"
+text = "Tier 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Difficulty" type="HBoxContainer" parent="Panel/Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
