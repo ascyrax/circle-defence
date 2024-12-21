@@ -66,6 +66,7 @@ var _criticalFactorUC = 10.00
 var _rangeUC = 10.00
 var _damagePerMeterUC = 10.00
 
+
 # defense
 
 var _initialHealth = 10.00
@@ -168,12 +169,19 @@ func reset_game_play_values():
 	_range = _initialRange
 	_damagePerMeter= _initialDamagePerMeter 
 
-	_damageUC = _initialDamageUC
-	_attackSpeedUC = _initialAttackSpeedUC
-	_criticalChanceUC = _initialCriticalChanceUC
-	_criticalFactorUC = _initialCriticalFactorUC
-	_rangeUC = _initialRangeUC
-	_damagePerMeterUC= _initialDamagePerMeterUC
+	#_damageUC = _initialDamageUC
+	#_attackSpeedUC = _initialAttackSpeedUC
+	#_criticalChanceUC = _initialCriticalChanceUC
+	#_criticalFactorUC = _initialCriticalFactorUC
+	#_rangeUC = _initialRangeUC
+	#_damagePerMeterUC= _initialDamagePerMeterUC
+	
+	_damageUC = 10.00
+	_attackSpeedUC = 10.00
+	_criticalChanceUC = 10.00
+	_criticalFactorUC = 10.00
+	_rangeUC = 10.00
+	_damagePerMeterUC = 10.00
 
 	# defense
 	_health = _initialHealth
@@ -185,6 +193,11 @@ func reset_game_play_values():
 	_healthRegenerationUC = _initialHealthRegenerationUC
 	_defensePercentageUC = _initialDamagePerMeterUC
 	_defenseAbsoluteUC= _initialDefenseAbsoluteUC
+	
+	_healthUC = 10.00
+	_healthRegenerationUC = 10.00
+	_defensePercentageUC = 10.00
+	_defenseAbsoluteUC = 10.00
 
 	# utility
 	_cashBonus = _initialCashBonus
@@ -196,6 +209,11 @@ func reset_game_play_values():
 	_cashPerWaveUC = _initialCashPerWaveUC
 	_coinsPerKillBonusUC = _initialCoinsPerKillBonusUC
 	_coinsPerWaveUC= _initialCoinsPerWaveUC
+	
+	_cashBonusUC = 10.00
+	_cashPerWaveUC = 10.00
+	_coinsPerKillBonusUC = 10.00
+	_coinsPerWaveUC = 10.0
 
 func get_total_enemy_spawns_per_wave():
 	return _totalEnemySpawnsPerWave + _waveNumber
