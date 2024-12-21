@@ -66,6 +66,13 @@ var _criticalFactorUC = 10.00
 var _rangeUC = 10.00
 var _damagePerMeterUC = 10.00
 
+var _damageDelta = 0.5
+var _attackSpeedDelta = 0.1
+var _criticalChanceDelta = 1.00
+var _criticalFactorDelta = 0.1
+var _rangeDelta = 5.0 # in pixels :)
+var _damagePerMeterDelta = 0.5 # TODO
+
 
 # defense
 
@@ -89,6 +96,11 @@ var _healthRegenerationUC = 10.00
 var _defensePercentageUC = 10.00
 var _defenseAbsoluteUC = 10.00
 
+var _healthDelta = 5.00
+var _healthRegenerationDelta = 0.10
+var _defensePercentageDelta = 1.0
+var _defenseAbsoluteDelta = 0.5
+
 # utility
 var _initialCashBonus = 1.00
 var _initialCashPerWave = 10.00
@@ -109,6 +121,11 @@ var _cashBonusUC = 10.00
 var _cashPerWaveUC = 10.00
 var _coinsPerKillBonusUC = 10.00
 var _coinsPerWaveUC = 10.0
+
+var _cashBonusDelta = 1.00
+var _cashPerWaveDelta = 10.00
+var _coinsPerKillBonusDelta = 0.25
+var _coinsPerWaveDelta = 10.0
 
 signal wave_enemies_spawned
 signal wave_enemies_killed
@@ -412,8 +429,8 @@ func set_initial_damage(value: float):
 	_initialDamage += value
 	attack_upgrade_values_updated.emit(_damage)
 
-
-
+func get_damage_delta():
+	return _damageDelta
 
 
 
@@ -440,7 +457,8 @@ func set_initial_attack_speed(value: float):
 	_initialAttackSpeed = value
 	attack_upgrade_values_updated.emit(_initialAttackSpeed)	
 
-
+func get_attack_speed_delta():
+	return _attackSpeedDelta
 
 
 
@@ -467,6 +485,8 @@ func set_initial_critical_chance(value: float):
 	_initialCriticalChance = value
 	attack_upgrade_values_updated.emit(_initialCriticalChance)
 
+func get_critical_chance_delta():
+	return _criticalChanceDelta
 
 
 
@@ -493,6 +513,8 @@ func set_initial_critical_factor(value: float):
 	_initialCriticalFactor = value
 	attack_upgrade_values_updated.emit(_initialCriticalFactor)
 
+func get_critical_factor_delta():
+	return _criticalFactorDelta
 
 
 
@@ -518,7 +540,8 @@ func set_initial_range(value: float):
 	_initialRange = value
 	attack_upgrade_values_updated.emit(_initialRange)
 
-
+func get_range_delta():
+	return _rangeDelta
 
 
 
@@ -546,8 +569,8 @@ func set_initial_damage_per_meter(value: float):
 	_initialDamagePerMeter = value
 	attack_upgrade_values_updated.emit(_initialDamagePerMeter)
 
-
-
+func get_damage_per_meter_delta():
+	return _damagePerMeterDelta
 
 
 
@@ -757,7 +780,8 @@ func set_initial_health(value: float):
 	if(_initialHealth <= 0.0):
 		game_over.emit(_initialHealth)
 
-
+func get_health_delta():
+	return _healthDelta
 
 
 
@@ -791,6 +815,10 @@ func set_initial_health_regeneration(value: float):
 	defense_upgrade_values_updated.emit(_initialHealthRegeneration)
 	health_regeneration_value_updated.emit(_initialHealthRegeneration)
 
+func get_health_regeneration_delta():
+	return _healthRegenerationDelta
+
+
 
 
 
@@ -815,6 +843,9 @@ func update_initial_defense_percentage(value: float):
 func set_initial_defense_percentage(value: float):
 	_initialDefensePercentage = value
 	defense_upgrade_values_updated.emit(_initialDefensePercentage)
+
+func get_defense_percentage_delta():
+	return _defensePercentageDelta
 
 
 
@@ -842,7 +873,8 @@ func set_initial_defense_absolute(value: float):
 	_initialDefenseAbsolute = value
 	defense_upgrade_values_updated.emit(_initialDefenseAbsolute)
 
-
+func get_defense_absolute_delta():
+	return _defenseAbsoluteDelta
 
 
 
@@ -997,6 +1029,8 @@ func set_initial_cash_bonus(value: float):
 	_initialCashBonus = value
 	utility_upgrade_values_updated.emit(_initialCashBonus)	
 
+func get_cash_bonus_delta():
+	return _cashBonusDelta
 
 
 
@@ -1027,6 +1061,12 @@ func set_initial_cash_per_wave(value: float):
 	_initialCashPerWave = value
 	utility_upgrade_values_updated.emit(_initialCashPerWave)
 
+func get_cash_per_wave_delta():
+	return _cashPerWaveDelta
+
+
+
+
 
 
 
@@ -1054,6 +1094,9 @@ func set_initial_coins_per_kill_bonus(value: float):
 	_initialCoinsPerKillBonus = value
 	utility_upgrade_values_updated.emit(_initialCoinsPerKillBonus)
 
+func get_coins_per_kill_bonus_delta():
+	return _coinsPerKillBonusDelta
+
 
 
 
@@ -1080,7 +1123,8 @@ func set_initial_coins_per_wave(value: float):
 	_initialCoinsPerWave = value
 	utility_upgrade_values_updated.emit(_initialCoinsPerWave)
 
-
+func get_coins_per_wave_delta():
+	return _coinsPerWaveDelta
 
 
 

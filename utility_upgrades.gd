@@ -45,36 +45,36 @@ func _update_utility_upgrade_values(_unusedUpdateValue:float):
 func _upgrade_cash_bonus(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_cash_value() >= GlobalData.get_cash_bonus()):
-				GlobalData.update_cash_bonus(1.0)
-				GlobalData.update_cash_value(-GlobalData.get_cash_bonus())
+			if(GlobalData.get_cash_value() >= GlobalData.get_cash_bonus_upgrade_cost()):
+				GlobalData.update_cash_bonus(GlobalData.get_cash_bonus_delta())
+				GlobalData.update_cash_value(-GlobalData.get_cash_bonus_upgrade_cost())
 				GlobalData.update_cash_bonus_upgrade_cost(10.0)			
 
 
 func _upgrade_cash_per_wave(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_cash_value() >= GlobalData.get_cash_per_wave()):
-				GlobalData.update_cash_per_wave(10.0)
-				GlobalData.update_cash_value(-GlobalData.get_cash_per_wave())
+			if(GlobalData.get_cash_value() >= GlobalData.get_cash_per_wave_upgrade_cost()):
+				GlobalData.update_cash_per_wave(GlobalData.get_cash_per_wave_delta())
+				GlobalData.update_cash_value(-GlobalData.get_cash_per_wave_upgrade_cost())
 				GlobalData.update_cash_per_wave_upgrade_cost(10.0)			
 
 		
 func _upgrade_coins_per_kill_bonus(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_cash_value() >= GlobalData.get_coins_per_kill_bonus()):
-				GlobalData.update_coins_per_kill_bonus(0.25)
-				GlobalData.update_cash_value(-GlobalData.get_coins_per_kill_bonus())
+			if(GlobalData.get_cash_value() >= GlobalData.get_coins_per_kill_bonus_upgrade_cost()):
+				GlobalData.update_coins_per_kill_bonus(GlobalData.get_coins_per_kill_bonus_delta())
+				GlobalData.update_cash_value(-GlobalData.get_coins_per_kill_bonus_upgrade_cost())
 				GlobalData.update_coins_per_kill_bonus_upgrade_cost(10.0)			
 
 
 func _upgrade_coins_per_wave(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_cash_value() >= GlobalData.get_coins_per_wave()):
-				GlobalData.update_coins_per_wave(10.0)
-				GlobalData.update_cash_value(-GlobalData.get_coins_per_wave())
+			if(GlobalData.get_cash_value() >= GlobalData.get_coins_per_wave_upgrade_cost()):
+				GlobalData.update_coins_per_wave(GlobalData.get_coins_per_wave_delta())
+				GlobalData.update_cash_value(-GlobalData.get_coins_per_wave_upgrade_cost())
 				GlobalData.update_coins_per_wave_upgrade_cost(10.0)			
 
 		
