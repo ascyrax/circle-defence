@@ -171,33 +171,33 @@ func _upgrade_initial_critical_factor(event: InputEvent):
 func _upgrade_initial_health(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_coin_value() >= GlobalData.get_health_upgrade_cost()):
+			if(GlobalData.get_coin_value() >= GlobalData.get_initial_health_upgrade_cost()):
 				GlobalData.update_initial_health(GlobalData.get_health_delta())
-				GlobalData.update_coin_value(-GlobalData.get_health_upgrade_cost())
+				GlobalData.update_coin_value(-GlobalData.get_initial_health_upgrade_cost())
 				GlobalData.update_initial_health_upgrade_cost(10.0)			
 
 func _upgrade_initial_health_regeneration(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_coin_value() >= GlobalData.get_health_regeneration_upgrade_cost()):
+			if(GlobalData.get_coin_value() >= GlobalData.get_initial_health_regeneration_upgrade_cost()):
 				GlobalData.update_initial_health_regeneration(GlobalData.get_health_regeneration_delta())
-				GlobalData.update_coin_value(-GlobalData.get_health_regeneration_upgrade_cost())
+				GlobalData.update_coin_value(-GlobalData.get_initial_health_regeneration_upgrade_cost())
 				GlobalData.update_initial_health_regeneration_upgrade_cost(10.0)
 				
 func _upgrade_initial_defense_percentage(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_coin_value() >= GlobalData.get_defense_percentage_upgrade_cost()):
+			if(GlobalData.get_coin_value() >= GlobalData.get_initial_defense_percentage_upgrade_cost()):
 				GlobalData.update_initial_defense_percentage(GlobalData.get_defense_percentage_delta())
-				GlobalData.update_coin_value(-GlobalData.get_defense_percentage_upgrade_cost())
+				GlobalData.update_coin_value(-GlobalData.get_initial_defense_percentage_upgrade_cost())
 				GlobalData.update_initial_defense_percentage_upgrade_cost(10.0)
 
 func _upgrade_initial_defense_absolute(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_coin_value() >= GlobalData.get_defense_absolute_upgrade_cost()):
+			if(GlobalData.get_coin_value() >= GlobalData.get_initial_defense_absolute_upgrade_cost()):
 				GlobalData.update_initial_defense_absolute(GlobalData.get_defense_absolute_delta())
-				GlobalData.update_coin_value(-GlobalData.get_defense_absolute_upgrade_cost())
+				GlobalData.update_coin_value(-GlobalData.get_initial_defense_absolute_upgrade_cost())
 				GlobalData.update_initial_defense_absolute_upgrade_cost(10.0)		
 		
 
@@ -208,35 +208,35 @@ func _upgrade_initial_defense_absolute(event: InputEvent):
 func _upgrade_initial_cash_bonus(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_coin_value() >= GlobalData.get_cash_bonus_upgrade_cost()):
+			if(GlobalData.get_coin_value() >= GlobalData.get_initial_cash_bonus_upgrade_cost()):
 				GlobalData.update_initial_cash_bonus(GlobalData.get_cash_bonus_delta())
-				GlobalData.update_coin_value(-GlobalData.get_cash_bonus_upgrade_cost())
+				GlobalData.update_coin_value(-GlobalData.get_initial_cash_bonus_upgrade_cost())
 				GlobalData.update_initial_cash_bonus_upgrade_cost(10.0)			
 
 
 func _upgrade_initial_cash_per_wave(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_coin_value() >= GlobalData.get_cash_per_wave_upgrade_cost()):
+			if(GlobalData.get_coin_value() >= GlobalData.get_initial_cash_per_wave_upgrade_cost()):
 				GlobalData.update_initial_cash_per_wave(GlobalData.get_cash_per_wave_delta())
-				GlobalData.update_coin_value(-GlobalData.getget_cash_bonus_upgrade_cost())
+				GlobalData.update_coin_value(-GlobalData.get_initial_cash_per_wave_upgrade_cost())
 				GlobalData.update_initial_cash_per_wave_upgrade_cost(10.0)			
 
 func _upgrade_initial_coins_per_kill_bonus(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_coin_value() >= GlobalData.get_coins_per_kill_bonus_upgrade_cost()):
+			if(GlobalData.get_coin_value() >= GlobalData.get_initial_coins_per_kill_bonus_upgrade_cost()):
 				GlobalData.update_initial_coins_per_kill_bonus(GlobalData.get_coins_per_kill_bonus_delta())
-				GlobalData.update_coin_value(-GlobalData.get_coins_get_cash_bonus_upgrade_cost())
+				GlobalData.update_coin_value(-GlobalData.get_initial_coins_per_kill_bonus_upgrade_cost())
 				GlobalData.update_initial_coins_per_kill_bonus_upgrade_cost(10.0)			
 
 
 func _upgrade_initial_coins_per_wave(event: InputEvent):
 	if(event is InputEventScreenTouch):
 		if(event.pressed):
-			if(GlobalData.get_coin_value() >= GlobalData.get_coins_per_wave_upgrade_cost()):
+			if(GlobalData.get_coin_value() >= GlobalData.get_initial_coins_per_wave_upgrade_cost()):
 				GlobalData.update_initial_coins_per_wave(GlobalData.get_coins_per_wave_delta())
-				GlobalData.update_coin_value(-GlobalData.get_get_cash_bonus_upgrade_cost())
+				GlobalData.update_coin_value(-GlobalData.get_initial_coins_per_wave_upgrade_cost())
 				GlobalData.update_initial_coins_per_wave_upgrade_cost(10.0)			
 
 

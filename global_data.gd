@@ -105,7 +105,7 @@ var _defenseAbsoluteDelta = 0.5
 var _initialCashBonus = 1.00
 var _initialCashPerWave = 10.00
 var _initialCoinsPerKillBonus = 1.00
-var _initialCoinsPerWave = 1.0
+var _initialCoinsPerWave = 10.0
 
 var _cashBonus = 1.00
 var _cashPerWave = 10.00
@@ -237,7 +237,7 @@ func get_total_enemy_spawns_per_wave():
 
 func get_wave_enemies_spawned():
 	return _waveEnemiesSpawned
-	
+
 func update_wave_enemies_spawned(value : float):
 	_waveEnemiesSpawned += value
 	if(_waveEnemiesSpawned == get_total_enemy_spawns_per_wave()):
@@ -263,6 +263,10 @@ func get_wave_number():
 func update_wave_number(value: float):
 	_waveNumber += value
 	_highestWave = max(_highestWave, _waveNumber)
+	
+	update_cash_value(get_cash_per_wave())
+	update_coin_value(get_coins_per_wave())
+	
 	wave_changed.emit(_waveNumber)
 	enemy_values_updated.emit(_waveNumber)
 
