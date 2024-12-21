@@ -1,10 +1,132 @@
 extends Node
 
+# GAME DATA SAVE & LOAD
+
+var _pathSave = "user://global_data.save"
+
+func _ready():
+	_load_game_data_from_file()
+
+func _notification(what: int) -> void:
+	if(what == NOTIFICATION_WM_GO_BACK_REQUEST || what == NOTIFICATION_WM_CLOSE_REQUEST):
+		_save_game_data_to_file()
+
+func _save_game_data_to_file():
+	# Open the file for writing
+	var file = FileAccess.open(_pathSave, FileAccess.WRITE)
+	if file:
+		var _gameStats = _create_json_object()
+		file.store_string(str(_gameStats))  # Convert the variable to a string
+		print("Data saved successfully")
+	else:
+		print("Failed to save data")
+
+# Load data from a file
+func _load_game_data_from_file():
+	# Check if the file exists
+	if FileAccess.file_exists(_pathSave):
+		# Open the file for reading
+		var file = FileAccess.open(_pathSave, FileAccess.READ)
+		if file:
+			var content = file.get_as_text() as String
+			_copy_loaded_data_to_corresponding_variables(content)
+		else:
+			print("Failed to open file for reading")
+	else:
+		print("Save file does not exist")
+
+func _create_json_object():
+	var _gameStats = {}
+	_gameStats._initialCoinValue            = _coinValue
+	_gameStats._initialCashValue            = _initialCashValue
+	_gameStats._initialHighestWave          = _initialHighestWave
+	_gameStats._initialDamage               = _initialDamage              
+	_gameStats._initialAttackSpeed          = _initialAttackSpeed              
+	_gameStats._initialCriticalChance       = _initialCriticalChance              
+	_gameStats._initialCriticalFactor       = _initialCriticalFactor              
+	_gameStats._initialRange                = _initialRange               
+	_gameStats._initialDamagePerMeter       = _initialDamagePerMeter              
+	_gameStats._initialDamageUC             = _initialDamageUC               
+	_gameStats._initialAttackSpeedUC        = _initialAttackSpeedUC               
+	_gameStats._initialCriticalChanceUC     = _initialCriticalChanceUC               
+	_gameStats._initialCriticalFactorUC     = _initialCriticalFactorUC               
+	_gameStats._initialRangeUC              = _initialRangeUC               
+	_gameStats._initialDamagePerMeterUC     = _initialDamagePerMeterUC               
+
+	_gameStats._initialHealth               = _initialHealth               
+	_gameStats._initialHealthRegeneration   = _initialHealthRegeneration              
+	_gameStats._initialDefensePercentage    = _initialDefensePercentage              
+	_gameStats._initialDefenseAbsolute      = _initialDefenseAbsolute              
+	_gameStats._initialHealthUC             = _initialHealthUC               
+	_gameStats._initialHealthRegenerationUC = _initialHealthRegenerationUC               
+	_gameStats._initialDefensePercentageUC  = _initialDefensePercentageUC               
+	_gameStats._initialDefenseAbsoluteUC    = _initialDefenseAbsoluteUC               
+
+	_gameStats._initialCashBonus            = _initialCashBonus              
+	_gameStats._initialCashPerWave          = _initialCashPerWave               
+	_gameStats._initialCoinsPerKillBonus    = _initialCoinsPerKillBonus              
+	_gameStats._initialCoinsPerWave         = _initialCoinsPerWave              
+
+	_gameStats._initialCashBonusUC          = _initialCashBonusUC               
+	_gameStats._initialCashPerWaveUC        = _initialCashPerWaveUC               
+	_gameStats._initialCoinsPerKillBonusUC  = _initialCoinsPerKillBonusUC               
+	_gameStats._initialCoinsPerWaveUC       = _initialCoinsPerWaveUC              
+
+	return _gameStats
+
+func _copy_loaded_data_to_corresponding_variables(content: String):
+	var _gameStats = JSON.parse_string(content)
+	_initialCoinValue = _gameStats._initialCoinValue
+	_initialCashValue = _gameStats._initialCashValue
+	_initialHighestWave = _gameStats._initialHighestWave
+	_initialDamage              = _gameStats._initialDamage               
+	_initialAttackSpeed              = _gameStats._initialAttackSpeed          
+	_initialCriticalChance              = _gameStats._initialCriticalChance       
+	_initialCriticalFactor              = _gameStats._initialCriticalFactor       
+	_initialRange               = _gameStats._initialRange                
+	_initialDamagePerMeter              = _gameStats._initialDamagePerMeter       
+	_initialDamageUC               = _gameStats._initialDamageUC             
+	_initialAttackSpeedUC               = _gameStats._initialAttackSpeedUC        
+	_initialCriticalChanceUC               = _gameStats._initialCriticalChanceUC     
+	_initialCriticalFactorUC               = _gameStats._initialCriticalFactorUC     
+	_initialRangeUC               = _gameStats._initialRangeUC              
+	_initialDamagePerMeterUC               = _gameStats._initialDamagePerMeterUC     
+
+	_initialHealth               = _gameStats._initialHealth               
+	_initialHealthRegeneration              = _gameStats._initialHealthRegeneration   
+	_initialDefensePercentage              = _gameStats._initialDefensePercentage    
+	_initialDefenseAbsolute              = _gameStats._initialDefenseAbsolute      
+	_initialHealthUC               = _gameStats._initialHealthUC             
+	_initialHealthRegenerationUC               = _gameStats._initialHealthRegenerationUC 
+	_initialDefensePercentageUC               = _gameStats._initialDefensePercentageUC  
+	_initialDefenseAbsoluteUC               = _gameStats._initialDefenseAbsoluteUC    
+
+	_initialCashBonus              = _gameStats._initialCashBonus            
+	_initialCashPerWave               = _gameStats._initialCashPerWave          
+	_initialCoinsPerKillBonus              = _gameStats._initialCoinsPerKillBonus    
+	_initialCoinsPerWave              = _gameStats._initialCoinsPerWave         
+
+	_initialCashBonusUC               = _gameStats._initialCashBonusUC          
+	_initialCashPerWaveUC               = _gameStats._initialCashPerWaveUC        
+	_initialCoinsPerKillBonusUC               = _gameStats._initialCoinsPerKillBonusUC  
+	_initialCoinsPerWaveUC              = _gameStats._initialCoinsPerWaveUC       
+
+	_update_game_data_from_save_file()
+
+
+
+
+
+
+
+
+
+
 
 # RESOURCES
 
-const _initialCashValue  = 10000.0 # during wave 1 start
-const _initialCoinValue  = 0.0 # during game start
+var _initialCashValue  = 10.0 # during wave 1 start
+var _initialCoinValue  = 0.0 # during game start
 
 var _cashValue = _initialCashValue
 var _coinValue = _initialCoinValue
@@ -12,7 +134,7 @@ var _gemValue = 0.0
 
 # WAVE 
 const _initialWaveNumber = 1.0
-const _initialHighestWave = 0.0
+var _initialHighestWave = 0.0
 const _baseEnemySpawnPerWave = 10.0
 
 var _waveNumber = _initialWaveNumber
@@ -159,7 +281,13 @@ signal health_regeneration_value_updated
 
 
 
-
+func _update_game_data_from_save_file():
+	#resources
+	_coinValue = _initialCoinValue
+	_highestWave = _initialHighestWave
+	
+	coin_value_updated.emit(_coinValue)
+	
 
 func reset_game_play_values():
 	#resources
