@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 	# reset the gameplay specific values. e.g. wave1 begin cash values, health, etc.
 	GlobalData.reset_game_play_values()
+	GlobalData.highest_wave_reached.connect(_update_highest_wave_value)
 
 func _render_game_play_scene() -> void:
 	get_tree().change_scene_to_packed(_gamePlayScene)
@@ -17,6 +18,11 @@ func _render_game_play_scene() -> void:
 func _update_resources():
 	_update_coin_value(GlobalData.get_coin_value())
 	_update_gem_value(GlobalData.get_gem_value())
+	_update_highest_wave_value(GlobalData.get_highest_wave())
+
+func _update_highest_wave_value(value: float):
+	var _highestWaveLabel = $Panel/HomeScreen/CentrePanel/CentreNav/VBoxContainer/WaveSettingsPanel/WaveSettings/HighestWave as Label
+	_highestWaveLabel.text = "Highest Wave: " + str(value)
 	
 func _update_coin_value(value: float):
 	var coinValue = $"Panel/HomeScreen/ResourcePanel/ResourceDisplay/Coin/CoinValue" as Label

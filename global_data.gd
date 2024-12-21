@@ -8,7 +8,7 @@ func _ready():
 	_load_game_data_from_file()
 
 func _notification(what: int) -> void:
-	if(what == NOTIFICATION_WM_GO_BACK_REQUEST || what == NOTIFICATION_WM_CLOSE_REQUEST):
+	if(what == NOTIFICATION_WM_GO_BACK_REQUEST || what == NOTIFICATION_WM_CLOSE_REQUEST || what == NOTIFICATION_WM_WINDOW_FOCUS_OUT):
 		_save_game_data_to_file()
 
 func _save_game_data_to_file():
@@ -253,6 +253,7 @@ signal wave_enemies_spawned
 signal wave_enemies_killed
 signal wave_changed
 signal game_over
+signal highest_wave_reached
 
 signal enemy_values_updated
 
@@ -287,6 +288,7 @@ func _update_game_data_from_save_file():
 	_highestWave = _initialHighestWave
 	
 	coin_value_updated.emit(_coinValue)
+	highest_wave_reached.emit(_highestWave)
 	
 
 func reset_game_play_values():
@@ -390,7 +392,10 @@ func get_wave_number():
 	
 func update_wave_number(value: float):
 	_waveNumber += value
-	_highestWave = max(_highestWave, _waveNumber)
+	if(_waveNumber > _highestWave):
+		_highestWave = max(_highestWave, _waveNumber)
+		_initialHighestWave = max(_initialHighestWave, _waveNumber)
+		highest_wave_reached.emit(_highestWave)
 	
 	update_cash_value(get_cash_per_wave())
 	update_coin_value(get_coins_per_wave())
