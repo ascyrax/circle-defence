@@ -18,16 +18,15 @@ func _ready() -> void:
 	GlobalData.health_regeneration_value_updated.connect(_add_health_regeneration_timer)
 
 func _regenerate_shooter_health():
-	GlobalData.update_health(1.0)
-	
-	
+	GlobalData.update_health(GlobalData.get_health_regeneration())
+
 func _add_health_regeneration_timer(_healthRegeneration : float):
 	add_child(_healthRegenerationTimer)
 	#var _healthRegeneration = GlobalData.get_health_regeneration()
 	if( _healthRegeneration == 0.0 ):
-		_healthRegenerationTimer.wait_time = 100 # 100 represents INFINITY
+		_healthRegenerationTimer.wait_time = 1000000 # 1000000 represents INFINITY
 	else:
-		_healthRegenerationTimer.wait_time = 1.0 / _healthRegeneration
+		_healthRegenerationTimer.wait_time = 1.0
 	_healthRegenerationTimer.one_shot = false
 	_healthRegenerationTimer.connect("timeout", _regenerate_shooter_health)
 	_healthRegenerationTimer.start()
