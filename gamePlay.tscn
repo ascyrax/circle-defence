@@ -477,6 +477,8 @@ stream = ExtResource("12_a6wgm")
 [node name="EnemyExplosion" type="AudioStreamPlayer2D" parent="Panel/VBoxContainer"]
 stream = ExtResource("12_veuwv")
 
+[node name="EnemyExplosionSpawner" type="Node2D" parent="Panel/VBoxContainer"]
+
 [connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Attack" to="." method="_show_attack_upgrades"]
 [connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Defense" to="." method="_show_defense_upgrades"]
 [connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Utility" to="." method="_show_utility_upgrades"]
