@@ -113,13 +113,21 @@ func spawn_enemies():
 	_enemySpawnTimer.one_shot= false
 	_enemySpawnTimer.connect("timeout", _spawn_enemy)
 	_enemySpawnTimer.start()
+
+func _convert_to_wave_boss(_newEnemy: Node2D):
+	_newEnemy.update_enemy_values(2.0)
+	_newEnemy.set_enemy_sprite_scale(1.5)
 	
+
 func _spawn_enemy():
 	GlobalData.update_wave_enemies_spawned(+1.0)
-	var newEnemy = _enemyScene.instantiate() as Node2D
+	var _newEnemy = _enemyScene.instantiate() as Node2D
+	var _id = GlobalData.get_wave_enemies_spawned()
+	if( _id == GlobalData.get_base_enemy_spawn_per_wave()):
+		_convert_to_wave_boss(_newEnemy)
 
 	var enemyContainer = $"Panel/VBoxContainer/EnemySpawner" as Node2D
-	enemyContainer.add_child(newEnemy)
+	enemyContainer.add_child(_newEnemy)
 	
 	var randNo = randi_range(0,3) # 0, 1, 2 or 3 viz. top, right, bottom or left edge
 	var posX = 0.0 
@@ -140,14 +148,14 @@ func _spawn_enemy():
 		3:
 			posX = 0
 			posY = randf_range(0, viewportSize.y)
-	newEnemy.position = Vector2(posX, posY)
+	_newEnemy.position = Vector2(posX, posY)
 	
 	 # Set the direction toward the centreShooterSprite2D
-	if newEnemy.has_method("set_direction"):
-		var direction = (_shooterGlobalPosition - newEnemy.position).normalized()
-		newEnemy.set_direction(direction, _shooterGlobalPosition)
-		newEnemy.set_collision_from_shooter(_shooterSpriteSize)
-		newEnemy.set_enemy_rotation()
+	if _newEnemy.has_method("set_direction"):
+		var direction = (_shooterGlobalPosition - _newEnemy.position).normalized()
+		_newEnemy.set_direction(direction, _shooterGlobalPosition)
+		_newEnemy.set_collision_from_shooter(_shooterSpriteSize)
+		_newEnemy.set_enemy_rotation()
 
 func _update_resources():
 	_update_cash_value((GlobalData.get_cash_value()))

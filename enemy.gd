@@ -10,13 +10,13 @@ var shooterSpriteSize = Vector2(0.0,0.0)
 var enemySpriteSize = Vector2(0.0,0.0)
 var cashValue = 1.0 # cash gained when this enemy dies
 var coinValue = 0.0
-var _temp = _update_enemy_values(0.0)
+var _temp = update_enemy_values(1.0)
 var _bulletDamage : float
 
 func _ready() -> void:
-	call_deferred("_set_enemy_sprite_scale")
-	#call_deferred("_update_enemy_values", 0.0)
-	GlobalData.enemy_values_updated.connect(_update_enemy_values)
+	call_deferred("set_enemy_sprite_scale", 1.0)
+	#call_deferred("update_enemy_values", 0.0)
+	GlobalData.enemy_values_updated.connect(update_enemy_values)
 
 func _process(delta):
 	# this logic can be time intesive. we can just remove recalculation of direction :)
@@ -28,12 +28,12 @@ func _process(delta):
 	#TODO this position update can bring the enemy closer to where we wanna stop it
 	# because it could update its position such that the new distance is < shooterSpriteSize + enemySpriteSize
 
-func _update_enemy_values(_unusedValue: float):
-	_damage = GlobalData.get_enemy_damage()
-	_health = GlobalData.get_enemy_health()
+func update_enemy_values(_valueModifier: float):
+	_damage = GlobalData.get_enemy_damage() * _valueModifier
+	_health = GlobalData.get_enemy_health() * _valueModifier
 	_healthDuringBulletSpawn = _health
-	cashValue = GlobalData.get_enemy_cash_value()
-	coinValue = GlobalData.get_enemy_coin_value()
+	cashValue = GlobalData.get_enemy_cash_value() * _valueModifier
+	coinValue = GlobalData.get_enemy_coin_value() * _valueModifier
 
 func set_direction(newDirection: Vector2, newShooterPosition: Vector2):
 	direction = newDirection
@@ -46,8 +46,10 @@ func set_enemy_rotation():
 	rotation = PI/2 # now the bullet is aligned along the +ve x-axis
 	rotation += direction.angle()
 
-func _set_enemy_sprite_scale():
+func set_enemy_sprite_scale(_valueModifier: float):
 	var enemyCollisionShape2D = $Area2D/CollisionShape2D.shape as RectangleShape2D
+	enemyCollisionShape2D.size = Vector2(enemyCollisionShape2D.size.x * _valueModifier, enemyCollisionShape2D.size.y * _valueModifier)
+	print("set_enemy_sprite_scale: ", enemyCollisionShape2D.size)
 	var enemySprite = $Area2D/Sprite2D as Sprite2D
 	var correctScaleX = (enemyCollisionShape2D.size.x * 1.0) / (enemySprite.texture.get_width() * 1.0)
 	var correctScaleY = (enemyCollisionShape2D.size.y * 1.0) / (enemySprite.texture.get_height() * 1.0)

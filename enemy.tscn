@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://enemy.gd" id="1_vvxsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77btb"]
+resource_local_to_scene = true
 size = Vector2(50, 50)
 
 [node name="Enemy" type="Node2D" groups=["enemies"]]
