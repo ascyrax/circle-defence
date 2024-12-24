@@ -117,7 +117,7 @@ func spawn_enemies():
 
 func _convert_to_wave_boss(_newEnemy: Node2D):
 	_newEnemy.update_enemy_values(2.0)
-	_newEnemy.set_enemy_sprite_scale(1.5)
+	_newEnemy.set_enemy_sprite_scale(1.25)
 	
 
 func _spawn_enemy():

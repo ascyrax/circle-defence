@@ -41,7 +41,7 @@ func set_direction(newDirection: Vector2, newShooterPosition: Vector2):
 
 func set_collision_from_shooter(size: Vector2):
 	shooterSpriteSize = size
-	
+
 func set_enemy_rotation():
 	rotation = PI/2 # now the bullet is aligned along the +ve x-axis
 	rotation += direction.angle()
@@ -49,7 +49,6 @@ func set_enemy_rotation():
 func set_enemy_sprite_scale(_valueModifier: float):
 	var enemyCollisionShape2D = $Area2D/CollisionShape2D.shape as RectangleShape2D
 	enemyCollisionShape2D.size = Vector2(enemyCollisionShape2D.size.x * _valueModifier, enemyCollisionShape2D.size.y * _valueModifier)
-	print("set_enemy_sprite_scale: ", enemyCollisionShape2D.size)
 	var enemySprite = $Area2D/Sprite2D as Sprite2D
 	var correctScaleX = (enemyCollisionShape2D.size.x * 1.0) / (enemySprite.texture.get_width() * 1.0)
 	var correctScaleY = (enemyCollisionShape2D.size.y * 1.0) / (enemySprite.texture.get_height() * 1.0)
@@ -70,7 +69,7 @@ func on_bullet_hit(bullet: Area2D):
 
 func update_cash_value():
 	GlobalData.update_cash_value(cashValue)
-	
+
 func update_coin_value():
 	GlobalData.update_coin_value(coinValue)
 
