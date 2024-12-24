@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8yv6vbglgw5o"]
+[gd_scene load_steps=5 format=3 uid="uid://b8yv6vbglgw5o"]
 
 [ext_resource type="Texture2D" uid="uid://whe37o6cdpxq" path="res://art/enemies/enemyANoBg.png" id="1_iyxtb"]
 [ext_resource type="Script" path="res://enemy.gd" id="1_vvxsc"]
+[ext_resource type="AudioStream" uid="uid://ojvpk4spf1kw" path="res://art/sound/enemyDeath.wav" id="3_83o8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77btb"]
 resource_local_to_scene = true
@@ -17,5 +18,8 @@ shape = SubResource("RectangleShape2D_77btb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("1_iyxtb")
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_83o8w")
 
 [connection signal="area_entered" from="Area2D" to="." method="on_bullet_hit"]

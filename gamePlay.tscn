@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ge7iiw6belxm"]
+[gd_scene load_steps=19 format=3 uid="uid://ge7iiw6belxm"]
 
 [ext_resource type="Script" path="res://gamePlay.gd" id="1_v3qar"]
 [ext_resource type="Texture2D" uid="uid://bf3bmtbitcmnt" path="res://art/dollarNoBg.png" id="2_6lctv"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://db8pvuymvargn" path="res://art/menuIcons/defenseNoBg.png" id="10_jb71w"]
 [ext_resource type="AudioStream" uid="uid://8n6oh3ovg2th" path="res://music/abyss.mp3" id="10_q5q26"]
 [ext_resource type="Texture2D" uid="uid://dntv0ifkwehxi" path="res://art/menuIcons/specialNoBg.png" id="11_m7p7c"]
+[ext_resource type="AudioStream" uid="uid://ojvpk4spf1kw" path="res://art/sound/enemyDeath.wav" id="12_hxbwe"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8b21"]
 texture = ExtResource("2_o62b1")
@@ -471,6 +472,9 @@ expand_mode = 1
 stream = ExtResource("10_q5q26")
 autoplay = true
 parameters/looping = true
+
+[node name="EnemyExplosion" type="AudioStreamPlayer2D" parent="Panel/VBoxContainer"]
+stream = ExtResource("12_hxbwe")
 
 [connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Attack" to="." method="_show_attack_upgrades"]
 [connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Defense" to="." method="_show_defense_upgrades"]
