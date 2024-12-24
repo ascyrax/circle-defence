@@ -95,6 +95,13 @@ func _update_shooter_values(_unusedVariable: float):
 func _on_enemy_hit(area: Area2D):
 	if(area.get_parent().is_in_group("enemies")):
 		var enemy = area.get_parent()
-		GlobalData.update_health(-enemy.get_current_enemy_damage())
+		var _defensePercentage = GlobalData.get_defense_percentage()
+		var _defenseAbsolute = GlobalData.get_defense_absolute()
+		var _enemyDamage = enemy.get_current_enemy_damage()
+		
+		_enemyDamage = max(0, _enemyDamage - (_defensePercentage / 100.0 * _enemyDamage))
+		_enemyDamage = max( 0, _enemyDamage - _defenseAbsolute)
+		
+		GlobalData.update_health(-_enemyDamage)
 		#enemy.queue_free()
 		

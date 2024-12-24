@@ -5,6 +5,7 @@ extends Node
 var _pathSave = "user://global_data.save"
 
 func _ready():
+	print(OS.get_data_dir())
 	_load_game_data_from_file()
 
 func _notification(what: int) -> void:

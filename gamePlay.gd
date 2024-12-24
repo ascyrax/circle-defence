@@ -206,7 +206,7 @@ func _show_attack_upgrades(event: InputEvent):
 		for child in _upgrades.get_children():
 			child.queue_free()
 		_render_attack_upgrades()
-		
+
 func _show_defense_upgrades(event: InputEvent):
 	if(event is InputEventMouseButton or event is InputEventScreenTouch):
 		# before rendering this, remove the previous upgrades that was present here :)
