@@ -135,7 +135,7 @@ var _gemValue = 0.0
 # WAVE 
 const _initialWaveNumber = 1.0
 var _initialHighestWave = 0.0
-const _baseEnemySpawnPerWave = 0.0
+const _baseEnemySpawnPerWave = 10.0
 
 var _waveNumber = _initialWaveNumber
 var _highestWave = _initialHighestWave

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlt0lry3wks12"]
+
+[ext_resource type="Script" path="res://boss.gd" id="1_x6hyf"]
+[ext_resource type="Texture2D" uid="uid://cft404etgnqbb" path="res://art/boss/boss4NoBg.png" id="2_ai0do"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf6pi"]
+size = Vector2(200, 200)
+
+[node name="Boss" type="Node2D" groups=["enemies"]]
+script = ExtResource("1_x6hyf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hf6pi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_ai0do")
+
+[connection signal="area_entered" from="Area2D" to="." method="on_bullet_hit"]

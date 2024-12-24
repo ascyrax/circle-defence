@@ -2,6 +2,7 @@ extends Control
 
 #var _mainScene = load("res://main.tscn") as PackedScene
 var _enemyScene = load("res://enemy.tscn") as PackedScene
+var _bossScene = load("res://boss.tscn") as PackedScene
 var _shooterScene = load("res://shooter.tscn") as PackedScene
 var _attackUpgradeScene = load("res://attack_upgrades.tscn") as PackedScene
 var _defenseUpgradeScene = load("res://defense_upgrades.tscn") as PackedScene
@@ -120,11 +121,17 @@ func _convert_to_wave_boss(_newEnemy: Node2D):
 	
 
 func _spawn_enemy():
+	var _waveNumber = GlobalData.get_wave_number()
+	var _newEnemy : Node2D
+	var _id : float
 	GlobalData.update_wave_enemies_spawned(+1.0)
-	var _newEnemy = _enemyScene.instantiate() as Node2D
-	var _id = GlobalData.get_wave_enemies_spawned()
-	if( _id == GlobalData.get_base_enemy_spawn_per_wave()):
-		_convert_to_wave_boss(_newEnemy)
+	_id = GlobalData.get_wave_enemies_spawned()
+	if(int(_waveNumber) % 10 == 0 && _id == 1.0):
+		_newEnemy = _bossScene.instantiate() as Node2D
+	else:
+		_newEnemy = _enemyScene.instantiate() as Node2D
+		if( _id == GlobalData.get_base_enemy_spawn_per_wave()):
+			_convert_to_wave_boss(_newEnemy)
 
 	var enemyContainer = $"Panel/VBoxContainer/EnemySpawner" as Node2D
 	enemyContainer.add_child(_newEnemy)
