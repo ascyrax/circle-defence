@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var speed: float = randi_range(25, 50)  # Speed of the enemy
+@export var speed: float = randi_range(250, 500)  # Speed of the enemy
+var _bossExplosionScene = load("res://boss_explosion.tscn") as PackedScene
 var direction: Vector2 = Vector2.ZERO  # Direction toward the center
 var shooterContainerPosition : Vector2
 var _health: float = 1.0
@@ -63,8 +64,8 @@ func on_bullet_hit(bullet: Area2D):
 		#var bulletDamage = bullet.get_parent().get_current_bullet_damage()
 		_update_health(_bulletDamage)
 		if(_health <= 0.0):
-			var audioNode = $/root/GamePlay/Panel/VBoxContainer/BossExplosion as AudioStreamPlayer2D
-			audioNode.play()
+			_play_explosion_animation()
+			_play_explosion_audio()
 			queue_free()
 			GlobalData.update_wave_enemies_killed(+1)
 			update_cash_value()
@@ -88,3 +89,15 @@ func get_current_enemy_health():
 
 func get_current_enemy_damage():
 	return _damage
+
+func _play_explosion_audio():
+	var audioNode = $/root/GamePlay/Panel/VBoxContainer/BossExplosion as AudioStreamPlayer2D
+	audioNode.play()
+			
+
+func _play_explosion_animation():
+	var _explosionContainer = $/root/GamePlay/Panel/VBoxContainer/EnemyExplosionSpawner as Node2D
+	var _explosionInstance = _bossExplosionScene.instantiate() as AnimatedSprite2D
+	_explosionInstance.position = position
+	_explosionContainer.add_child(_explosionInstance)
+	_explosionInstance.play("explode01")
