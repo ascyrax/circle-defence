@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://d2wawuxpe7yre" path="res://art/dropdownNoBg.png" id="6_i4elw"]
 [ext_resource type="Texture2D" uid="uid://dab6v7qh8jrbw" path="res://art/menuIcons/attackNoBg.png" id="9_3op3i"]
 [ext_resource type="Texture2D" uid="uid://db8pvuymvargn" path="res://art/menuIcons/defenseNoBg.png" id="10_jb71w"]
-[ext_resource type="AudioStream" uid="uid://8n6oh3ovg2th" path="res://music/abyss.mp3" id="10_q5q26"]
 [ext_resource type="Texture2D" uid="uid://dntv0ifkwehxi" path="res://art/menuIcons/specialNoBg.png" id="11_m7p7c"]
-[ext_resource type="AudioStream" uid="uid://ojvpk4spf1kw" path="res://art/sound/enemyDeath.wav" id="12_hxbwe"]
+[ext_resource type="AudioStream" uid="uid://c2sohxwa2yxwm" path="res://art/sound/bossExplosion.wav" id="12_a6wgm"]
+[ext_resource type="AudioStream" uid="uid://slqxdhehjn33" path="res://art/sound/explosion8bit.wav" id="12_veuwv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8b21"]
 texture = ExtResource("2_o62b1")
@@ -469,12 +469,13 @@ expand_mode = 1
 [node name="EnemySpawner" type="Node2D" parent="Panel/VBoxContainer"]
 
 [node name="BackGroundMusic" type="AudioStreamPlayer2D" parent="Panel/VBoxContainer"]
-stream = ExtResource("10_q5q26")
 autoplay = true
-parameters/looping = true
+
+[node name="BossExplosion" type="AudioStreamPlayer2D" parent="Panel/VBoxContainer"]
+stream = ExtResource("12_a6wgm")
 
 [node name="EnemyExplosion" type="AudioStreamPlayer2D" parent="Panel/VBoxContainer"]
-stream = ExtResource("12_hxbwe")
+stream = ExtResource("12_veuwv")
 
 [connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Attack" to="." method="_show_attack_upgrades"]
 [connection signal="gui_input" from="Panel/VBoxContainer/UpgradeNav/Defense" to="." method="_show_defense_upgrades"]

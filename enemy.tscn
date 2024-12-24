@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://whe37o6cdpxq" path="res://art/enemies/enemyANoBg.png" id="1_iyxtb"]
 [ext_resource type="Script" path="res://enemy.gd" id="1_vvxsc"]
-[ext_resource type="AudioStream" uid="uid://ojvpk4spf1kw" path="res://art/sound/enemyDeath.wav" id="3_83o8w"]
+[ext_resource type="AudioStream" uid="uid://ojvpk4spf1kw" path="res://art/sound/enemyExplosion.wav" id="3_83o8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77btb"]
 resource_local_to_scene = true

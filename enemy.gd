@@ -63,7 +63,6 @@ func on_bullet_hit(bullet: Area2D):
 		_update_health(_bulletDamage)
 		if(_health <= 0.0):
 			var audioNode = $/root/GamePlay/Panel/VBoxContainer/EnemyExplosion as AudioStreamPlayer2D
-			print(audioNode)
 			audioNode.play()
 			queue_free()
 			GlobalData.update_wave_enemies_killed(+1)
