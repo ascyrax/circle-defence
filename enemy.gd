@@ -76,8 +76,8 @@ func update_cash_value():
 func update_coin_value():
 	GlobalData.update_coin_value(coinValue)
 
-func _update_health(bulletDamage: float):
-	_health -= bulletDamage
+func _update_health(_bulletDamage: float):
+	_health -= _bulletDamage
 
 func update_health_during_bullet_spawn(bulletDamage: float):
 	_healthDuringBulletSpawn -= bulletDamage

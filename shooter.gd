@@ -70,6 +70,13 @@ func _spawn_bullet():
 		var bullet = bulletScene.instantiate()
 		add_child(bullet)
 		var currentBulletDamage =  bullet.get_current_bullet_damage()
+		# handle critical chance
+		var _num = randi_range(0, 100)
+		var _criticalChance = GlobalData.get_critical_chance()
+		var _criticalFactor = GlobalData.get_critical_factor()
+		if(_num <= _criticalChance):
+			currentBulletDamage *= _criticalFactor
+		
 		bullet.set_target_enemy(enemyArea2D)
 		
 		enemyRootNode2D.update_health_during_bullet_spawn(currentBulletDamage)
