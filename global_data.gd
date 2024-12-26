@@ -126,8 +126,8 @@ func _copy_loaded_data_to_corresponding_variables(content: String):
 
 # RESOURCES
 
-var _initialCashValue  = 100000.0 # during wave 1 start
-var _initialCoinValue  = 100000.0 # during game start
+var _initialCashValue  = 0.0 # during wave 1 start
+var _initialCoinValue  = 0.0 # during game start
 
 var _cashValue = _initialCashValue
 var _coinValue = _initialCoinValue

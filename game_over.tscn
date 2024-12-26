@@ -136,8 +136,8 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 60
-text = "80"
+theme_override_font_sizes/font_size = 48
+text = "15.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -186,9 +186,8 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 60
-text = "0
-"
+theme_override_font_sizes/font_size = 48
+text = "7.5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -237,9 +236,8 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 60
-text = "0
-"
+theme_override_font_sizes/font_size = 48
+text = "150.5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
