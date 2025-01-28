@@ -4,10 +4,17 @@ Here’s a **README.md** tailored for your **Circle Defence** Android game based
 
 # Circle Defence 🎮
 
-![Home Page](https://github.com/ascyrax/circle-defence/blob/main/screenshots/Home%20Page.png) <!-- Add a screenshot or GIF of your game here -->
-![Enemies Approaching](https://github.com/ascyrax/circle-defence/blob/main/screenshots/GamePlay%20Enemies%20Approaching.png) <!-- Add a screenshot or GIF of your game here -->
-![Enemy Destroyed](https://github.com/ascyrax/circle-defence/blob/main/screenshots/GamePlay%20Enemy%20Destroyed.png) <!-- Add a screenshot or GIF of your game here -->
-![Upgrades Menu](https://github.com/ascyrax/circle-defence/blob/main/screenshots/Upgrade%20Page.png) <!-- Add a screenshot or GIF of your game here -->
+### Home Page
+<img src="https://github.com/ascyrax/circle-defence/blob/main/screenshots/Home%20Page.png" alt="Home Page" width="300" height="500"/>
+
+### Upgrades Menu
+<img src="https://github.com/ascyrax/circle-defence/blob/main/screenshots/Upgrade%20Page.png" alt="Upgrade Page" width="300" height="500" />
+
+### Enemies Approaching
+<img src="https://github.com/ascyrax/circle-defence/blob/main/screenshots/GamePlay%20Enemies%20Approaching.png" alt="Enemies Approaching" width="300" height="500" />
+
+### Enemy Destroyed
+<img src="https://github.com/ascyrax/circle-defence/blob/main/screenshots/GamePlay%20Enemy%20Destroyed.png" alt="Enemy Destroyed" width="300" height="500" />
 
 **Circle Defence** is an exciting Android game where you defend a central shooter from waves of enemies. Strategize, upgrade, and survive as long as you can to earn coins and cash, which you can use to permanently improve your shooter's stats. How long can you last?
 
