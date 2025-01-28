@@ -1,6 +1,3 @@
-Here’s a **README.md** tailored for your **Circle Defence** Android game based on the information you provided. It’s simple, clear, and highlights the key features and gameplay mechanics.
-
----
 
 # Circle Defence 🎮
 
@@ -59,10 +56,10 @@ Here’s a **README.md** tailored for your **Circle Defence** Android game based
 ## Installation 📲
 
 ### Download APK
-- Download the latest APK from the [Exports](https://github.com/ascyrax/circle-defence/tree/main/exports/android) section.
+- Download the latest APK from the [Android](https://github.com/ascyrax/circle-defence/tree/main/exports/android) section.
 
 ### Download .exe
-- Download the latest executable and corresponding .pck file from the [Exports](https://github.com/ascyrax/circle-defence/tree/main/exports/windows) section
+- Download the latest executable and corresponding .pck file from the [Windows](https://github.com/ascyrax/circle-defence/tree/main/exports/windows) section
 
 ### Build from Source
 1. Clone the repository:
