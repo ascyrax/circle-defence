@@ -2,10 +2,12 @@ Here’s a **README.md** tailored for your **Circle Defence** Android game based
 
 ---
 
-```markdown
 # Circle Defence 🎮
 
-![Circle Defence Screenshot](https://via.placeholder.com/800x400) <!-- Add a screenshot or GIF of your game here -->
+![Home Page](https://github.com/ascyrax/circle-defence/blob/main/screenshots/Home%20Page.png) <!-- Add a screenshot or GIF of your game here -->
+![Enemies Approaching](https://github.com/ascyrax/circle-defence/blob/main/screenshots/GamePlay%20Enemies%20Approaching.png) <!-- Add a screenshot or GIF of your game here -->
+![Enemy Destroyed](https://github.com/ascyrax/circle-defence/blob/main/screenshots/GamePlay%20Enemy%20Destroyed.png) <!-- Add a screenshot or GIF of your game here -->
+![Upgrades Menu](https://github.com/ascyrax/circle-defence/blob/main/screenshots/Upgrade%20Page.png) <!-- Add a screenshot or GIF of your game here -->
 
 **Circle Defence** is an exciting Android game where you defend a central shooter from waves of enemies. Strategize, upgrade, and survive as long as you can to earn coins and cash, which you can use to permanently improve your shooter's stats. How long can you last?
 
@@ -50,7 +52,10 @@ Here’s a **README.md** tailored for your **Circle Defence** Android game based
 ## Installation 📲
 
 ### Download APK
-- Download the latest APK from the [Releases](https://github.com/ascyrax/circle-defence/releases) section.
+- Download the latest APK from the [Exports](https://github.com/ascyrax/circle-defence/tree/main/exports/android) section.
+
+### Download .exe
+- Download the latest executable and corresponding .pck file from the [Exports](https://github.com/ascyrax/circle-defence/tree/main/exports/windows) section
 
 ### Build from Source
 1. Clone the repository:
@@ -89,8 +94,8 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## Credits 🙏
 - **Developer**: [Ascyrax](https://github.com/ascyrax)
-- **Assets**: [Kenney.nl](https://kenney.nl/assets) (if applicable)
-- **Music/SFX**: [Freesound.org](https://freesound.org/) (if applicable)
+- **Assets**: [Dall-E ChatGpt](https://chatgpt.com)
+- **Music/SFX**: [Freesound.org](https://freesound.org/)
 
 ---
 
@@ -103,13 +108,7 @@ If you enjoy **Circle Defence**, consider supporting the project:
 ---
 
 Enjoy the game, and happy defending! 🛡️
-```
 
 ---
-
-### **How to Use This README**:
-1. Replace the placeholder screenshot link with an actual screenshot or GIF of your game.
-2. Update the **Credits** section to acknowledge any assets, libraries, or tools you used.
-3. Add more details if needed, such as specific enemy types or advanced gameplay mechanics.
 
 Let me know if you need further customization! 😊
